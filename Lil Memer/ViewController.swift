@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var textView: UITextView!
+    
     
     var imageView = UIImageView()
     
@@ -20,10 +22,9 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         scrollView.delegate = self
         
         imageView.frame = CGRect(x: 0, y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height)
-        imageView.image = UIImage(named: "choose")
+        imageView.image = UIImage(named: "tapHere")
         imageView.isUserInteractionEnabled = true
         imageView.contentMode = .scaleAspectFit
-        
         scrollView.addSubview(imageView)
         
         let tapGestureRecongnizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.loadImage))
@@ -107,9 +108,16 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         let alert = UIAlertController(title: "Image Saved", message: "your image has been saved", preferredStyle: .alert)
         self.present(alert, animated: true, completion: nil)
-        alert.addAction(UIAlertAction(title: "neat", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Neat", style: .default, handler: nil))
         
     }
+    
+    @IBAction func Filter(_ sender: Any) {
+    }
+    
+    @IBAction func frame(_ sender: Any) {
+    }
+    
 
 }
 
