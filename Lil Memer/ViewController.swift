@@ -22,9 +22,9 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         scrollView.delegate = self
         
         imageView.frame = CGRect(x: 0, y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height)
-        imageView.image = UIImage(named: "tapHere")
+        //imageView.image = UIImage(named: "tapHere")
         imageView.isUserInteractionEnabled = true
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .center
         scrollView.addSubview(imageView)
         
         let tapGestureRecongnizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.loadImage))
