@@ -13,6 +13,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var textView: UITextView!
     
+    let screenSize: CGRect = UIScreen.main.bounds
+    
     
     var imageView = UIImageView()
     var image: UIImage!
@@ -150,26 +152,67 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
 
     @IBAction func save(_ sender: Any) {
          guard image != nil else { return }
-        
+        let offset = scrollView.contentOffset
+        //let screenWidth = screenSize.width
+        let screenHeight = screenSize.height
         
         let normalSize = CGSize(width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
+        let textViewWithImageSize = CGSize(width: scrollView.bounds.size.width, height: ((screenHeight * 0.17) + scrollView.bounds.size.height))
         
-        UIGraphicsBeginImageContextWithOptions(normalSize, true, UIScreen.main.scale)
-        let offset = scrollView.contentOffset
+        if textView.isHidden == true{
+            UIGraphicsBeginImageContextWithOptions(normalSize, true, UIScreen.main.scale)
+        }else{
+            
+            UIGraphicsBeginImageContextWithOptions(textViewWithImageSize, true, UIScreen.main.scale)
+        }
         
         UIGraphicsGetCurrentContext()!.translateBy(x: -offset.x, y: -offset.y)
+    
+        
         scrollView.layer.render(in: UIGraphicsGetCurrentContext()!)
         
+        let textColor = UIColor.white
+        let textFont = UIFont(name: "Helvetica Bold", size: 12)!
+        
+        let textFontAttributes = [
+            NSFontAttributeName: textFont,
+            NSForegroundColorAttributeName: textColor,
+            ] as [String : Any]
+        
+        let rect = CGRect(x: offset.x + 5, y: offset.y + 5, width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
+        textView.text.draw(in: rect, withAttributes: textFontAttributes)
+       
         image = UIGraphicsGetImageFromCurrentImageContext()
-        
         UIGraphicsEndImageContext()
-        
         UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
         
-        let alert = UIAlertController(title: "Image Saved", message: "your image has been saved", preferredStyle: .alert)
+    let alert = UIAlertController(title: "Image Saved", message: "your image has been saved", preferredStyle: .alert)
         self.present(alert, animated: true, completion: nil)
         alert.addAction(UIAlertAction(title: "Neat", style: .default, handler: nil))
         
+    }
+    
+    func textToImage(drawText: NSString, inImage: UIImage, atPoint: CGPoint) -> UIImage {
+        let textColor = UIColor.white
+        let textFont = UIFont(name: "Helvetica Bold", size: 12)!
+        
+        let scale = UIScreen.main.scale
+        UIGraphicsBeginImageContextWithOptions(image.size, false, scale)
+        
+        let textFontAttributes = [
+            NSFontAttributeName: textFont,
+            NSForegroundColorAttributeName: textColor,
+            ] as [String : Any]
+        image.draw(in: CGRect(origin: CGPoint.zero, size: image.size))
+        
+        let rect = CGRect(origin: atPoint, size: image.size)
+        drawText.draw(in: rect, withAttributes: textFontAttributes)
+        
+       // image = UIGraphicsGetImageFromCurrentImageContext()
+        //UIGraphicsEndImageContext()
+        
+        
+        return image!
     }
     
     @IBAction func Filter(_ sender: Any) {
