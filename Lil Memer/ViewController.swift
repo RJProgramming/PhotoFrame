@@ -28,6 +28,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         //imageView.image = UIImage(named: "tapHere")
         imageView.isUserInteractionEnabled = true
         imageView.contentMode = .center
+       // self.imageView.backgroundColor = UIColor.white
         scrollView.addSubview(imageView)
         
         let tapGestureRecongnizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.loadImage))
@@ -158,15 +159,18 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         let normalSize = CGSize(width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
         let textViewWithImageSize = CGSize(width: scrollView.bounds.size.width, height: ((screenHeight * 0.17) + scrollView.bounds.size.height))
+        var yPos: Int
         
         if textView.isHidden == true{
             UIGraphicsBeginImageContextWithOptions(normalSize, true, UIScreen.main.scale)
+            textView.text = ""
+            yPos = Int(-offset.y)
         }else{
-            
+            yPos = Int(-offset.y + screenHeight * 0.17)
             UIGraphicsBeginImageContextWithOptions(textViewWithImageSize, true, UIScreen.main.scale)
         }
         
-        UIGraphicsGetCurrentContext()!.translateBy(x: -offset.x, y: -offset.y)
+        UIGraphicsGetCurrentContext()!.translateBy(x: -offset.x, y: CGFloat(yPos))
     
         
         scrollView.layer.render(in: UIGraphicsGetCurrentContext()!)
@@ -179,12 +183,13 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             NSForegroundColorAttributeName: textColor,
             ] as [String : Any]
         
-        let rect = CGRect(x: offset.x + 5, y: offset.y + 5, width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
+        let rect = CGRect(x: offset.x + 5, y: (offset.y + 5 - screenHeight * 0.17), width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
         textView.text.draw(in: rect, withAttributes: textFontAttributes)
        
         image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
+        centerScrollViewContents()
         
     let alert = UIAlertController(title: "Image Saved", message: "your image has been saved", preferredStyle: .alert)
         self.present(alert, animated: true, completion: nil)
@@ -192,29 +197,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
     }
     
-    func textToImage(drawText: NSString, inImage: UIImage, atPoint: CGPoint) -> UIImage {
-        let textColor = UIColor.white
-        let textFont = UIFont(name: "Helvetica Bold", size: 12)!
         
-        let scale = UIScreen.main.scale
-        UIGraphicsBeginImageContextWithOptions(image.size, false, scale)
-        
-        let textFontAttributes = [
-            NSFontAttributeName: textFont,
-            NSForegroundColorAttributeName: textColor,
-            ] as [String : Any]
-        image.draw(in: CGRect(origin: CGPoint.zero, size: image.size))
-        
-        let rect = CGRect(origin: atPoint, size: image.size)
-        drawText.draw(in: rect, withAttributes: textFontAttributes)
-        
-       // image = UIGraphicsGetImageFromCurrentImageContext()
-        //UIGraphicsEndImageContext()
-        
-        
-        return image!
-    }
-    
     @IBAction func Filter(_ sender: Any) {
          guard image != nil else { return }
     }
