@@ -8,13 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var textView: UITextView!
     
     
     var imageView = UIImageView()
+    var image: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,61 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let tapGestureRecongnizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.loadImage))
         tapGestureRecongnizer.numberOfTapsRequired = 1
         imageView.addGestureRecognizer(tapGestureRecongnizer)
+        
+        textView.contentInset = UIEdgeInsetsMake(-5,0,0,0)
+        textView.font = UIFont(name: "Helvetica", size: 14)
+        
+        
+        // place holder text for textview
+        textView.text = "Tap here to enter text"
+        textView.textColor = UIColor.lightGray
+        
+        self.textView.delegate = self
+
     }
+    
+    
+    
+    //adds placeholder text for textview pt 1
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    //placeholder text for textview pt 2
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.font = UIFont(name: "Helvetica", size: 14)
+            textView.text = "Tap here to enter text"
+            textView.textColor = UIColor.lightGray
+        }
+    }
+
+    // part 1 of calcing string length to limit text view to 4 lines
+    func sizeOfString (string: String, constrainedToWidth width: Double, font: UIFont) -> CGSize {
+        return (string as NSString).boundingRect(with: CGSize(width: width, height: DBL_MAX),
+                                                 options: NSStringDrawingOptions.usesLineFragmentOrigin,
+                                                 attributes: [NSFontAttributeName: font],
+                                                 context: nil).size
+    }
+    //part 2 of calcing string length to keep textview at 4 lines
+    func textView(_ textView: UITextView,
+                  shouldChangeTextIn range: NSRange,
+                  replacementText text: String) -> Bool{
+        
+        
+        
+        let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
+        var textWidth = UIEdgeInsetsInsetRect(textView.frame, textView.textContainerInset).width
+        textWidth -= 2.0 * textView.textContainer.lineFragmentPadding;
+        
+        let boundingRect = sizeOfString(string: newText, constrainedToWidth: Double(textWidth), font: textView.font!)
+        let numberOfLines = boundingRect.height / textView.font!.lineHeight;
+        
+        return numberOfLines <= 5
+    }
+
     
     func loadImage(recognizer: UITapGestureRecognizer){
         let imagePicker = UIImagePickerController()
@@ -42,7 +97,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     }
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        image = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         imageView.image = image
         imageView.contentMode = UIViewContentMode.center
@@ -56,7 +111,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let minScale = min(scaleHeight, scaleWidth)
         
         scrollView.minimumZoomScale = minScale
-        scrollView.maximumZoomScale = 3
+        scrollView.maximumZoomScale = 5
         scrollView.zoomScale = minScale
         
         centerScrollViewContents()
@@ -94,13 +149,18 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     
 
     @IBAction func save(_ sender: Any) {
-        UIGraphicsBeginImageContextWithOptions(scrollView.bounds.size, true, UIScreen.main.scale)
+         guard image != nil else { return }
+        
+        
+        let normalSize = CGSize(width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
+        
+        UIGraphicsBeginImageContextWithOptions(normalSize, true, UIScreen.main.scale)
         let offset = scrollView.contentOffset
         
         UIGraphicsGetCurrentContext()!.translateBy(x: -offset.x, y: -offset.y)
         scrollView.layer.render(in: UIGraphicsGetCurrentContext()!)
         
-        let image = UIGraphicsGetImageFromCurrentImageContext()
+        image = UIGraphicsGetImageFromCurrentImageContext()
         
         UIGraphicsEndImageContext()
         
@@ -113,9 +173,13 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     }
     
     @IBAction func Filter(_ sender: Any) {
+         guard image != nil else { return }
     }
     
     @IBAction func frame(_ sender: Any) {
+         guard image != nil else { return }
+        textView.isHidden = false
+        
     }
     
 
