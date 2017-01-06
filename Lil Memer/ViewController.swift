@@ -27,7 +27,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         imageView.frame = CGRect(x: 0, y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height)
         //imageView.image = UIImage(named: "tapHere")
         imageView.isUserInteractionEnabled = true
-        imageView.contentMode = .center
+        imageView.contentMode = .scaleAspectFill
        // self.imageView.backgroundColor = UIColor.white
         scrollView.addSubview(imageView)
         
@@ -113,7 +113,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let scaleHeight = scrollViewFrame.size.height / scrollView.contentSize.height
         let minScale = min(scaleHeight, scaleWidth)
         
-        scrollView.minimumZoomScale = minScale
+        scrollView.minimumZoomScale = minScale / 2
         scrollView.maximumZoomScale = 5
         scrollView.zoomScale = minScale
         
