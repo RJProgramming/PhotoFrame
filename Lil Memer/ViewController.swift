@@ -171,7 +171,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             
             let backgroundColor: UIColor = UIColor.white
             backgroundColor.setFill()
-            UIGraphicsGetCurrentContext()!.fill(CGRect(x: offset.x + 5, y: (offset.y + 5 - screenHeight * 0.17), width: scrollView.bounds.size.width, height: scrollView.bounds.size.height))
+            UIGraphicsGetCurrentContext()!.fill(CGRect(x: 0, y: (offset.y - screenHeight * 0.17), width: scrollView.bounds.size.width, height: scrollView.bounds.size.height))
         }
         
         
@@ -180,7 +180,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         scrollView.layer.render(in: UIGraphicsGetCurrentContext()!)
         
-        let textColor = UIColor.red
+        let textColor = UIColor.black
         let textFont = UIFont(name: "Helvetica Bold", size: 14)!
         
         let textFontAttributes = [
