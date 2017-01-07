@@ -28,7 +28,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         //imageView.image = UIImage(named: "tapHere")
         imageView.isUserInteractionEnabled = true
         imageView.contentMode = .scaleAspectFill
-       // self.imageView.backgroundColor = UIColor.white
+       
         scrollView.addSubview(imageView)
         
         let tapGestureRecongnizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.loadImage))
@@ -168,15 +168,20 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         }else{
             yPos = Int(-offset.y + screenHeight * 0.17)
             UIGraphicsBeginImageContextWithOptions(textViewWithImageSize, true, UIScreen.main.scale)
+            
+            let backgroundColor: UIColor = UIColor.white
+            backgroundColor.setFill()
+            UIGraphicsGetCurrentContext()!.fill(CGRect(x: offset.x + 5, y: (offset.y + 5 - screenHeight * 0.17), width: scrollView.bounds.size.width, height: scrollView.bounds.size.height))
         }
+        
         
         UIGraphicsGetCurrentContext()!.translateBy(x: -offset.x, y: CGFloat(yPos))
     
         
         scrollView.layer.render(in: UIGraphicsGetCurrentContext()!)
         
-        let textColor = UIColor.white
-        let textFont = UIFont(name: "Helvetica Bold", size: 12)!
+        let textColor = UIColor.red
+        let textFont = UIFont(name: "Helvetica Bold", size: 14)!
         
         let textFontAttributes = [
             NSFontAttributeName: textFont,
@@ -184,6 +189,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             ] as [String : Any]
         
         let rect = CGRect(x: offset.x + 5, y: (offset.y + 5 - screenHeight * 0.17), width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
+        
         textView.text.draw(in: rect, withAttributes: textFontAttributes)
        
         image = UIGraphicsGetImageFromCurrentImageContext()
