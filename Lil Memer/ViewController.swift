@@ -15,7 +15,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     
     let screenSize: CGRect = UIScreen.main.bounds
     
-    
+    var currentFrame = 1
     var imageView = UIImageView()
     var image: UIImage!
     
@@ -27,7 +27,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         imageView.frame = CGRect(x: 0, y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height)
         //imageView.image = UIImage(named: "tapHere")
         imageView.isUserInteractionEnabled = true
-        imageView.contentMode = .scaleAspectFill
+       
        
         scrollView.addSubview(imageView)
         
@@ -89,16 +89,18 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         return numberOfLines <= 5
     }
 
-    
+    //tap imageview to load image
     func loadImage(recognizer: UITapGestureRecognizer){
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         
         imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        
+        imageView.contentMode = UIViewContentMode.center
+        centerScrollViewContents()
         self.present(imagePicker, animated: true, completion: nil)
+        
     }
-
+    //picker once user taps imageview
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         image = info[UIImagePickerControllerOriginalImage] as! UIImage
         
@@ -116,10 +118,9 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         scrollView.minimumZoomScale = minScale / 2
         scrollView.maximumZoomScale = 5
         scrollView.zoomScale = minScale
-        
         centerScrollViewContents()
-        
         picker.dismiss(animated: true, completion: nil)
+        
     }
     
     func centerScrollViewContents(){
@@ -160,7 +161,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let normalSize = CGSize(width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
         let textViewWithImageSize = CGSize(width: scrollView.bounds.size.width, height: ((screenHeight * 0.17) + scrollView.bounds.size.height))
         var yPos: Int
-        
+        //if textView is active or not and the different y position for saved image to include the textview if it is active
+        // screenHeight * 0.17 is the dynamic height of the textview per device.
         if textView.isHidden == true{
             UIGraphicsBeginImageContextWithOptions(normalSize, true, UIScreen.main.scale)
             textView.text = ""
@@ -169,6 +171,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             yPos = Int(-offset.y + screenHeight * 0.17)
             UIGraphicsBeginImageContextWithOptions(textViewWithImageSize, true, UIScreen.main.scale)
             
+            //sets saves text area background to white, extendind the image area on its own colored the void black.
             let backgroundColor: UIColor = UIColor.white
             backgroundColor.setFill()
             UIGraphicsGetCurrentContext()!.fill(CGRect(x: 0, y: (offset.y - screenHeight * 0.17), width: scrollView.bounds.size.width, height: scrollView.bounds.size.height))
@@ -200,7 +203,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     let alert = UIAlertController(title: "Image Saved", message: "your image has been saved", preferredStyle: .alert)
         self.present(alert, animated: true, completion: nil)
         alert.addAction(UIAlertAction(title: "Neat", style: .default, handler: nil))
-        
     }
     
         
@@ -210,9 +212,21 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     
     @IBAction func frame(_ sender: Any) {
          guard image != nil else { return }
-        textView.isHidden = false
         
-    }
+        switch currentFrame{
+        case 0:
+            textView.isHidden = true
+           
+        case 1:
+            textView.isHidden = false
+        default:
+            break
+        }
+        currentFrame += 1
+        if currentFrame > 1 {
+            currentFrame = 0
+        }
+}
     
 
 }
