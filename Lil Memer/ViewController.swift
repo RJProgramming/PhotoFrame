@@ -184,7 +184,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         scrollView.layer.render(in: UIGraphicsGetCurrentContext()!)
         
         let textColor = UIColor.black
-        let textFont = UIFont(name: "Helvetica Bold", size: 14)!
+        let textFont = UIFont(name: "Helvetica", size: 14)!
         
         let textFontAttributes = [
             NSFontAttributeName: textFont,
