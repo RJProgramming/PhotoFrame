@@ -154,44 +154,38 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
 
     @IBAction func save(_ sender: Any) {
          guard image != nil else { return }
+        
         let offset = scrollView.contentOffset
-        //let screenWidth = screenSize.width
         let screenHeight = screenSize.height
         
         let normalSize = CGSize(width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
         let textViewWithImageSize = CGSize(width: scrollView.bounds.size.width, height: ((screenHeight * 0.17) + scrollView.bounds.size.height))
-        var yPos: Int
+        var yPos: Int = Int(-offset.y)
+        
         //if textView is active or not and the different y position for saved image to include the textview if it is active
         // screenHeight * 0.17 is the dynamic height of the textview per device.
-        if textView.isHidden == true{
+        
+        if textView.isHidden == true {
             UIGraphicsBeginImageContextWithOptions(normalSize, true, UIScreen.main.scale)
             textView.text = ""
             yPos = Int(-offset.y)
-        }else{
-            yPos = Int(-offset.y + screenHeight * 0.17)
+        }else if textView.isHidden == false {
+            yPos = Int(-offset.y + (screenHeight * 0.17))
             UIGraphicsBeginImageContextWithOptions(textViewWithImageSize, true, UIScreen.main.scale)
             
             //sets saves text area background to white, extendind the image area on its own colored the void black.
             let backgroundColor: UIColor = UIColor.white
             backgroundColor.setFill()
-            UIGraphicsGetCurrentContext()!.fill(CGRect(x: 0, y: (offset.y - screenHeight * 0.17), width: scrollView.bounds.size.width, height: scrollView.bounds.size.height))
+            UIGraphicsGetCurrentContext()!.fill(CGRect(x: 0, y: (offset.y - (screenHeight * 0.17)), width: scrollView.bounds.size.width, height: scrollView.bounds.size.height))
         }
         
-        
         UIGraphicsGetCurrentContext()!.translateBy(x: -offset.x, y: CGFloat(yPos))
-    
-        
         scrollView.layer.render(in: UIGraphicsGetCurrentContext()!)
         
-        let textColor = UIColor.black
+        let textColor = UIColor.red
         let textFont = UIFont(name: "Helvetica", size: 14)!
-        
-        let textFontAttributes = [
-            NSFontAttributeName: textFont,
-            NSForegroundColorAttributeName: textColor,
-            ] as [String : Any]
-        
-        let rect = CGRect(x: offset.x + 5, y: (offset.y + 5 - screenHeight * 0.17), width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
+        let textFontAttributes = [NSFontAttributeName: textFont,NSForegroundColorAttributeName: textColor] as [String : Any]
+        let rect = CGRect(x: offset.x + 5, y: (offset.y + 5 - (screenHeight * 0.17)), width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
         
         textView.text.draw(in: rect, withAttributes: textFontAttributes)
        
@@ -213,10 +207,10 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBAction func frame(_ sender: Any) {
          guard image != nil else { return }
         
+       
         switch currentFrame{
         case 0:
             textView.isHidden = true
-           
         case 1:
             textView.isHidden = false
         default:
