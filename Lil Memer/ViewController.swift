@@ -27,13 +27,13 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         imageView.frame = CGRect(x: 0, y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height)
         //imageView.image = UIImage(named: "tapHere")
         imageView.isUserInteractionEnabled = true
-       
-       
         scrollView.addSubview(imageView)
     
-        let tapGestureRecongnizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.loadImage))
-        tapGestureRecongnizer.numberOfTapsRequired = 1
-        imageView.addGestureRecognizer(tapGestureRecongnizer)
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+      //  let tapGestureRecongnizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.loadImage))
+      //  tapGestureRecongnizer.numberOfTapsRequired = 1
+      //  imageView.addGestureRecognizer(tapGestureRecongnizer)
         
         textView.contentInset = UIEdgeInsetsMake(-5,0,0,0)
         textView.font = UIFont(name: "Helvetica", size: 14)
@@ -47,7 +47,10 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
 
     }
     
-    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
     
     //adds placeholder text for textview pt 1
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -90,16 +93,16 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     }
 
     //tap imageview to load image
-    func loadImage(recognizer: UITapGestureRecognizer){
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        
-        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        imageView.contentMode = UIViewContentMode.center
-        centerScrollViewContents()
-        self.present(imagePicker, animated: true, completion: nil)
-        
-    }
+//    func loadImage(recognizer: UITapGestureRecognizer){
+//        let imagePicker = UIImagePickerController()
+//        imagePicker.delegate = self
+//        
+//        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+//        imageView.contentMode = UIViewContentMode.center
+//        centerScrollViewContents()
+//        self.present(imagePicker, animated: true, completion: nil)
+//        
+//    }
     //picker once user taps imageview
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         image = info[UIImagePickerControllerOriginalImage] as! UIImage
@@ -201,10 +204,19 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         alert.addAction(UIAlertAction(title: "Neat", style: .default, handler: nil))
     }
     
+    @IBAction func ChooseImage(_ sender: Any) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
         
-    @IBAction func Filter(_ sender: Any) {
-         guard image != nil else { return }
+        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        imageView.contentMode = UIViewContentMode.center
+        centerScrollViewContents()
+        self.present(imagePicker, animated: true, completion: nil)
+
     }
+  
+        
+    
     
     @IBAction func frame(_ sender: Any) {
          guard image != nil else { return }
