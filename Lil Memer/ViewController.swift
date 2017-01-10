@@ -177,8 +177,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             //sets saves text area background to white, extendind the image area on its own colored the void black.
             let backgroundColor: UIColor = UIColor.white
             backgroundColor.setFill()
-            
-            
+        
             UIGraphicsGetCurrentContext()!.fill(CGRect(x: 0, y: (0 - (screenHeight * 0.17)), width: scrollView.bounds.size.width, height: scrollView.bounds.size.height))
         }
         
