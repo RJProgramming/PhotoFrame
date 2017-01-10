@@ -30,7 +30,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
        
        
         scrollView.addSubview(imageView)
-        
+    
         let tapGestureRecongnizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.loadImage))
         tapGestureRecongnizer.numberOfTapsRequired = 1
         imageView.addGestureRecognizer(tapGestureRecongnizer)
@@ -169,6 +169,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             UIGraphicsBeginImageContextWithOptions(normalSize, true, UIScreen.main.scale)
             textView.text = ""
             yPos = Int(-offset.y)
+            
         }else if textView.isHidden == false {
             yPos = Int(-offset.y + (screenHeight * 0.17))
             UIGraphicsBeginImageContextWithOptions(textViewWithImageSize, true, UIScreen.main.scale)
@@ -176,13 +177,15 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             //sets saves text area background to white, extendind the image area on its own colored the void black.
             let backgroundColor: UIColor = UIColor.white
             backgroundColor.setFill()
-            UIGraphicsGetCurrentContext()!.fill(CGRect(x: 0, y: (offset.y - (screenHeight * 0.17)), width: scrollView.bounds.size.width, height: scrollView.bounds.size.height))
+            
+            
+            UIGraphicsGetCurrentContext()!.fill(CGRect(x: 0, y: (0 - (screenHeight * 0.17)), width: scrollView.bounds.size.width, height: scrollView.bounds.size.height))
         }
         
         UIGraphicsGetCurrentContext()!.translateBy(x: -offset.x, y: CGFloat(yPos))
         scrollView.layer.render(in: UIGraphicsGetCurrentContext()!)
         
-        let textColor = UIColor.red
+        let textColor = UIColor.black
         let textFont = UIFont(name: "Helvetica", size: 14)!
         let textFontAttributes = [NSFontAttributeName: textFont,NSForegroundColorAttributeName: textColor] as [String : Any]
         let rect = CGRect(x: offset.x + 5, y: (offset.y + 5 - (screenHeight * 0.17)), width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
