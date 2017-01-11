@@ -12,6 +12,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var noImageHolder: UIImageView!
+    
     
     let screenSize: CGRect = UIScreen.main.bounds
     
@@ -93,21 +95,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         return numberOfLines <= 5
     }
 
-    //tap imageview to load image
-//    func loadImage(recognizer: UITapGestureRecognizer){
-//        let imagePicker = UIImagePickerController()
-//        imagePicker.delegate = self
-//        
-//        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-//        imageView.contentMode = UIViewContentMode.center
-//        centerScrollViewContents()
-//        self.present(imagePicker, animated: true, completion: nil)
-//        
-//    }
     //picker once user taps imageview
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         image = info[UIImagePickerControllerOriginalImage] as! UIImage
         
+        noImageHolder.isHidden = true
         imageView.image = image
         imageView.contentMode = UIViewContentMode.center
         imageView.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
