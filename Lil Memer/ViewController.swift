@@ -39,7 +39,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         textView.contentInset = UIEdgeInsetsMake(-5,0,0,-5)
         //changed font from helvetica to courier a mono spaced font (all characters not take same space)
-        textView.font = UIFont(name: "Courier", size: 14)
+        textView.font = UIFont(name: "Courier", size: 15)
         
         
         // place holder text for textview
@@ -65,7 +65,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     //placeholder text for textview pt 2
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.font = UIFont(name: "Helvetica", size: 14)
+            textView.font = UIFont(name: "Helvetica", size: 15)
             textView.text = "Tap here to enter text"
             textView.textColor = UIColor.lightGray
         }
@@ -92,7 +92,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let boundingRect = sizeOfString(string: newText, constrainedToWidth: Double(textWidth), font: textView.font!)
         let numberOfLines = boundingRect.height / textView.font!.lineHeight;
         
-        return numberOfLines <= 5
+        return numberOfLines <= 6
     }
 
     //picker once user taps imageview
@@ -181,7 +181,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         scrollView.layer.render(in: UIGraphicsGetCurrentContext()!)
         
         let textColor = UIColor.black
-        let textFont = UIFont(name: "Courier", size: 14)!
+        let textFont = UIFont(name: "Courier", size: 15)!
         let textFontAttributes = [NSFontAttributeName: textFont,NSForegroundColorAttributeName: textColor] as [String : Any]
         
         //-10 to .width to line up the drawn text to the actual typed textview
