@@ -35,8 +35,9 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
       //  tapGestureRecongnizer.numberOfTapsRequired = 1
       //  imageView.addGestureRecognizer(tapGestureRecongnizer)
         
-        textView.contentInset = UIEdgeInsetsMake(-5,0,0,0)
-        textView.font = UIFont(name: "Helvetica", size: 14)
+        textView.contentInset = UIEdgeInsetsMake(-5,0,0,-5)
+        //changed font from helvetica to courier a mono spaced font (all characters not take same space)
+        textView.font = UIFont(name: "Courier", size: 14)
         
         
         // place holder text for textview
@@ -188,9 +189,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         scrollView.layer.render(in: UIGraphicsGetCurrentContext()!)
         
         let textColor = UIColor.black
-        let textFont = UIFont(name: "Helvetica", size: 14)!
+        let textFont = UIFont(name: "Courier", size: 14)!
         let textFontAttributes = [NSFontAttributeName: textFont,NSForegroundColorAttributeName: textColor] as [String : Any]
-        let rect = CGRect(x: offset.x + 5, y: (offset.y + 5 - (screenHeight * 0.17)), width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
+        
+        //-10 to .width to line up the drawn text to the actual typed textview
+        let rect = CGRect(x: offset.x + 5, y: (offset.y + 5 - (screenHeight * 0.17)), width: scrollView.bounds.size.width - 10, height: scrollView.bounds.size.height)
         
         textView.text.draw(in: rect, withAttributes: textFontAttributes)
        
