@@ -17,29 +17,36 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     
     let screenSize: CGRect = UIScreen.main.bounds
     
+    
     var currentFrame = 1
     var imageView = UIImageView()
     var image: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "😂👌💯"
         
+        let screenWidth = screenSize.width
         scrollView.delegate = self
         
         imageView.frame = CGRect(x: 0, y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height)
-        //imageView.image = UIImage(named: "tapHere")
         imageView.isUserInteractionEnabled = true
         scrollView.addSubview(imageView)
     
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
-      //  let tapGestureRecongnizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.loadImage))
-      //  tapGestureRecongnizer.numberOfTapsRequired = 1
-      //  imageView.addGestureRecognizer(tapGestureRecongnizer)
-        
+     
         textView.contentInset = UIEdgeInsetsMake(-5,0,0,-5)
         //changed font from helvetica to courier a mono spaced font (all characters not take same space)
-        textView.font = UIFont(name: "Courier", size: 15)
+        
+        if screenWidth == Constants.iPhoneElseWidth{
+            textView.font = UIFont(name: "Courier", size: 15)
+        }else if screenWidth == Constants.iPhone6Width{
+            textView.font = UIFont(name: "Courier", size: 17)
+        }else if screenWidth == Constants.iPhone6PlusWidth{
+            textView.font = UIFont(name: "Courier", size: 19)
+        }
+        
         
         
         // place holder text for textview
@@ -48,6 +55,14 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         self.textView.delegate = self
 
+    }
+    
+    struct Constants {
+        
+        static let iPhone6Width = CGFloat(375)
+        static let iPhone6PlusWidth = CGFloat(414)
+        static let iPhoneElseWidth = CGFloat(320)
+        
     }
     
     func dismissKeyboard() {
@@ -92,7 +107,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let boundingRect = sizeOfString(string: newText, constrainedToWidth: Double(textWidth), font: textView.font!)
         let numberOfLines = boundingRect.height / textView.font!.lineHeight;
         
-        return numberOfLines <= 6
+        return numberOfLines <= 5
     }
 
     //picker once user taps imageview
@@ -151,6 +166,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBAction func save(_ sender: Any) {
          guard image != nil else { return }
         
+        centerScrollViewContents()
         let offset = scrollView.contentOffset
         let screenHeight = screenSize.height
         
@@ -181,8 +197,19 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         scrollView.layer.render(in: UIGraphicsGetCurrentContext()!)
         
         let textColor = UIColor.black
-        let textFont = UIFont(name: "Courier", size: 15)!
-        let textFontAttributes = [NSFontAttributeName: textFont,NSForegroundColorAttributeName: textColor] as [String : Any]
+        let screenWidth = screenSize.width
+        var textFont = UIFont(name: "Courier", size: 15)
+
+        if screenWidth == Constants.iPhoneElseWidth{
+            textFont = UIFont(name: "Courier", size: 15)
+        }else if screenWidth == Constants.iPhone6Width{
+            textFont = UIFont(name: "Courier", size: 17)
+        }else if screenWidth == Constants.iPhone6PlusWidth{
+            textFont = UIFont(name: "Courier", size: 19)
+        }
+        
+        //let textFont = UIFont(name: "Courier", size: 15)!
+        let textFontAttributes = [NSFontAttributeName: textFont!,NSForegroundColorAttributeName: textColor] as [String : Any]
         
         //-10 to .width to line up the drawn text to the actual typed textview
         let rect = CGRect(x: offset.x + 5, y: (offset.y + 5 - (screenHeight * 0.17)), width: scrollView.bounds.size.width - 10, height: scrollView.bounds.size.height)
@@ -210,11 +237,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
 
     }
   
-        
-    
-    
     @IBAction func frame(_ sender: Any) {
-         guard image != nil else { return }
+        guard image != nil else { return }
         
        
         switch currentFrame{
