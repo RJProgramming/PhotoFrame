@@ -12,6 +12,8 @@
 		E119761E1E1FCD3F008CFCAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E119761C1E1FCD3F008CFCAF /* Main.storyboard */; };
 		E11976201E1FCD3F008CFCAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E119761F1E1FCD3F008CFCAF /* Assets.xcassets */; };
 		E11976231E1FCD3F008CFCAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E11976211E1FCD3F008CFCAF /* LaunchScreen.storyboard */; };
+		E16018541E27EDC000753649 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E16018521E27EDC000753649 /* iTunesArtwork@2x.png */; };
+		E16018551E27EDC000753649 /* iTunesArtwork@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E16018531E27EDC000753649 /* iTunesArtwork@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		E119761F1E1FCD3F008CFCAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E11976221E1FCD3F008CFCAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E11976241E1FCD3F008CFCAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E16018521E27EDC000753649 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		E16018531E27EDC000753649 /* iTunesArtwork@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				E119761F1E1FCD3F008CFCAF /* Assets.xcassets */,
 				E11976211E1FCD3F008CFCAF /* LaunchScreen.storyboard */,
 				E11976241E1FCD3F008CFCAF /* Info.plist */,
+				E16018521E27EDC000753649 /* iTunesArtwork@2x.png */,
+				E16018531E27EDC000753649 /* iTunesArtwork@3x.png */,
 			);
 			path = "Lil Memer";
 			sourceTree = "<group>";
@@ -125,8 +131,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E11976231E1FCD3F008CFCAF /* LaunchScreen.storyboard in Resources */,
+				E16018551E27EDC000753649 /* iTunesArtwork@3x.png in Resources */,
 				E11976201E1FCD3F008CFCAF /* Assets.xcassets in Resources */,
 				E119761E1E1FCD3F008CFCAF /* Main.storyboard in Resources */,
+				E16018541E27EDC000753649 /* iTunesArtwork@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +308,7 @@
 				E11976291E1FCD3F008CFCAF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

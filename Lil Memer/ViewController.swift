@@ -24,7 +24,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "😂👌💯"
         
         let screenWidth = screenSize.width
         scrollView.delegate = self
@@ -43,7 +42,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             textView.font = UIFont(name: "Courier", size: 15)
         }else if screenWidth == Constants.iPhone6Width{
             textView.font = UIFont(name: "Courier", size: 17)
-        }else if screenWidth == Constants.iPhone6PlusWidth{
+        }else if screenWidth >= Constants.iPhone6PlusWidth{
             textView.font = UIFont(name: "Courier", size: 19)
         }
         
@@ -204,7 +203,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             textFont = UIFont(name: "Courier", size: 15)
         }else if screenWidth == Constants.iPhone6Width{
             textFont = UIFont(name: "Courier", size: 17)
-        }else if screenWidth == Constants.iPhone6PlusWidth{
+        }else if screenWidth >= Constants.iPhone6PlusWidth{
             textFont = UIFont(name: "Courier", size: 19)
         }
         
