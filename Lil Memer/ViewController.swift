@@ -233,7 +233,15 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         imageView.contentMode = UIViewContentMode.center
         centerScrollViewContents()
         self.present(imagePicker, animated: true, completion: nil)
-
+        
+        
+        //change "firstlaunch1.0 to 2.0...etc to have it launch again in an update or something
+        if(!UserDefaults.standard.bool(forKey: "firstlaunch1.0")){
+            //Put any code here and it will be executed only once.
+            print("Is a first launch")
+            UserDefaults.standard.set(true, forKey: "firstlaunch1.0")
+            UserDefaults.standard.synchronize();
+        }
     }
   
     @IBAction func frame(_ sender: Any) {
