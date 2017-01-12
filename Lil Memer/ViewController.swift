@@ -53,6 +53,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         textView.textColor = UIColor.lightGray
         
         self.textView.delegate = self
+        
+        scrollView.isHidden = true
 
     }
     
@@ -113,6 +115,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         image = info[UIImagePickerControllerOriginalImage] as! UIImage
         
+        scrollView.isHidden = false
         noImageHolder.isHidden = true
         imageView.image = image
         imageView.contentMode = UIViewContentMode.center

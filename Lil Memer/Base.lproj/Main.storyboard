@@ -65,7 +65,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
                             </textView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="choose" translatesAutoresizingMaskIntoConstraints="NO" id="mfI-Wr-pxt">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chooseblankbg" translatesAutoresizingMaskIntoConstraints="NO" id="mfI-Wr-pxt">
                                 <rect key="frame" x="20.666666666666657" y="218.33333333333337" width="372.66666666666663" height="294.33333333333326"/>
                             </imageView>
                         </subviews>
@@ -109,6 +109,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="choose" width="372" height="294"/>
+        <image name="chooseblankbg" width="372" height="294"/>
     </resources>
 </document>
