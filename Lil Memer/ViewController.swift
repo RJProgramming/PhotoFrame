@@ -46,14 +46,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             textView.font = UIFont(name: "Courier", size: 19)
         }
         
-        
-        
         // place holder text for textview
         textView.text = "Tap here to enter text"
         textView.textColor = UIColor.lightGray
         
         self.textView.delegate = self
-        
         scrollView.isHidden = true
 
     }
@@ -131,7 +128,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         scrollView.minimumZoomScale = minScale / 2
         scrollView.maximumZoomScale = 5
         scrollView.zoomScale = minScale
-        centerScrollViewContents()
+        
+       // centerScrollViewContents()
         picker.dismiss(animated: true, completion: nil)
         
     }
@@ -168,7 +166,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBAction func save(_ sender: Any) {
          guard image != nil else { return }
         
-        centerScrollViewContents()
+        
         let offset = scrollView.contentOffset
         let screenHeight = screenSize.height
         
@@ -221,7 +219,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
-        centerScrollViewContents()
+        
+       
         
     let alert = UIAlertController(title: "Image Saved", message: "your image has been saved", preferredStyle: .alert)
         self.present(alert, animated: true, completion: nil)
@@ -234,17 +233,10 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         imageView.contentMode = UIViewContentMode.center
-        centerScrollViewContents()
         self.present(imagePicker, animated: true, completion: nil)
         
         
-        //change "firstlaunch1.0 to 2.0...etc to have it launch again in an update or something
-        if(!UserDefaults.standard.bool(forKey: "firstlaunch1.0")){
-            //Put any code here and it will be executed only once.
-            print("Is a first launch")
-            UserDefaults.standard.set(true, forKey: "firstlaunch1.0")
-            UserDefaults.standard.synchronize();
-        }
+    
     }
   
     @IBAction func frame(_ sender: Any) {
