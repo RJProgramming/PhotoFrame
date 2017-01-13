@@ -120,9 +120,13 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let scaleHeight = scrollViewFrame.size.height / scrollView.contentSize.height
         let minScale = min(scaleHeight, scaleWidth)
         
-        scrollView.minimumZoomScale = minScale
-        scrollView.maximumZoomScale = 1
+        scrollView.minimumZoomScale = minScale / 2
+        scrollView.maximumZoomScale = 5
         scrollView.zoomScale = minScale
+        
+        //recenters image if selected after first image
+        imageView.frame = CGRect(x: 0, y: 0, width: image.size.width * minScale, height: image.size.height  * minScale)
+        scrollView.contentSize = CGSize(width: image.size.width * minScale, height: image.size.height * minScale)
         
         centerScrollViewContents()
         
@@ -131,6 +135,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     }
     
     func centerScrollViewContents(){
+       // imageView.frame = CGRect(x: 0, y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height)
         let boundsSize = scrollView.bounds.size
         var contentsFrame = imageView.frame
         
