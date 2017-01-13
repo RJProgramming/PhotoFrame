@@ -112,6 +112,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         imageView.contentMode = UIViewContentMode.center
         imageView.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
         
+        
         scrollView.contentSize = image.size
         
         let scrollViewFrame = scrollView.frame
@@ -119,11 +120,12 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let scaleHeight = scrollViewFrame.size.height / scrollView.contentSize.height
         let minScale = min(scaleHeight, scaleWidth)
         
-        scrollView.minimumZoomScale = minScale / 2
-        scrollView.maximumZoomScale = 5
+        scrollView.minimumZoomScale = minScale
+        scrollView.maximumZoomScale = 1
         scrollView.zoomScale = minScale
         
-       // centerScrollViewContents()
+        centerScrollViewContents()
+        
         picker.dismiss(animated: true, completion: nil)
         
     }
@@ -214,8 +216,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         UIGraphicsEndImageContext()
         UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
         
-       
-        
     let alert = UIAlertController(title: "Image Saved", message: "your image has been saved", preferredStyle: .alert)
         self.present(alert, animated: true, completion: nil)
         alert.addAction(UIAlertAction(title: "Neat", style: .default, handler: nil))
@@ -224,19 +224,14 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBAction func ChooseImage(_ sender: Any) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        
         imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        imageView.contentMode = UIViewContentMode.center
+        
         self.present(imagePicker, animated: true, completion: nil)
-        
-        
-    
     }
   
     @IBAction func frame(_ sender: Any) {
         guard image != nil else { return }
         
-       
         switch currentFrame{
         case 0:
             textView.isHidden = true
