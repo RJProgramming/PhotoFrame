@@ -14,9 +14,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var noImageHolder: UIImageView!
     
-    
     let screenSize: CGRect = UIScreen.main.bounds
-    
     
     var currentFrame = 1
     var imageView = UIImageView()
@@ -92,11 +90,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
                                                  context: nil).size
     }
     //part 2 of calcing string length to keep textview at 4 lines
-    func textView(_ textView: UITextView,
-                  shouldChangeTextIn range: NSRange,
-                  replacementText text: String) -> Bool{
-        
-        
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool{
         
         let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
         var textWidth = UIEdgeInsetsInsetRect(textView.frame, textView.textContainerInset).width
