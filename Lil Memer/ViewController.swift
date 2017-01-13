@@ -124,7 +124,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         scrollView.maximumZoomScale = 5
         scrollView.zoomScale = minScale
         
-        //recenters image if selected after first image
+        //recenters image if selected after first image was choosen
         imageView.frame = CGRect(x: 0, y: 0, width: image.size.width * minScale, height: image.size.height  * minScale)
         scrollView.contentSize = CGSize(width: image.size.width * minScale, height: image.size.height * minScale)
         
