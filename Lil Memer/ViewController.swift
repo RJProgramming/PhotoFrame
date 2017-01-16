@@ -78,7 +78,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     //placeholder text for textview pt 2
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.font = UIFont(name: "Helvetica", size: 15)
+            textView.font = UIFont(name: "Courier", size: 15)
             textView.text = "Tap here to enter text"
             textView.textColor = UIColor.lightGray
         }
@@ -258,13 +258,14 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         switch currentFrame{
         case 0:
-            //textView
+            //no textView
             
             textView.isHidden = true
             sciFrame.isHidden = true
         case 1:
-            //notextView
-            
+            //textView
+            textViewDidBeginEditing(textView)
+            textViewDidEndEditing(textView)
             textView.isHidden = false
         case 2:
             //sciFrame
