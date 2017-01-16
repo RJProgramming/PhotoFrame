@@ -267,6 +267,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             textViewDidBeginEditing(textView)
             textViewDidEndEditing(textView)
             textView.isHidden = false
+            
         case 2:
             //sciFrame
             textView.isHidden = true

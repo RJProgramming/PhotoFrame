@@ -48,7 +48,7 @@
                                 <rect key="frame" x="0.0" y="597.66666666666652" width="203" height="51.333333333333371"/>
                                 <color key="backgroundColor" red="0.080115370450000001" green="0.83893996479999999" blue="0.60622608659999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="22"/>
-                                <state key="normal" title="Text">
+                                <state key="normal" title="Frame">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
