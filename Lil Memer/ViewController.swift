@@ -13,8 +13,10 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var noImageHolder: UIImageView!
+    @IBOutlet weak var sciFrame: UIImageView!
     
     let screenSize: CGRect = UIScreen.main.bounds
+    
     
     var currentFrame = 1
     var imageView = UIImageView()
@@ -106,6 +108,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         image = info[UIImagePickerControllerOriginalImage] as! UIImage
         
+        textView.isHidden = false
         scrollView.isHidden = false
         noImageHolder.isHidden = true
         imageView.image = image
@@ -167,7 +170,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBAction func save(_ sender: Any) {
          guard image != nil else { return }
         
-        
         let offset = scrollView.contentOffset
         let screenHeight = screenSize.height
         
@@ -183,6 +185,9 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             textView.text = ""
             yPos = Int(-offset.y)
             
+           // UIGraphicsGetCurrentContext()!.translateBy(x: -offset.x, y: CGFloat(yPos))
+           // scrollView.layer.render(in: UIGraphicsGetCurrentContext()!)
+            
         }else if textView.isHidden == false {
             yPos = Int(-offset.y + (screenHeight * 0.17))
             UIGraphicsBeginImageContextWithOptions(textViewWithImageSize, true, UIScreen.main.scale)
@@ -192,10 +197,30 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             backgroundColor.setFill()
         
             UIGraphicsGetCurrentContext()!.fill(CGRect(x: 0, y: (0 - (screenHeight * 0.17)), width: scrollView.bounds.size.width, height: scrollView.bounds.size.height))
+            
+           // UIGraphicsGetCurrentContext()!.translateBy(x: -offset.x, y: CGFloat(yPos))
+           // scrollView.layer.render(in: UIGraphicsGetCurrentContext()!)
+            
         }
         
         UIGraphicsGetCurrentContext()!.translateBy(x: -offset.x, y: CGFloat(yPos))
         scrollView.layer.render(in: UIGraphicsGetCurrentContext()!)
+        
+        if sciFrame.isHidden == false{
+        
+            UIGraphicsGetCurrentContext()!.translateBy(x: offset.x, y: offset.y)
+            sciFrame.layer.render(in: UIGraphicsGetCurrentContext()!)
+        }
+       
+            
+        
+        
+        
+        
+        
+       // UIGraphicsGetCurrentContext()!.translateBy(x: -offset.x, y: CGFloat(yPos))
+       // scrollView.layer.render(in: UIGraphicsGetCurrentContext()!)
+        
         
         let textColor = UIColor.black
         let screenWidth = screenSize.width
@@ -239,14 +264,23 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         switch currentFrame{
         case 0:
-            textView.isHidden = true
-        case 1:
+            //textView
+            
             textView.isHidden = false
-        default:
+            sciFrame.isHidden = true
+        case 1:
+            //notextView
+            
+            textView.isHidden = true
+        case 2:
+            //sciFrame
+            textView.isHidden = true
+            sciFrame.isHidden = false
+          default:
             break
         }
         currentFrame += 1
-        if currentFrame > 1 {
+        if currentFrame > 2 {
             currentFrame = 0
         }
 }

@@ -68,6 +68,9 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chooseblankbg" translatesAutoresizingMaskIntoConstraints="NO" id="mfI-Wr-pxt">
                                 <rect key="frame" x="20.666666666666657" y="218.33333333333337" width="372.66666666666663" height="294.33333333333326"/>
                             </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sciFrameSmaller" translatesAutoresizingMaskIntoConstraints="NO" id="Prt-ao-cru">
+                                <rect key="frame" x="20.666666666666657" y="218.33333333333337" width="372.66666666666663" height="294.33333333333326"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.22352941176470587" green="0.22745098039215686" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -76,6 +79,7 @@
                             <constraint firstItem="mfI-Wr-pxt" firstAttribute="top" secondItem="AAA-if-6KM" secondAttribute="bottom" id="36S-eS-Jyc"/>
                             <constraint firstItem="WR8-lS-ut8" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.07" id="4db-g0-pff"/>
                             <constraint firstItem="WR8-lS-ut8" firstAttribute="top" secondItem="qA6-Yw-PCE" secondAttribute="bottom" constant="85" id="ARb-Lh-huN"/>
+                            <constraint firstItem="Prt-ao-cru" firstAttribute="height" secondItem="qA6-Yw-PCE" secondAttribute="height" id="G5J-Ff-Ntk"/>
                             <constraint firstItem="VHX-nt-Pks" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.08" id="HYF-ah-4PT"/>
                             <constraint firstItem="qA6-Yw-PCE" firstAttribute="top" secondItem="AAA-if-6KM" secondAttribute="bottom" id="Kne-LK-RfK"/>
                             <constraint firstItem="mfI-Wr-pxt" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.4" id="Of7-m9-kMh"/>
@@ -90,25 +94,30 @@
                             <constraint firstItem="qA6-Yw-PCE" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.4" id="cLE-AG-9cX"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VHX-nt-Pks" secondAttribute="bottom" constant="20" id="dRe-u0-8Ig"/>
                             <constraint firstItem="mfI-Wr-pxt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fA6-kT-bUM"/>
+                            <constraint firstItem="Prt-ao-cru" firstAttribute="top" secondItem="qA6-Yw-PCE" secondAttribute="top" id="fez-sJ-mqT"/>
                             <constraint firstItem="VHX-nt-Pks" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gtZ-gf-7Af"/>
                             <constraint firstItem="AAA-if-6KM" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.17" id="hXp-DR-jac"/>
+                            <constraint firstItem="Prt-ao-cru" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hoZ-Ed-Ken"/>
                             <constraint firstItem="WR8-lS-ut8" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.49" id="i1I-X3-hhG"/>
                             <constraint firstItem="qA6-Yw-PCE" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="kir-1V-oY2"/>
+                            <constraint firstItem="Prt-ao-cru" firstAttribute="width" secondItem="qA6-Yw-PCE" secondAttribute="width" id="oYo-2g-9GT"/>
                             <constraint firstItem="WR8-lS-ut8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zky-Fs-xhF"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="noImageHolder" destination="mfI-Wr-pxt" id="vTQ-SN-TKu"/>
+                        <outlet property="sciFrame" destination="Prt-ao-cru" id="sei-9O-zeF"/>
                         <outlet property="scrollView" destination="qA6-Yw-PCE" id="MXE-pZ-N4W"/>
                         <outlet property="textView" destination="AAA-if-6KM" id="5M8-NZ-C5r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="116.25" y="122.5"/>
+            <point key="canvasLocation" x="115.94202898550725" y="122.28260869565219"/>
         </scene>
     </scenes>
     <resources>
         <image name="chooseblankbg" width="372" height="294"/>
+        <image name="sciFrameSmaller" width="333" height="266"/>
     </resources>
 </document>
