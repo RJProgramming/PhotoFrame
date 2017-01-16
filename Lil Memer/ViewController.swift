@@ -114,7 +114,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         imageView.contentMode = UIViewContentMode.center
         imageView.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
         
-        
         scrollView.contentSize = image.size
         
         let scrollViewFrame = scrollView.frame
@@ -137,7 +136,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     }
     
     func centerScrollViewContents(){
-       // imageView.frame = CGRect(x: 0, y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height)
+       
         let boundsSize = scrollView.bounds.size
         var contentsFrame = imageView.frame
         
@@ -266,17 +265,21 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             //textView
             textViewDidBeginEditing(textView)
             textViewDidEndEditing(textView)
+            
             textView.isHidden = false
             
         case 2:
             //sciFrame
+            sciFrame.image = UIImage(named: "sciFrameSmaller")
             textView.isHidden = true
             sciFrame.isHidden = false
+        case 3:
+            sciFrame.image = UIImage(named: "fbFrame")
           default:
             break
         }
         currentFrame += 1
-        if currentFrame > 2 {
+        if currentFrame > 3 {
             currentFrame = 0
         }
 }

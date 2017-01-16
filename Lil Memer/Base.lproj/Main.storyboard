@@ -34,7 +34,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kb1-VP-wYT">
-                                <rect key="frame" x="211" y="597.66666666666652" width="203" height="51.333333333333371"/>
+                                <rect key="frame" x="211" y="598" width="203" height="51"/>
                                 <color key="backgroundColor" red="0.91764705882352937" green="0.32156862745098036" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="22"/>
                                 <state key="normal" title="Image">
@@ -45,7 +45,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WR8-lS-ut8">
-                                <rect key="frame" x="0.0" y="597.66666666666652" width="203" height="51.333333333333371"/>
+                                <rect key="frame" x="0.0" y="598" width="203" height="51"/>
                                 <color key="backgroundColor" red="0.080115370450000001" green="0.83893996479999999" blue="0.60622608659999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="22"/>
                                 <state key="normal" title="Frame">
@@ -56,20 +56,20 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qA6-Yw-PCE">
-                                <rect key="frame" x="20.666666666666657" y="218.33333333333337" width="372.66666666666663" height="294.33333333333326"/>
+                                <rect key="frame" x="21" y="218" width="372" height="295"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </scrollView>
                             <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AAA-if-6KM">
-                                <rect key="frame" x="20.666666666666657" y="93.000000000000014" width="372.66666666666663" height="125.33333333333336"/>
+                                <rect key="frame" x="21" y="93" width="372" height="125"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
                             </textView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chooseblankbg" translatesAutoresizingMaskIntoConstraints="NO" id="mfI-Wr-pxt">
-                                <rect key="frame" x="20.666666666666657" y="218.33333333333337" width="372.66666666666663" height="294.33333333333326"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageviewnoimage" translatesAutoresizingMaskIntoConstraints="NO" id="mfI-Wr-pxt">
+                                <rect key="frame" x="21" y="218" width="372" height="295"/>
                             </imageView>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sciFrameSmaller" translatesAutoresizingMaskIntoConstraints="NO" id="Prt-ao-cru">
-                                <rect key="frame" x="20.666666666666657" y="218.33333333333337" width="372.66666666666663" height="294.33333333333326"/>
+                                <rect key="frame" x="21" y="218" width="372" height="295"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.22352941176470587" green="0.22745098039215686" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
@@ -117,7 +117,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chooseblankbg" width="372" height="294"/>
+        <image name="imageviewnoimage" width="372" height="294"/>
         <image name="sciFrameSmaller" width="333" height="266"/>
     </resources>
 </document>
