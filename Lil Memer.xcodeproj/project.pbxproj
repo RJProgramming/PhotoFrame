@@ -96,7 +96,7 @@
 				TargetAttributes = {
 					E11976141E1FCD3F008CFCAF = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 4YKNAX6738;
+						DevelopmentTeam = KG8K7FTEAN;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -259,7 +259,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4YKNAX6738;
+				DEVELOPMENT_TEAM = KG8K7FTEAN;
 				INFOPLIST_FILE = "Lil Memer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Robert.Lil-Memer";
@@ -272,7 +272,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4YKNAX6738;
+				DEVELOPMENT_TEAM = KG8K7FTEAN;
 				INFOPLIST_FILE = "Lil Memer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Robert.Lil-Memer";
