@@ -17,8 +17,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     
     let screenSize: CGRect = UIScreen.main.bounds
     
-    
-    var currentFrame = 1
+    var currentFrame: Int = 1
     var imageView = UIImageView()
     var image: UIImage!
     
@@ -53,6 +52,10 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         self.textView.delegate = self
         scrollView.isHidden = true
 
+    }
+    
+    func applicationDidReceiveMemoryWarning(application: UIApplication) {
+        URLCache.shared.removeAllCachedResponses()
     }
     
     struct Constants {
@@ -205,15 +208,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             sciFrame.layer.render(in: UIGraphicsGetCurrentContext()!)
         }
        
-            
-        
-        
-        
-        
-        
-       // UIGraphicsGetCurrentContext()!.translateBy(x: -offset.x, y: CGFloat(yPos))
-       // scrollView.layer.render(in: UIGraphicsGetCurrentContext()!)
-        
         
         let textColor = UIColor.black
         let screenWidth = screenSize.width
@@ -284,6 +278,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         }
 }
     
-
+    
+    
 }
 
