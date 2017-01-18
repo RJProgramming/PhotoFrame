@@ -108,7 +108,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         if screenWidth == Constants.iPhone6Width || screenWidth == Constants.iPhone6PlusWidth {
            return numberOfLines <= 6
         }else{
-            return numberOfLines <= 5
+           return numberOfLines <= 5
         }
         
         

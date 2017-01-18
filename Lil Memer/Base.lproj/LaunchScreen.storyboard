@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,15 +19,15 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="justIcon" translatesAutoresizingMaskIntoConstraints="NO" id="bXX-Qb-VdY">
-                                <rect key="frame" x="69" y="133" width="237" height="196"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="justIcon" translatesAutoresizingMaskIntoConstraints="NO" id="bXX-Qb-VdY">
+                                <rect key="frame" x="73" y="133" width="268" height="265"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lil Memer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="plO-I8-5Ed">
-                                <rect key="frame" x="120" y="344" width="134" height="24"/>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lil Memer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="plO-I8-5Ed">
+                                <rect key="frame" x="104" y="406" width="207" height="56"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -35,11 +35,11 @@
                         <color key="backgroundColor" red="0.22352941176470587" green="0.22745098039215686" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="bXX-Qb-VdY" secondAttribute="trailing" constant="53" id="Bjn-Zd-rCn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="plO-I8-5Ed" secondAttribute="trailing" constant="105" id="W7Q-jD-3Cq"/>
-                            <constraint firstItem="plO-I8-5Ed" firstAttribute="top" secondItem="bXX-Qb-VdY" secondAttribute="bottom" constant="15" id="X1t-lk-FYx"/>
-                            <constraint firstItem="plO-I8-5Ed" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="104" id="dGo-PF-m7A"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="plO-I8-5Ed" secondAttribute="trailing" constant="83" id="W7Q-jD-3Cq"/>
+                            <constraint firstItem="plO-I8-5Ed" firstAttribute="top" secondItem="bXX-Qb-VdY" secondAttribute="bottom" constant="8" id="X1t-lk-FYx"/>
+                            <constraint firstItem="plO-I8-5Ed" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="84" id="dGo-PF-m7A"/>
                             <constraint firstItem="bXX-Qb-VdY" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="53" id="fOh-J0-u7t"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="plO-I8-5Ed" secondAttribute="bottom" constant="299" id="sH8-16-XpN"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="plO-I8-5Ed" secondAttribute="bottom" constant="274" id="sH8-16-XpN"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="bXX-Qb-VdY" secondAttribute="bottom" constant="338" id="xGa-le-0Dq"/>
                             <constraint firstItem="bXX-Qb-VdY" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="113" id="ymz-z2-NVT"/>
                         </constraints>
@@ -47,10 +47,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+            <point key="canvasLocation" x="50.724637681159422" y="374.18478260869568"/>
         </scene>
     </scenes>
     <resources>
-        <image name="justIcon" width="389" height="324"/>
+        <image name="justIcon" width="259" height="216"/>
     </resources>
 </document>
