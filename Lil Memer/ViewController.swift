@@ -96,6 +96,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     }
     //part 2 of calcing string length to keep textview at 4 lines
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool{
+        let screenWidth = screenSize.width
         
         let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
         var textWidth = UIEdgeInsetsInsetRect(textView.frame, textView.textContainerInset).width
@@ -104,7 +105,13 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let boundingRect = sizeOfString(string: newText, constrainedToWidth: Double(textWidth), font: textView.font!)
         let numberOfLines = boundingRect.height / textView.font!.lineHeight;
         
-        return numberOfLines <= 5
+        if screenWidth == Constants.iPhone6Width || screenWidth == Constants.iPhone6PlusWidth {
+           return numberOfLines <= 6
+        }else{
+            return numberOfLines <= 5
+        }
+        
+        
     }
 
     //picker once user taps imageview
