@@ -252,11 +252,17 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
        
         image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
         
-    let alert = UIAlertController(title: "Image Saved", message: "your image has been saved", preferredStyle: .alert)
-        self.present(alert, animated: true, completion: nil)
-        alert.addAction(UIAlertAction(title: "Neat", style: .default, handler: nil))
+        if  image != nil {
+            let vc = UIActivityViewController(activityItems: [image], applicationActivities: [])
+            present(vc, animated: true)
+        }
+        
+        //UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
+        
+//    let alert = UIAlertController(title: "Image Saved", message: "your image has been saved", preferredStyle: .alert)
+//        self.present(alert, animated: true, completion: nil)
+//        alert.addAction(UIAlertAction(title: "Neat", style: .default, handler: nil))
     }
     
     @IBAction func ChooseImage(_ sender: Any) {
