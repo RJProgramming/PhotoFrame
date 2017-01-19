@@ -15,6 +15,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBOutlet weak var noImageHolder: UIImageView!
     @IBOutlet weak var sciFrame: UIImageView!
     
+    @IBOutlet weak var imageButton: UIButton!
+    @IBOutlet weak var bigChoose: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var frameButton: UIButton!
+    
     let screenSize: CGRect = UIScreen.main.bounds
     
     var currentFrame: Int = 1
@@ -23,6 +28,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         let screenWidth = screenSize.width
         scrollView.delegate = self
@@ -140,6 +146,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         scrollView.contentSize = CGSize(width: image.size.width * minScale, height: image.size.height * minScale)
         
         centerScrollViewContents()
+        
+        bigChoose.isHidden = true
+        frameButton.isHidden = false
+        saveButton.isHidden = false
+        imageButton.isHidden = false
         
         picker.dismiss(animated: true, completion: nil)
         
@@ -285,6 +296,13 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         }
 }
     
+    @IBAction func bigChoose(_ sender: Any) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        
+        self.present(imagePicker, animated: true, completion: nil)
+    }
     
     
 }

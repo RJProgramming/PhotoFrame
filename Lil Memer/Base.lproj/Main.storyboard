@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHX-nt-Pks">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHX-nt-Pks">
                                 <rect key="frame" x="0.0" y="657" width="414" height="59"/>
                                 <color key="backgroundColor" red="0.019607843137254902" green="0.55686274509803924" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="35"/>
@@ -33,9 +33,9 @@
                                     <action selector="save:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1dN-zQ-Tkb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kb1-VP-wYT">
-                                <rect key="frame" x="211" y="598" width="203" height="51"/>
-                                <color key="backgroundColor" red="0.91764705882352937" green="0.32156862745098036" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kb1-VP-wYT">
+                                <rect key="frame" x="0.0" y="597.66666666666652" width="203" height="51.333333333333371"/>
+                                <color key="backgroundColor" red="0.080115370450000001" green="0.83893996479999999" blue="0.60622608659999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="22"/>
                                 <state key="normal" title="Image">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -44,9 +44,9 @@
                                     <action selector="ChooseImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QXX-vP-tGt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WR8-lS-ut8">
-                                <rect key="frame" x="0.0" y="598" width="203" height="51"/>
-                                <color key="backgroundColor" red="0.080115370450000001" green="0.83893996479999999" blue="0.60622608659999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WR8-lS-ut8">
+                                <rect key="frame" x="211" y="597.66666666666652" width="203" height="51.333333333333371"/>
+                                <color key="backgroundColor" red="0.91908890009999999" green="0.32079043979999999" blue="0.6048700213" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="22"/>
                                 <state key="normal" title="Frame">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -56,21 +56,32 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qA6-Yw-PCE">
-                                <rect key="frame" x="21" y="218" width="372" height="295"/>
+                                <rect key="frame" x="20.666666666666657" y="218.33333333333337" width="372.66666666666663" height="294.33333333333326"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </scrollView>
                             <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AAA-if-6KM">
-                                <rect key="frame" x="21" y="93" width="372" height="125"/>
+                                <rect key="frame" x="20.666666666666657" y="93.000000000000014" width="372.66666666666663" height="125.33333333333336"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
                             </textView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageviewnoimage" translatesAutoresizingMaskIntoConstraints="NO" id="mfI-Wr-pxt">
-                                <rect key="frame" x="21" y="218" width="372" height="295"/>
+                                <rect key="frame" x="20.666666666666657" y="218.33333333333337" width="372.66666666666663" height="294.33333333333326"/>
                             </imageView>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sciFrameSmaller" translatesAutoresizingMaskIntoConstraints="NO" id="Prt-ao-cru">
-                                <rect key="frame" x="21" y="218" width="372" height="295"/>
+                                <rect key="frame" x="20.666666666666657" y="218.33333333333337" width="372.66666666666663" height="294.33333333333326"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xnz-BO-Yh2">
+                                <rect key="frame" x="0.0" y="624.66666666666652" width="414" height="66.333333333333371"/>
+                                <color key="backgroundColor" red="0.080115370450000001" green="0.83893996479999999" blue="0.60622608659999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="30"/>
+                                <state key="normal" title="Choose Image">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="bigChoose:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XVy-c5-saI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.22352941176470587" green="0.22745098039215686" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -78,15 +89,18 @@
                             <constraint firstAttribute="trailing" secondItem="VHX-nt-Pks" secondAttribute="trailing" id="2Tt-ya-oJv"/>
                             <constraint firstItem="mfI-Wr-pxt" firstAttribute="top" secondItem="AAA-if-6KM" secondAttribute="bottom" id="36S-eS-Jyc"/>
                             <constraint firstItem="WR8-lS-ut8" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.07" id="4db-g0-pff"/>
+                            <constraint firstItem="kb1-VP-wYT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8Mz-y4-6zd"/>
                             <constraint firstItem="WR8-lS-ut8" firstAttribute="top" secondItem="qA6-Yw-PCE" secondAttribute="bottom" constant="85" id="ARb-Lh-huN"/>
                             <constraint firstItem="Prt-ao-cru" firstAttribute="height" secondItem="qA6-Yw-PCE" secondAttribute="height" id="G5J-Ff-Ntk"/>
                             <constraint firstItem="VHX-nt-Pks" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.08" id="HYF-ah-4PT"/>
                             <constraint firstItem="qA6-Yw-PCE" firstAttribute="top" secondItem="AAA-if-6KM" secondAttribute="bottom" id="Kne-LK-RfK"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xnz-BO-Yh2" secondAttribute="bottom" constant="45" id="Mjc-bd-rs5"/>
                             <constraint firstItem="mfI-Wr-pxt" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.4" id="Of7-m9-kMh"/>
                             <constraint firstItem="AAA-if-6KM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Pn0-ii-Cpe"/>
                             <constraint firstItem="VHX-nt-Pks" firstAttribute="top" secondItem="WR8-lS-ut8" secondAttribute="bottom" constant="8" id="Qn4-x0-Baq"/>
                             <constraint firstItem="VHX-nt-Pks" firstAttribute="top" secondItem="kb1-VP-wYT" secondAttribute="bottom" constant="8" id="Swg-rA-ATh"/>
-                            <constraint firstAttribute="trailing" secondItem="kb1-VP-wYT" secondAttribute="trailing" id="V6i-nu-pha"/>
+                            <constraint firstAttribute="trailing" secondItem="WR8-lS-ut8" secondAttribute="trailing" id="UzT-5B-kou"/>
+                            <constraint firstItem="xnz-BO-Yh2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VeK-dp-NKX"/>
                             <constraint firstItem="AAA-if-6KM" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="Xto-Xo-k2g"/>
                             <constraint firstItem="kb1-VP-wYT" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.49" id="Ya7-PX-rv8"/>
                             <constraint firstItem="kb1-VP-wYT" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.07" id="Yrg-OS-YPa"/>
@@ -97,15 +111,20 @@
                             <constraint firstItem="Prt-ao-cru" firstAttribute="top" secondItem="qA6-Yw-PCE" secondAttribute="top" id="fez-sJ-mqT"/>
                             <constraint firstItem="VHX-nt-Pks" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gtZ-gf-7Af"/>
                             <constraint firstItem="AAA-if-6KM" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.17" id="hXp-DR-jac"/>
+                            <constraint firstItem="xnz-BO-Yh2" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.09" id="hYZ-f7-xuO"/>
                             <constraint firstItem="Prt-ao-cru" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hoZ-Ed-Ken"/>
                             <constraint firstItem="WR8-lS-ut8" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.49" id="i1I-X3-hhG"/>
                             <constraint firstItem="qA6-Yw-PCE" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="kir-1V-oY2"/>
+                            <constraint firstItem="xnz-BO-Yh2" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="neN-Ai-6Uy"/>
                             <constraint firstItem="Prt-ao-cru" firstAttribute="width" secondItem="qA6-Yw-PCE" secondAttribute="width" id="oYo-2g-9GT"/>
-                            <constraint firstItem="WR8-lS-ut8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zky-Fs-xhF"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bigChoose" destination="xnz-BO-Yh2" id="Us5-sF-Q2A"/>
+                        <outlet property="frameButton" destination="WR8-lS-ut8" id="fAI-2g-Obb"/>
+                        <outlet property="imageButton" destination="kb1-VP-wYT" id="XMp-pv-8Ef"/>
                         <outlet property="noImageHolder" destination="mfI-Wr-pxt" id="vTQ-SN-TKu"/>
+                        <outlet property="saveButton" destination="VHX-nt-Pks" id="wrt-QF-PqV"/>
                         <outlet property="sciFrame" destination="Prt-ao-cru" id="sei-9O-zeF"/>
                         <outlet property="scrollView" destination="qA6-Yw-PCE" id="MXE-pZ-N4W"/>
                         <outlet property="textView" destination="AAA-if-6KM" id="5M8-NZ-C5r"/>
