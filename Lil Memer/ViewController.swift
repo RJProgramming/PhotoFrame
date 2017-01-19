@@ -40,15 +40,17 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
      
-        textView.contentInset = UIEdgeInsetsMake(-5,0,0,-5)
-        //changed font from helvetica to courier a mono spaced font (all characters not take same space)
-        
+    
+       //these font sizes along with screen width and writing the string at size 15 seems to line everything up nicely.
         if screenWidth == Constants.iPhoneElseWidth{
             textView.font = UIFont(name: "Courier", size: 15)
+            textView.textContainerInset = UIEdgeInsetsMake(5.0, 0.0, 0.0, 0.0)
         }else if screenWidth == Constants.iPhone6Width{
             textView.font = UIFont(name: "Courier", size: 17)
+            textView.textContainerInset = UIEdgeInsetsMake(5.0, 0.0, 0.0, 0.0)
         }else if screenWidth >= Constants.iPhone6PlusWidth{
             textView.font = UIFont(name: "Courier", size: 19)
+            textView.textContainerInset = UIEdgeInsetsMake(5.0, 0.0, 0.0, 0.0)
         }
         
         // place holder text for textview
@@ -230,20 +232,21 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let textColor = UIColor.black
         let screenWidth = screenSize.width
         var textFont = UIFont(name: "Courier", size: 15)
-
+       // I thoght I neede different sized string fonts to make the saved image line up correctly. it seems i dont but im going
+       // to leave it there just in case i find another bug with it.
         if screenWidth == Constants.iPhoneElseWidth{
             textFont = UIFont(name: "Courier", size: 15)
         }else if screenWidth == Constants.iPhone6Width{
-            textFont = UIFont(name: "Courier", size: 17)
+            textFont = UIFont(name: "Courier", size: 15)
         }else if screenWidth >= Constants.iPhone6PlusWidth{
-            textFont = UIFont(name: "Courier", size: 19)
+            textFont = UIFont(name: "Courier", size: 15)
         }
         
         //let textFont = UIFont(name: "Courier", size: 15)!
         let textFontAttributes = [NSFontAttributeName: textFont!,NSForegroundColorAttributeName: textColor] as [String : Any]
         
         //-10 to .width to line up the drawn text to the actual typed textview
-        let rect = CGRect(x: offset.x + 5, y: (offset.y + 5 - (screenHeight * 0.17)), width: scrollView.bounds.size.width - 10, height: scrollView.bounds.size.height)
+        let rect = CGRect(x: offset.x, y: (offset.y + 5 - (screenHeight * 0.17)), width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
         
         textView.text.draw(in: rect, withAttributes: textFontAttributes)
        
