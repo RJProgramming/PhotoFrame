@@ -149,6 +149,9 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         centerScrollViewContents()
         
+        textView.text = ""
+        textViewDidBeginEditing(textView)
+        textViewDidEndEditing(textView)
         bigChoose.isHidden = true
         frameButton.isHidden = false
         saveButton.isHidden = false
@@ -258,11 +261,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             present(vc, animated: true)
         }
         
-        //UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
-        
-//    let alert = UIAlertController(title: "Image Saved", message: "your image has been saved", preferredStyle: .alert)
-//        self.present(alert, animated: true, completion: nil)
-//        alert.addAction(UIAlertAction(title: "Neat", style: .default, handler: nil))
+     
     }
     
     @IBAction func ChooseImage(_ sender: Any) {
