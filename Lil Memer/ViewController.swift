@@ -22,9 +22,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     
     let screenSize: CGRect = UIScreen.main.bounds
     
+    
     var currentFrame: Int = 1
     var imageView = UIImageView()
     var image: UIImage!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +38,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         imageView.frame = CGRect(x: 0, y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height)
         imageView.isUserInteractionEnabled = true
         scrollView.addSubview(imageView)
-    
+        //imageView.tintColor = UIColor.red
+        
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
      
@@ -197,8 +200,10 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let offset = scrollView.contentOffset
         let screenHeight = screenSize.height
         
+        
+        //added -1 to get rid of a black line tht only appeared with zoomed out images and textview
         let normalSize = CGSize(width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
-        let textViewWithImageSize = CGSize(width: scrollView.bounds.size.width, height: ((screenHeight * 0.17) + scrollView.bounds.size.height))
+        let textViewWithImageSize = CGSize(width: scrollView.bounds.size.width, height: ((screenHeight * 0.17) + scrollView.bounds.size.height - 1))
         var yPos: Int = Int(-offset.y)
         
         //if textView is active or not and the different y position for saved image to include the textview if it is active
