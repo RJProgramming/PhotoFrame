@@ -14,6 +14,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var noImageHolder: UIImageView!
     @IBOutlet weak var sciFrame: UIImageView!
+    @IBOutlet weak var youtubeFrame: UIImageView!
+    @IBOutlet weak var youtubeTitle: UITextField!
     
     @IBOutlet weak var imageButton: UIButton!
     @IBOutlet weak var bigChoose: UIButton!
