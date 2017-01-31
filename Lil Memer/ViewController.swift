@@ -75,14 +75,15 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let newLength = text.characters.count + string.characters.count - range.length
         return newLength <= limitLength
     }
-    
+    //allows view to move when keyboard comes out for textfield pt1
     func textFieldDidBeginEditing(_ youtubeTitle: UITextField) {
         animateViewMoving(up: true, moveValue: 100)
     }
+    //allows view to move when keyboard comes out for textfield pt2
     func textFieldDidEndEditing(_ youtubeTitle: UITextField) {
         animateViewMoving(up: false, moveValue: 100)
     }
-    
+    //allows view to move when keyboard comes out for textfield pt3
     func animateViewMoving (up:Bool, moveValue :CGFloat){
         let movementDuration:TimeInterval = 0.3
         let movement:CGFloat = ( up ? -moveValue : moveValue)
@@ -104,16 +105,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         static let iPhoneElseWidth = CGFloat(320)
         
     }
-    
-    func keyboardWasShown(notification: NSNotification) {
-        let info = notification.userInfo!
-        let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         
-        UIView.animate(withDuration: 0.1, animations: { () -> Void in
-            self.youtubeLabel.constant = keyboardFrame.size.height + 100
-        })
-    }
-    
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
