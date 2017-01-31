@@ -69,11 +69,28 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         scrollView.isHidden = true
 
     }
-    
+    //limits youtube textfield characters so it doesnt scroll
     func textField(_ youtubeTitle: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = youtubeTitle.text else { return true }
         let newLength = text.characters.count + string.characters.count - range.length
         return newLength <= limitLength
+    }
+    
+    func textFieldDidBeginEditing(_ youtubeTitle: UITextField) {
+        animateViewMoving(up: true, moveValue: 100)
+    }
+    func textFieldDidEndEditing(_ youtubeTitle: UITextField) {
+        animateViewMoving(up: false, moveValue: 100)
+    }
+    
+    func animateViewMoving (up:Bool, moveValue :CGFloat){
+        let movementDuration:TimeInterval = 0.3
+        let movement:CGFloat = ( up ? -moveValue : moveValue)
+        UIView.beginAnimations( "animateView", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(movementDuration )
+        self.view.frame = self.view.frame.offsetBy(dx: 0,  dy: movement)
+        UIView.commitAnimations()
     }
     
     func applicationDidReceiveMemoryWarning(application: UIApplication) {
@@ -87,7 +104,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         static let iPhoneElseWidth = CGFloat(320)
         
     }
-    //limits youtube textfield characters so it doesnt scroll
+    
     func keyboardWasShown(notification: NSNotification) {
         let info = notification.userInfo!
         let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
