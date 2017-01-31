@@ -24,7 +24,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBOutlet weak var frameButton: UIButton!
     
     let screenSize: CGRect = UIScreen.main.bounds
-    let limitLength = 25
+    let limitLength = 39
     
     var number: CGFloat = 0
     var currentFrame: Int = 1
@@ -34,7 +34,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textView.delegate = self
+        //textView.delegate = self
+        youtubeTitle.delegate = self
         
         let screenWidth = screenSize.width
         scrollView.delegate = self
@@ -69,7 +70,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
 
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    func textField(_ youtubeTitle: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = youtubeTitle.text else { return true }
         let newLength = text.characters.count + string.characters.count - range.length
         return newLength <= limitLength
@@ -86,7 +87,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         static let iPhoneElseWidth = CGFloat(320)
         
     }
-    
+    //limits youtube textfield characters so it doesnt scroll
     func keyboardWasShown(notification: NSNotification) {
         let info = notification.userInfo!
         let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
