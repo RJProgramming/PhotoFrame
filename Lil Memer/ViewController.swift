@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
+class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var textView: UITextView!
@@ -16,6 +16,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBOutlet weak var sciFrame: UIImageView!
     @IBOutlet weak var youtubeFrame: UIImageView!
     @IBOutlet weak var youtubeTitle: UITextField!
+    @IBOutlet weak var youtubeLabel: NSLayoutConstraint!
     
     @IBOutlet weak var imageButton: UIButton!
     @IBOutlet weak var bigChoose: UIButton!
@@ -23,8 +24,9 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBOutlet weak var frameButton: UIButton!
     
     let screenSize: CGRect = UIScreen.main.bounds
+    let limitLength = 25
     
-    
+    var number: CGFloat = 0
     var currentFrame: Int = 1
     var imageView = UIImageView()
     var image: UIImage!
@@ -32,7 +34,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        textView.delegate = self
         
         let screenWidth = screenSize.width
         scrollView.delegate = self
@@ -67,6 +69,12 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
 
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = youtubeTitle.text else { return true }
+        let newLength = text.characters.count + string.characters.count - range.length
+        return newLength <= limitLength
+    }
+    
     func applicationDidReceiveMemoryWarning(application: UIApplication) {
         URLCache.shared.removeAllCachedResponses()
     }
@@ -77,6 +85,15 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         static let iPhone6PlusWidth = CGFloat(414)
         static let iPhoneElseWidth = CGFloat(320)
         
+    }
+    
+    func keyboardWasShown(notification: NSNotification) {
+        let info = notification.userInfo!
+        let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        
+        UIView.animate(withDuration: 0.1, animations: { () -> Void in
+            self.youtubeLabel.constant = keyboardFrame.size.height + 100
+        })
     }
     
     func dismissKeyboard() {
@@ -206,6 +223,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         //added -1 to get rid of a black line tht only appeared with zoomed out images and textview
         let normalSize = CGSize(width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
         let textViewWithImageSize = CGSize(width: scrollView.bounds.size.width, height: ((screenHeight * 0.17) + scrollView.bounds.size.height - 1))
+        let youtubeFrameImageSize = CGSize(width: scrollView.bounds.size.width, height: ((screenHeight * 0.15) + scrollView.bounds.size.height - 36))
         var yPos: Int = Int(-offset.y)
         
         //if textView is active or not and the different y position for saved image to include the textview if it is active
@@ -237,9 +255,9 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             UIGraphicsGetCurrentContext()!.translateBy(x: offset.x, y: offset.y)
             sciFrame.layer.render(in: UIGraphicsGetCurrentContext()!)
         }
-       
         
-        let textColor = UIColor.black
+       
+        var textColor = UIColor.black
         let screenWidth = screenSize.width
         var textFont = UIFont(name: "Courier", size: 15)
        // I thoght I neede different sized string fonts to make the saved image line up correctly. it seems i dont but im going
@@ -259,6 +277,34 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let rect = CGRect(x: offset.x, y: (offset.y + 5 - (screenHeight * 0.17)), width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
         
         textView.text.draw(in: rect, withAttributes: textFontAttributes)
+        
+        if youtubeFrame.isHidden == false{
+           
+            UIGraphicsBeginImageContextWithOptions(youtubeFrameImageSize, true, UIScreen.main.scale)
+            
+            UIGraphicsGetCurrentContext()!.translateBy(x: -offset.x, y: -offset.y)
+            scrollView.layer.render(in: UIGraphicsGetCurrentContext()!)
+            
+         if screenWidth == Constants.iPhoneElseWidth{
+            number = 2.26
+        }else if screenWidth == Constants.iPhone6Width{
+            number = 2.33
+        }else if screenWidth >= Constants.iPhone6PlusWidth{
+            number = 2.35
+        }
+        
+            //2.33 iphone 6 , 2.35 6+, 2.26 iphone 5
+           
+            UIGraphicsGetCurrentContext()!.translateBy(x: offset.x, y: offset.y + ((screenHeight * 0.15) * number))
+            youtubeFrame.layer.render(in: UIGraphicsGetCurrentContext()!)
+            textColor = UIColor.red
+            textFont = UIFont(name: "Arial", size: 12)
+            let labelRect = CGRect(x: 5, y: 35, width: youtubeFrame.bounds.size.width, height: youtubeFrame.bounds.size.height)
+            youtubeTitle.text?.draw(in: labelRect, withAttributes: nil)
+            
+            
+            
+        }
        
         image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -288,6 +334,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             
             textView.isHidden = true
             sciFrame.isHidden = true
+            youtubeFrame.isHidden = true
+            youtubeTitle.isHidden = true
         case 1:
             //textView
             textViewDidBeginEditing(textView)
@@ -302,11 +350,17 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             sciFrame.isHidden = false
         case 3:
             sciFrame.image = UIImage(named: "fbFrame")
+            
+        case 4:
+            textView.isHidden = true
+            sciFrame.isHidden = true
+            youtubeFrame.isHidden = false
+            youtubeTitle.isHidden = false
           default:
             break
         }
         currentFrame += 1
-        if currentFrame > 3 {
+        if currentFrame > 4 {
             currentFrame = 0
         }
 }
