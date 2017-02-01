@@ -315,7 +315,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             youtubeFrame.layer.render(in: UIGraphicsGetCurrentContext()!)
             textColor = UIColor.red
             textFont = UIFont(name: "Arial", size: 12)
-            let labelRect = CGRect(x: 5, y: 35, width: youtubeFrame.bounds.size.width, height: youtubeFrame.bounds.size.height)
+            let labelRect = CGRect(x: 5, y: (self.youtubeLabel.constant * -1), width: youtubeFrame.bounds.size.width, height: youtubeFrame.bounds.size.height)
             youtubeTitle.text?.draw(in: labelRect, withAttributes: nil)
             
             
