@@ -310,6 +310,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             
          if screenWidth == Constants.iPhoneElseWidth{
             number = 2.26
+            
+            if screenHeight == Constants.iPhone4Height{
+                number = 2.04
+            }
+            
         }else if screenWidth == Constants.iPhone6Width{
             number = 2.33
         }else if screenWidth >= Constants.iPhone6PlusWidth{
