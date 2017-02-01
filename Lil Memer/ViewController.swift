@@ -275,12 +275,13 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         if sciFrame.isHidden == false{
         
+            //the offsets put the frame right over the image regardless off how the image is zoomed
             UIGraphicsGetCurrentContext()!.translateBy(x: offset.x, y: offset.y)
             sciFrame.layer.render(in: UIGraphicsGetCurrentContext()!)
         }
         
        
-        var textColor = UIColor.black
+        let textColor = UIColor.black
         let screenWidth = screenSize.width
         var textFont = UIFont(name: "Courier", size: 15)
        // I thoght I neede different sized string fonts to make the saved image line up correctly. it seems i dont but im going
@@ -303,11 +304,13 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         if youtubeFrame.isHidden == false{
            
+            //using graphics context extended for youtube frame
             UIGraphicsBeginImageContextWithOptions(youtubeFrameImageSize, true, UIScreen.main.scale)
             
             UIGraphicsGetCurrentContext()!.translateBy(x: -offset.x, y: -offset.y)
             scrollView.layer.render(in: UIGraphicsGetCurrentContext()!)
             
+         //   number allows different screen sizes to export youtube frame properly
          if screenWidth == Constants.iPhoneElseWidth{
             number = 2.26
             
@@ -320,17 +323,12 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         }else if screenWidth >= Constants.iPhone6PlusWidth{
             number = 2.35
         }
-        
-            //2.33 iphone 6 , 2.35 6+, 2.26 iphone 5
            
             UIGraphicsGetCurrentContext()!.translateBy(x: offset.x, y: offset.y + ((screenHeight * 0.15) * number))
             youtubeFrame.layer.render(in: UIGraphicsGetCurrentContext()!)
-            textColor = UIColor.red
-            textFont = UIFont(name: "Arial", size: 12)
+            textFont = UIFont(name: "menlo", size: 12)
             let labelRect = CGRect(x: 5, y: (self.youtubeLabel.constant * -1), width: youtubeFrame.bounds.size.width, height: youtubeFrame.bounds.size.height)
             youtubeTitle.text?.draw(in: labelRect, withAttributes: nil)
-            
-            
             
         }
        
@@ -338,6 +336,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         UIGraphicsEndImageContext()
         
         if  image != nil {
+            //brings out the share menu
             let vc = UIActivityViewController(activityItems: [image], applicationActivities: [])
             present(vc, animated: true)
         }
