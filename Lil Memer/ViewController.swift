@@ -18,6 +18,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBOutlet weak var youtubeTitle: UITextField!
     @IBOutlet weak var youtubeLabel: NSLayoutConstraint!
     
+    @IBOutlet weak var youtubeFrameWidth: NSLayoutConstraint!
     @IBOutlet weak var imageButton: UIButton!
     @IBOutlet weak var bigChoose: UIButton!
     @IBOutlet weak var saveButton: UIButton!
@@ -39,6 +40,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         youtubeTitle.delegate = self
         
         let screenWidth = screenSize.width
+        let screenHeight = screenSize.height
         scrollView.delegate = self
         
         imageView.frame = CGRect(x: 0, y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height)
@@ -55,6 +57,10 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             textView.textContainerInset = UIEdgeInsetsMake(5.0, 0.0, 0.0, 0.0)
             limitLength = 34
             self.youtubeLabel.constant = -30
+            if screenHeight == Constants.iPhone4Height{
+                self.youtubeFrameWidth.constant = 10
+        }
+            
         }else if screenWidth == Constants.iPhone6Width{
             textView.font = UIFont(name: "Courier", size: 17)
             textView.textContainerInset = UIEdgeInsetsMake(5.0, 0.0, 0.0, 0.0)
@@ -108,6 +114,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         static let iPhone6Width = CGFloat(375)
         static let iPhone6PlusWidth = CGFloat(414)
         static let iPhoneElseWidth = CGFloat(320)
+        static let iPhone4Height = CGFloat(480)
         
     }
         
