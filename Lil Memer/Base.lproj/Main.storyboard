@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,11 +18,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHX-nt-Pks">
-                                <rect key="frame" x="0.0" y="603.5" width="375" height="53.5"/>
+                                <rect key="frame" x="0.0" y="512.5" width="320" height="45.5"/>
                                 <color key="backgroundColor" red="0.019607843137254902" green="0.55686274509803924" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="35"/>
                                 <state key="normal" title="Share">
@@ -33,7 +33,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kb1-VP-wYT">
-                                <rect key="frame" x="0.0" y="549" width="184" height="46.5"/>
+                                <rect key="frame" x="0.0" y="465" width="157" height="39.5"/>
                                 <color key="backgroundColor" red="0.080115370450000001" green="0.83893996479999999" blue="0.60622608659999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="22"/>
                                 <state key="normal" title="Image">
@@ -44,7 +44,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WR8-lS-ut8">
-                                <rect key="frame" x="191.5" y="549" width="183.5" height="46.5"/>
+                                <rect key="frame" x="163" y="465" width="157" height="39.5"/>
                                 <color key="backgroundColor" red="0.91908890009999999" green="0.32079043979999999" blue="0.6048700213" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="22"/>
                                 <state key="normal" title="Frame">
@@ -55,23 +55,23 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qA6-Yw-PCE">
-                                <rect key="frame" x="19" y="187" width="337.5" height="267"/>
+                                <rect key="frame" x="16" y="142.5" width="288" height="227.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </scrollView>
                             <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AAA-if-6KM">
-                                <rect key="frame" x="19" y="74" width="337.5" height="113"/>
+                                <rect key="frame" x="16" y="46" width="288" height="96.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
                             </textView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageviewnoimageSHARE" translatesAutoresizingMaskIntoConstraints="NO" id="mfI-Wr-pxt">
-                                <rect key="frame" x="19" y="187" width="337.5" height="267"/>
+                                <rect key="frame" x="16" y="142.5" width="288" height="227.5"/>
                             </imageView>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Prt-ao-cru">
-                                <rect key="frame" x="19" y="187" width="337.5" height="267"/>
+                                <rect key="frame" x="16" y="142.5" width="288" height="227.5"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xnz-BO-Yh2">
-                                <rect key="frame" x="0.0" y="572" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="482" width="320" height="51"/>
                                 <color key="backgroundColor" red="0.080115370450000001" green="0.83893996479999999" blue="0.60622608659999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="30"/>
                                 <state key="normal" title="Choose Image">
@@ -82,10 +82,10 @@
                                 </connections>
                             </button>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="youtubeframenoPlay#3x" translatesAutoresizingMaskIntoConstraints="NO" id="ReZ-Il-OMa">
-                                <rect key="frame" x="19" y="419" width="337.5" height="100"/>
+                                <rect key="frame" x="16" y="335" width="288" height="85"/>
                             </imageView>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tap here to enter text" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="uif-c2-2Ea">
-                                <rect key="frame" x="29" y="454" width="293.5" height="14"/>
+                                <rect key="frame" x="26" y="370" width="251.5" height="14"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert"/>

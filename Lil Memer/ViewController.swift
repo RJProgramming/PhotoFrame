@@ -35,6 +35,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     override func viewDidLoad() {
         super.viewDidLoad()
         //textView.delegate = self
+        //sets the delegate for the textfield
         youtubeTitle.delegate = self
         
         let screenWidth = screenSize.width
@@ -43,7 +44,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         imageView.frame = CGRect(x: 0, y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height)
         imageView.isUserInteractionEnabled = true
         scrollView.addSubview(imageView)
-        //imageView.tintColor = UIColor.red
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -54,6 +54,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             textView.font = UIFont(name: "Courier", size: 15)
             textView.textContainerInset = UIEdgeInsetsMake(5.0, 0.0, 0.0, 0.0)
             limitLength = 34
+            self.youtubeLabel.constant = -30
         }else if screenWidth == Constants.iPhone6Width{
             textView.font = UIFont(name: "Courier", size: 17)
             textView.textContainerInset = UIEdgeInsetsMake(5.0, 0.0, 0.0, 0.0)
@@ -62,6 +63,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             textView.font = UIFont(name: "Courier", size: 19)
             textView.textContainerInset = UIEdgeInsetsMake(5.0, 0.0, 0.0, 0.0)
             limitLength = 44
+            self.youtubeLabel.constant = -40
         }
         
         // place holder text for textview
@@ -130,14 +132,14 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         }
     }
 
-    // part 1 of calcing string length to limit text view to 4 lines
+    // part 1 of calcing string length to limit text view lines
     func sizeOfString (string: String, constrainedToWidth width: Double, font: UIFont) -> CGSize {
         return (string as NSString).boundingRect(with: CGSize(width: width, height: DBL_MAX),
                                                  options: NSStringDrawingOptions.usesLineFragmentOrigin,
                                                  attributes: [NSFontAttributeName: font],
                                                  context: nil).size
     }
-    //part 2 of calcing string length to keep textview at 4 lines
+    //part 2 of calcing string length to keep textview at certain number of lines
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool{
         let screenWidth = screenSize.width
         
@@ -184,6 +186,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         centerScrollViewContents()
         
+        youtubeTitle.text = ""
         textView.text = ""
         textViewDidBeginEditing(textView)
         textViewDidEndEditing(textView)
