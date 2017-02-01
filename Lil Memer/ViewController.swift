@@ -24,7 +24,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBOutlet weak var frameButton: UIButton!
     
     let screenSize: CGRect = UIScreen.main.bounds
-    let limitLength = 39
+    var limitLength = 39
     
     var number: CGFloat = 0
     var currentFrame: Int = 1
@@ -53,12 +53,15 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         if screenWidth == Constants.iPhoneElseWidth{
             textView.font = UIFont(name: "Courier", size: 15)
             textView.textContainerInset = UIEdgeInsetsMake(5.0, 0.0, 0.0, 0.0)
+            limitLength = 34
         }else if screenWidth == Constants.iPhone6Width{
             textView.font = UIFont(name: "Courier", size: 17)
             textView.textContainerInset = UIEdgeInsetsMake(5.0, 0.0, 0.0, 0.0)
+            limitLength = 40
         }else if screenWidth >= Constants.iPhone6PlusWidth{
             textView.font = UIFont(name: "Courier", size: 19)
             textView.textContainerInset = UIEdgeInsetsMake(5.0, 0.0, 0.0, 0.0)
+            limitLength = 44
         }
         
         // place holder text for textview
