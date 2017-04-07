@@ -55,7 +55,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
        //these font sizes along with screen width and writing the string at size 15 seems to line everything up nicely.
         if screenWidth == Constants.iPhoneElseWidth{
             textView.font = UIFont(name: "Courier", size: 15)
-            textView.textContainerInset = UIEdgeInsetsMake(5.0, 0.0, 0.0, 0.0)
+            textView.textContainerInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
             limitLength = 32
             self.youtubeLabel.constant = -25
             if screenHeight == Constants.iPhone4Height{
@@ -64,12 +64,12 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             
         }else if screenWidth == Constants.iPhone6Width{
             textView.font = UIFont(name: "Courier", size: 17)
-            textView.textContainerInset = UIEdgeInsetsMake(5.0, 0.0, 0.0, 0.0)
+            textView.textContainerInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
             limitLength = 36
             self.youtubeLabel.constant = -30
         }else if screenWidth >= Constants.iPhone6PlusWidth{
             textView.font = UIFont(name: "Courier", size: 19)
-            textView.textContainerInset = UIEdgeInsetsMake(5.0, 0.0, 0.0, 0.0)
+            textView.textContainerInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
             limitLength = 40
             self.youtubeLabel.constant = -35
         }
