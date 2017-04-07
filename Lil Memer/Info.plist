@@ -9,7 +9,7 @@
 		<string>Roboto-Regular.ttf</string>
 	</array>
 	<key>CFBundleDisplayName</key>
-	<string>Lil Memer</string>
+	<string>Dank Meme</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
