@@ -31,6 +31,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     var currentFrame: Int = 1
     var imageView = UIImageView()
     var image: UIImage!
+    var font: UIFont?
     
     
     override func viewDidLoad() {
@@ -55,8 +56,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         if screenWidth == Constants.iPhoneElseWidth{
             textView.font = UIFont(name: "Courier", size: 15)
             textView.textContainerInset = UIEdgeInsetsMake(5.0, 0.0, 0.0, 0.0)
-            limitLength = 34
-            self.youtubeLabel.constant = -30
+            limitLength = 32
+            self.youtubeLabel.constant = -25
             if screenHeight == Constants.iPhone4Height{
                 self.youtubeFrameWidth.constant = 10
         }
@@ -64,12 +65,13 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         }else if screenWidth == Constants.iPhone6Width{
             textView.font = UIFont(name: "Courier", size: 17)
             textView.textContainerInset = UIEdgeInsetsMake(5.0, 0.0, 0.0, 0.0)
-            limitLength = 40
+            limitLength = 36
+            self.youtubeLabel.constant = -30
         }else if screenWidth >= Constants.iPhone6PlusWidth{
             textView.font = UIFont(name: "Courier", size: 19)
             textView.textContainerInset = UIEdgeInsetsMake(5.0, 0.0, 0.0, 0.0)
-            limitLength = 44
-            self.youtubeLabel.constant = -40
+            limitLength = 40
+            self.youtubeLabel.constant = -35
         }
         
         // place holder text for textview
@@ -141,7 +143,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
 
     // part 1 of calcing string length to limit text view lines
     func sizeOfString (string: String, constrainedToWidth width: Double, font: UIFont) -> CGSize {
-        return (string as NSString).boundingRect(with: CGSize(width: width, height: DBL_MAX),
+        return (string as NSString).boundingRect(with: CGSize(width: width, height: Double.greatestFiniteMagnitude),
                                                  options: NSStringDrawingOptions.usesLineFragmentOrigin,
                                                  attributes: [NSFontAttributeName: font],
                                                  context: nil).size
@@ -323,12 +325,16 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         }else if screenWidth >= Constants.iPhone6PlusWidth{
             number = 2.35
         }
+            
+
+            //adds correct font on youtube title output
+            let myAttribute = [ NSFontAttributeName: UIFont(name: "Roboto", size: 12.0)!]
            
             UIGraphicsGetCurrentContext()!.translateBy(x: offset.x, y: offset.y + ((screenHeight * 0.15) * number))
             youtubeFrame.layer.render(in: UIGraphicsGetCurrentContext()!)
-            textFont = UIFont(name: "menlo", size: 12)
+            youtubeTitle.font = UIFont(name: "Roboto-Regular", size: 12)
             let labelRect = CGRect(x: 5, y: (self.youtubeLabel.constant * -1), width: youtubeFrame.bounds.size.width, height: youtubeFrame.bounds.size.height)
-            youtubeTitle.text?.draw(in: labelRect, withAttributes: nil)
+            youtubeTitle.text?.draw(in: labelRect, withAttributes: myAttribute)
             
         }
        
