@@ -34,6 +34,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     var font: UIFont?
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //textView.delegate = self
@@ -135,7 +136,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     //placeholder text for textview pt 2
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.font = UIFont(name: "Courier", size: 15)
+            //textView.font = UIFont(name: "Courier", size: 15)
             textView.text = "Tap here to enter text"
             textView.textColor = UIColor.lightGray
         }
@@ -291,9 +292,9 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         if screenWidth == Constants.iPhoneElseWidth{
             textFont = UIFont(name: "Courier", size: 15)
         }else if screenWidth == Constants.iPhone6Width{
-            textFont = UIFont(name: "Courier", size: 15)
+            textFont = UIFont(name: "Courier", size: 17)
         }else if screenWidth >= Constants.iPhone6PlusWidth{
-            textFont = UIFont(name: "Courier", size: 15)
+            textFont = UIFont(name: "Courier", size: 19)
         }
         
         //let textFont = UIFont(name: "Courier", size: 15)!
