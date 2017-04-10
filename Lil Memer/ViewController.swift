@@ -19,6 +19,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBOutlet weak var youtubeLabel: NSLayoutConstraint!
     
     @IBOutlet weak var youtubeFrameWidth: NSLayoutConstraint!
+    
     @IBOutlet weak var imageButton: UIButton!
     @IBOutlet weak var bigChoose: UIButton!
     @IBOutlet weak var saveButton: UIButton!
@@ -60,8 +61,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             limitLength = 32
             self.youtubeLabel.constant = -25
             if screenHeight == Constants.iPhone4Height{
-                self.youtubeFrameWidth.constant = 10
-                self.youtubeLabel.constant = -18
+                self.youtubeFrameWidth.constant = 12
+                self.youtubeLabel.constant = -22
         }
             
         }else if screenWidth == Constants.iPhone6Width{
@@ -319,7 +320,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             number = 2.26
             
             if screenHeight == Constants.iPhone4Height{
-                number = 2.04
+                number = 2
             }
             
         }else if screenWidth == Constants.iPhone6Width{
