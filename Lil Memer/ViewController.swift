@@ -61,6 +61,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             self.youtubeLabel.constant = -25
             if screenHeight == Constants.iPhone4Height{
                 self.youtubeFrameWidth.constant = 10
+                self.youtubeLabel.constant = -18
         }
             
         }else if screenWidth == Constants.iPhone6Width{
