@@ -348,6 +348,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             //brings out the share menu
             let vc = UIActivityViewController(activityItems: [image], applicationActivities: [])
             present(vc, animated: true)
+            
         }
         
      
