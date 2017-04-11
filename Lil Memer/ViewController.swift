@@ -240,6 +240,26 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         return imageView
     }
     
+    
+    @IBAction func filterButton(_ sender: Any) {
+        
+        guard let image = self.imageView.image?.cgImage else { return }
+        
+        let openGLContext = EAGLContext(api: .openGLES3)
+        let context = CIContext(eaglContext: openGLContext!)
+        
+        let ciImage = CIImage(cgImage: image)
+        
+        let filter = CIFilter(name: "CISepiaTone")
+        filter?.setValue(ciImage, forKey: kCIInputImageKey)
+        filter?.setValue(1, forKey: kCIInputIntensityKey)
+        
+        if let output = filter?.value(forKey: kCIOutputImageKey) as? CIImage{
+            self.imageView.image = UIImage(cgImage: context.createCGImage(output, from: output.extent)!)
+        }
+        
+    }
+    
 
     @IBAction func save(_ sender: Any) {
          guard image != nil else { return }
