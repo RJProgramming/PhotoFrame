@@ -280,8 +280,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         filter?.setValue(ciImage, forKey: kCIInputImageKey)
         filter?.setValue((CIVector(x: xCord, y: yCord)), forKey: kCIInputCenterKey)
-        filter?.setValue(300.0, forKey: kCIInputRadiusKey)
-        filter?.setValue(2.50, forKey: kCIInputScaleKey)
+        filter?.setValue(500.0, forKey: kCIInputRadiusKey)
+        filter?.setValue(0.50, forKey: kCIInputScaleKey)
         
         centerScrollViewContents()
         
