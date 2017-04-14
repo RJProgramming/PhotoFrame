@@ -97,6 +97,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     func didTapImage(gesture: UIGestureRecognizer) {
         let point = gesture.location(in: gesture.view)
         print(point)
+        
+        let xCord = point.x
+        let yCord = point.y
+        
+        print ("\(point) and x\(xCord) and \(yCord)")
     }
     
     //limits youtube textfield characters so it doesnt scroll
