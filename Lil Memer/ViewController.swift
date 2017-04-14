@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreImage
 
 class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
 
@@ -33,11 +34,15 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     var imageView = UIImageView()
     var image: UIImage!
     var font: UIFont?
+
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
         //textView.delegate = self
         //sets the delegate for the textfield
         youtubeTitle.delegate = self
@@ -52,6 +57,9 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
+        
+        let imageTouch: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.didTapImage))
+        imageView.addGestureRecognizer(imageTouch)
      
     
        //these font sizes along with screen width and writing the string at size 15 seems to line everything up nicely.
@@ -85,6 +93,12 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         scrollView.isHidden = true
 
     }
+    
+    func didTapImage(gesture: UIGestureRecognizer) {
+        let point = gesture.location(in: gesture.view)
+        print(point)
+    }
+    
     //limits youtube textfield characters so it doesnt scroll
     func textField(_ youtubeTitle: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = youtubeTitle.text else { return true }
@@ -210,6 +224,10 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         picker.dismiss(animated: true, completion: nil)
         
     }
+   
+   
+    
+    
     
     func centerScrollViewContents(){
        
@@ -241,17 +259,26 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     }
     
    
+    
+   
     @IBAction func filter(_ sender: Any) {
         
         guard let image = self.imageView.image?.cgImage else { return }
+        
+        let screenWidth = screenSize.width
+        let screenHeight = screenSize.height
         
         let openGLContext = EAGLContext(api: .openGLES3)
         let context = CIContext(eaglContext: openGLContext!)
         let ciImage = CIImage(cgImage: image)
         
-        let filter = CIFilter(name: "CISepiaTone")
+        let filter = CIFilter(name: "CIBumpDistortion")
+        
         filter?.setValue(ciImage, forKey: kCIInputImageKey)
-        filter?.setValue(1, forKey: kCIInputIntensityKey)
+        filter?.setValue((CIVector(x: screenWidth/2 , y: screenHeight/3)), forKey: kCIInputCenterKey)
+        filter?.setValue(300.0, forKey: kCIInputRadiusKey)
+        filter?.setValue(2.50, forKey: kCIInputScaleKey)
+        
         
         if let output = filter?.value(forKey: kCIOutputImageKey) as? CIImage{
             self.imageView.image = UIImage(cgImage: context.createCGImage(output, from: output.extent)!)
