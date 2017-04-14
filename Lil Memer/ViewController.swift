@@ -27,8 +27,10 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBOutlet weak var frameButton: UIButton!
     
     let screenSize: CGRect = UIScreen.main.bounds
-    var limitLength = 39
+    var xCord:CGFloat = 0.0
+    var yCord:CGFloat = 0.0
     
+    var limitLength = 39
     var number: CGFloat = 0
     var currentFrame: Int = 1
     var imageView = UIImageView()
@@ -98,8 +100,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let point = gesture.location(in: gesture.view)
         print(point)
         
-        let xCord = point.x
-        let yCord = point.y
+        xCord = point.x
+        yCord = point.y
         
         print ("\(point) and x\(xCord) and \(yCord)")
     }
@@ -270,9 +272,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         guard let image = self.imageView.image?.cgImage else { return }
         
-        let screenWidth = screenSize.width
-        let screenHeight = screenSize.height
-        
         let openGLContext = EAGLContext(api: .openGLES3)
         let context = CIContext(eaglContext: openGLContext!)
         let ciImage = CIImage(cgImage: image)
@@ -280,9 +279,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let filter = CIFilter(name: "CIBumpDistortion")
         
         filter?.setValue(ciImage, forKey: kCIInputImageKey)
-        filter?.setValue((CIVector(x: screenWidth/2 , y: screenHeight/3)), forKey: kCIInputCenterKey)
+        filter?.setValue((CIVector(x: xCord , y: yCord)), forKey: kCIInputCenterKey)
         filter?.setValue(300.0, forKey: kCIInputRadiusKey)
         filter?.setValue(2.50, forKey: kCIInputScaleKey)
+        
+        centerScrollViewContents()
         
         
         if let output = filter?.value(forKey: kCIOutputImageKey) as? CIImage{
