@@ -279,7 +279,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let filter = CIFilter(name: "CIBumpDistortion")
         
         filter?.setValue(ciImage, forKey: kCIInputImageKey)
-        filter?.setValue((CIVector(x: xCord , y: yCord)), forKey: kCIInputCenterKey)
+        filter?.setValue((CIVector(x: xCord, y: yCord)), forKey: kCIInputCenterKey)
         filter?.setValue(300.0, forKey: kCIInputRadiusKey)
         filter?.setValue(2.50, forKey: kCIInputScaleKey)
         
