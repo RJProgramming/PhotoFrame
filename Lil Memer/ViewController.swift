@@ -25,11 +25,12 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBOutlet weak var bigChoose: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var frameButton: UIButton!
+    @IBOutlet weak var filterButton: UIButton!
     
     let screenSize: CGRect = UIScreen.main.bounds
+    
     var xCord:CGFloat = 0.0
     var yCord:CGFloat = 0.0
-    
     var limitLength = 39
     var number: CGFloat = 0
     var currentFrame: Int = 1
@@ -37,13 +38,9 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     var image: UIImage!
     var font: UIFont?
 
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         
         //textView.delegate = self
         //sets the delegate for the textfield
@@ -227,6 +224,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         frameButton.isHidden = false
         saveButton.isHidden = false
         imageButton.isHidden = false
+        filterButton.isHidden = false
         
         picker.dismiss(animated: true, completion: nil)
         
