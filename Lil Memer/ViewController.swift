@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CoreImage
+//import CoreImage
 
 class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
 
@@ -278,8 +278,9 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         let filter = CIFilter(name: "CIBumpDistortion")
         
+        //UIKit cordinates and CoreImage coordinates are different. x wasnt affected but Y was flipped below is the fix.
         filter?.setValue(ciImage, forKey: kCIInputImageKey)
-        filter?.setValue((CIVector(x: xCord, y: yCord)), forKey: kCIInputCenterKey)
+        filter?.setValue((CIVector(x: xCord, y: CGFloat(image.height) - yCord)), forKey: kCIInputCenterKey)
         filter?.setValue(500.0, forKey: kCIInputRadiusKey)
         filter?.setValue(0.50, forKey: kCIInputScaleKey)
         
