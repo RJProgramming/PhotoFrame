@@ -20,10 +20,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBOutlet weak var youtubeLabel: NSLayoutConstraint!
     
     @IBOutlet weak var youtubeFrameWidth: NSLayoutConstraint!
-    
-    @IBOutlet weak var imageButton: UIButton!
-    @IBOutlet weak var bigChoose: UIButton!
-    @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var frameButton: UIButton!
     @IBOutlet weak var filterButton: UIButton!
     
@@ -220,11 +216,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         textView.text = ""
         textViewDidBeginEditing(textView)
         textViewDidEndEditing(textView)
-        bigChoose.isHidden = true
-        frameButton.isHidden = false
-        saveButton.isHidden = false
-        imageButton.isHidden = false
-        filterButton.isHidden = false
         
         picker.dismiss(animated: true, completion: nil)
         
@@ -293,10 +284,9 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     }
     
    
-    
-
-    @IBAction func save(_ sender: Any) {
-         guard image != nil else { return }
+    @IBAction func navSave(_ sender: UIBarButtonItem) {
+        
+        guard image != nil else { return }
         
         let offset = scrollView.contentOffset
         let screenHeight = screenSize.height
@@ -315,7 +305,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             UIGraphicsBeginImageContextWithOptions(normalSize, true, UIScreen.main.scale)
             textView.text = ""
             yPos = Int(-offset.y)
-           
+            
             
         }else if textView.isHidden == false {
             yPos = Int(-offset.y + (screenHeight * 0.17))
@@ -324,27 +314,27 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             //sets saves text area background to white, extendind the image area on its own colored the void black.
             let backgroundColor: UIColor = UIColor.white
             backgroundColor.setFill()
-        
+            
             UIGraphicsGetCurrentContext()!.fill(CGRect(x: 0, y: (0 - (screenHeight * 0.17)), width: scrollView.bounds.size.width, height: scrollView.bounds.size.height))
-           
+            
         }
         
         UIGraphicsGetCurrentContext()!.translateBy(x: -offset.x, y: CGFloat(yPos))
         scrollView.layer.render(in: UIGraphicsGetCurrentContext()!)
         
         if sciFrame.isHidden == false{
-        
+            
             //the offsets put the frame right over the image regardless off how the image is zoomed
             UIGraphicsGetCurrentContext()!.translateBy(x: offset.x, y: offset.y)
             sciFrame.layer.render(in: UIGraphicsGetCurrentContext()!)
         }
         
-       
+        
         let textColor = UIColor.black
         let screenWidth = screenSize.width
         var textFont = UIFont(name: "Courier", size: 15)
-       // I thoght I neede different sized string fonts to make the saved image line up correctly. it seems i dont but im going
-       // to leave it there just in case i find another bug with it.
+        // I thoght I neede different sized string fonts to make the saved image line up correctly. it seems i dont but im going
+        // to leave it there just in case i find another bug with it.
         if screenWidth == Constants.iPhoneElseWidth{
             textFont = UIFont(name: "Courier", size: 15)
         }else if screenWidth == Constants.iPhone6Width{
@@ -362,31 +352,31 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         textView.text.draw(in: rect, withAttributes: textFontAttributes)
         
         if youtubeFrame.isHidden == false{
-           
+            
             //using graphics context extended for youtube frame
             UIGraphicsBeginImageContextWithOptions(youtubeFrameImageSize, true, UIScreen.main.scale)
             
             UIGraphicsGetCurrentContext()!.translateBy(x: -offset.x, y: -offset.y)
             scrollView.layer.render(in: UIGraphicsGetCurrentContext()!)
             
-         //   number allows different screen sizes to export youtube frame properly
-         if screenWidth == Constants.iPhoneElseWidth{
-            number = 2.26
-            
-            if screenHeight == Constants.iPhone4Height{
-                number = 2
+            //   number allows different screen sizes to export youtube frame properly
+            if screenWidth == Constants.iPhoneElseWidth{
+                number = 2.26
+                
+                if screenHeight == Constants.iPhone4Height{
+                    number = 2
+                }
+                
+            }else if screenWidth == Constants.iPhone6Width{
+                number = 2.33
+            }else if screenWidth >= Constants.iPhone6PlusWidth{
+                number = 2.35
             }
             
-        }else if screenWidth == Constants.iPhone6Width{
-            number = 2.33
-        }else if screenWidth >= Constants.iPhone6PlusWidth{
-            number = 2.35
-        }
             
-
             //adds correct font on youtube title output
             let myAttribute = [ NSFontAttributeName: UIFont(name: "Roboto", size: 12.0)!]
-           
+            
             UIGraphicsGetCurrentContext()!.translateBy(x: offset.x, y: offset.y + ((screenHeight * 0.15) * number))
             youtubeFrame.layer.render(in: UIGraphicsGetCurrentContext()!)
             youtubeTitle.font = UIFont(name: "Roboto-Regular", size: 12)
@@ -394,7 +384,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             youtubeTitle.text?.draw(in: labelRect, withAttributes: myAttribute)
             
         }
-       
+        
         image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
@@ -404,17 +394,20 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             present(vc, animated: true)
             
         }
+
         
-     
     }
     
-    @IBAction func ChooseImage(_ sender: Any) {
+
+    @IBAction func navChooseImage(_ sender: UIBarButtonItem) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         
         self.present(imagePicker, animated: true, completion: nil)
     }
+    
+    
   
     @IBAction func frame(_ sender: Any) {
         guard image != nil else { return }
@@ -456,13 +449,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         }
 }
     
-    @IBAction func bigChoose(_ sender: Any) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        
-        self.present(imagePicker, animated: true, completion: nil)
-    }
+   
     
     
 }
