@@ -30,10 +30,10 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHc-1o-ItN">
                                 <rect key="frame" x="0.0" y="639.66666666666652" width="203" height="66.333333333333371"/>
-                                <color key="backgroundColor" red="0.1843137255" green="0.18823529410000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.63174337150000004" blue="0.88428491350000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="30"/>
                                 <state key="normal" title="Filter">
-                                    <color key="titleColor" red="0.0" green="0.63174337150000004" blue="0.88428491350000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="filter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FiP-iG-9mt"/>
@@ -41,10 +41,10 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WR8-lS-ut8">
                                 <rect key="frame" x="211" y="639.66666666666652" width="203" height="66.333333333333371"/>
-                                <color key="backgroundColor" red="0.1843137255" green="0.18823529410000001" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.91908890009999999" green="0.32079043979999999" blue="0.6048700213" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="30"/>
                                 <state key="normal" title="Frame">
-                                    <color key="titleColor" red="0.91908890009999999" green="0.32079043979999999" blue="0.6048700213" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="frame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i2o-0M-kZ8"/>
