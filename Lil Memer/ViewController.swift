@@ -312,7 +312,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let inputKeys = currentFilter?.inputKeys
         
         if (inputKeys?.contains(kCIInputIntensityKey))! { currentFilter?.setValue(100, forKey: kCIInputIntensityKey) }
-        if (inputKeys?.contains(kCIInputRadiusKey))! { currentFilter?.setValue(300, forKey: kCIInputRadiusKey) }
+        if (inputKeys?.contains(kCIInputRadiusKey))! { currentFilter?.setValue((image.height / 2), forKey: kCIInputRadiusKey) }
         if ((inputKeys?.contains(kCIInputScaleKey))! && action.title == "CIBumpDistortion") { currentFilter?.setValue(3, forKey: kCIInputScaleKey) }
         if ((inputKeys?.contains(kCIInputScaleKey))! && action.title == "CIBumpDistortionLinear") { currentFilter?.setValue(3, forKey: kCIInputScaleKey) }
         if ((inputKeys?.contains(kCIInputScaleKey))! && action.title == "CIPixellate") { currentFilter?.setValue(10, forKey: kCIInputScaleKey) }
