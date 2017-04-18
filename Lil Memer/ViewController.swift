@@ -259,29 +259,72 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
    
     @IBAction func filter(_ sender: Any) {
         
+        let ac = UIAlertController(title: "Choose filter", message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "CIBumpDistortion", style: .default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "CIBumpDistortionLinear", style: .default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "CITwirlDistortion", style: .default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "CIPixellate", style: .default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(ac, animated: true)
+        
+        //guard let image = self.imageView.image?.cgImage else { return }
+        
+//        let openGLContext = EAGLContext(api: .openGLES3)
+//        let context = CIContext(eaglContext: openGLContext!)
+//        let ciImage = CIImage(cgImage: image)
+        
+        //let filter = CIFilter(name: "CIBumpDistortion")
+        
+        //UIKit cordinates and CoreImage coordinates are different. x wasnt affected but Y was flipped below is the fix.
+//        filter?.setValue(ciImage, forKey: kCIInputImageKey)
+//        filter?.setValue((CIVector(x: xCord, y: CGFloat(image.height) - yCord)), forKey: kCIInputCenterKey)
+//        filter?.setValue(500.0, forKey: kCIInputRadiusKey)
+//        filter?.setValue(0.50, forKey: kCIInputScaleKey)
+        
+        centerScrollViewContents()
+        
+        
+//        if let output = filter?.value(forKey: kCIOutputImageKey) as? CIImage{
+//            self.imageView.image = UIImage(cgImage: context.createCGImage(output, from: output.extent)!)
+//        }
+        
+     
+    }
+    
+    func setFilter(action: UIAlertAction) {
+        // make sure we have a valid image before continuing!
+        //guard currentImage != nil else { return }
         guard let image = self.imageView.image?.cgImage else { return }
         
         let openGLContext = EAGLContext(api: .openGLES3)
         let context = CIContext(eaglContext: openGLContext!)
         let ciImage = CIImage(cgImage: image)
         
-        let filter = CIFilter(name: "CIBumpDistortion")
+        let currentFilter = CIFilter(name: action.title!)
         
-        //UIKit cordinates and CoreImage coordinates are different. x wasnt affected but Y was flipped below is the fix.
-        filter?.setValue(ciImage, forKey: kCIInputImageKey)
-        filter?.setValue((CIVector(x: xCord, y: CGFloat(image.height) - yCord)), forKey: kCIInputCenterKey)
-        filter?.setValue(500.0, forKey: kCIInputRadiusKey)
-        filter?.setValue(0.50, forKey: kCIInputScaleKey)
+        //let beginImage = CIImage(image: currentImage)
+        //let ciImage = CIImage(cgImage: image)
+        //currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
+        currentFilter?.setValue(ciImage, forKey: kCIInputImageKey)
+
+        let inputKeys = currentFilter?.inputKeys
         
-        centerScrollViewContents()
+        if (inputKeys?.contains(kCIInputIntensityKey))! { currentFilter?.setValue(100, forKey: kCIInputIntensityKey) }
+        if (inputKeys?.contains(kCIInputRadiusKey))! { currentFilter?.setValue(500, forKey: kCIInputRadiusKey) }
+        if (inputKeys?.contains(kCIInputScaleKey))! { currentFilter?.setValue(20, forKey: kCIInputScaleKey) }
+if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(x: xCord, y: CGFloat(image.height) - yCord), forKey: kCIInputCenterKey) }
+       // if (inputKeys?.contains(kCIInputAngleKey))! { currentFilter?.setValue(3.14, forkey: kCIInputAngleKey) }
+     
+       
         
-        
-        if let output = filter?.value(forKey: kCIOutputImageKey) as? CIImage{
+        if let output = currentFilter?.value(forKey: kCIOutputImageKey) as? CIImage{
             self.imageView.image = UIImage(cgImage: context.createCGImage(output, from: output.extent)!)
+             centerScrollViewContents()
         }
         
-     
+        
     }
+    
     
    
     @IBAction func navSave(_ sender: UIBarButtonItem) {
