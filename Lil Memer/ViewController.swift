@@ -267,6 +267,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBAction func filter(_ sender: Any) {
         
         guard (self.imageView.image?.cgImage) != nil else { return }
+        
+        
 
         let ac = UIAlertController(title: "Choose filter", message: nil, preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "CIBumpDistortion", style: .default, handler: setFilter))
@@ -282,21 +284,16 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     
     func setFilter(action: UIAlertAction) {
         // make sure we have a valid image before continuing!
-        //guard currentImage != nil else { return }
-        
-        
+       
         guard let image = self.imageView.image?.cgImage else { return }
-        
         
         let openGLContext = EAGLContext(api: .openGLES3)
         let context = CIContext(eaglContext: openGLContext!)
         let ciImage = CIImage(cgImage: image)
         
         
-        
         if action.title == "Remove All"{
             imageView.image = origImage
-            
             
         }else{
             
