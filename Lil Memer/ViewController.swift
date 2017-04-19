@@ -261,34 +261,16 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
    
     @IBAction func filter(_ sender: Any) {
         
+        guard (self.imageView.image?.cgImage) != nil else { return }
+
         let ac = UIAlertController(title: "Choose filter", message: nil, preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "CIBumpDistortion", style: .default, handler: setFilter))
         ac.addAction(UIAlertAction(title: "CIBumpDistortionLinear", style: .default, handler: setFilter))
         ac.addAction(UIAlertAction(title: "CITwirlDistortion", style: .default, handler: setFilter))
         ac.addAction(UIAlertAction(title: "CIPixellate", style: .default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "Remove All", style: .default, handler: setFilter))
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)
-        
-        //guard let image = self.imageView.image?.cgImage else { return }
-        
-//        let openGLContext = EAGLContext(api: .openGLES3)
-//        let context = CIContext(eaglContext: openGLContext!)
-//        let ciImage = CIImage(cgImage: image)
-        
-        //let filter = CIFilter(name: "CIBumpDistortion")
-        
-        //UIKit cordinates and CoreImage coordinates are different. x wasnt affected but Y was flipped below is the fix.
-//        filter?.setValue(ciImage, forKey: kCIInputImageKey)
-//        filter?.setValue((CIVector(x: xCord, y: CGFloat(image.height) - yCord)), forKey: kCIInputCenterKey)
-//        filter?.setValue(500.0, forKey: kCIInputRadiusKey)
-//        filter?.setValue(0.50, forKey: kCIInputScaleKey)
-        
-        centerScrollViewContents()
-        
-        
-//        if let output = filter?.value(forKey: kCIOutputImageKey) as? CIImage{
-//            self.imageView.image = UIImage(cgImage: context.createCGImage(output, from: output.extent)!)
-//        }
         
      
     }
@@ -297,6 +279,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         // make sure we have a valid image before continuing!
         //guard currentImage != nil else { return }
         guard let image = self.imageView.image?.cgImage else { return }
+        let origImage = image
         
         let openGLContext = EAGLContext(api: .openGLES3)
         let context = CIContext(eaglContext: openGLContext!)
@@ -304,9 +287,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         let currentFilter = CIFilter(name: action.title!)
         
-        //let beginImage = CIImage(image: currentImage)
-        //let ciImage = CIImage(cgImage: image)
-        //currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
+        if action.title == "Remove All"{
+            imageView.image = UIImage(cgImage: origImage)
+            return
+        }
+        
         currentFilter?.setValue(ciImage, forKey: kCIInputImageKey)
 
         let inputKeys = currentFilter?.inputKeys
@@ -317,7 +302,9 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         if ((inputKeys?.contains(kCIInputScaleKey))! && action.title == "CIBumpDistortionLinear") { currentFilter?.setValue(2, forKey: kCIInputScaleKey) }
         if ((inputKeys?.contains(kCIInputScaleKey))! && action.title == "CIPixellate") { currentFilter?.setValue(20, forKey: kCIInputScaleKey) }
 if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(x: xCord, y: CGFloat(image.height) - yCord), forKey: kCIInputCenterKey) }
-      // if (inputKeys?.contains(kCIInputAngleKey))! { currentFilter?.setValue(3.14, forkey: kCIInputAngleKey) }
+        
+        
+      
      
        
         
