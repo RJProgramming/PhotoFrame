@@ -312,10 +312,10 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let inputKeys = currentFilter?.inputKeys
         
         if (inputKeys?.contains(kCIInputIntensityKey))! { currentFilter?.setValue(100, forKey: kCIInputIntensityKey) }
-        if (inputKeys?.contains(kCIInputRadiusKey))! { currentFilter?.setValue((image.height / 2), forKey: kCIInputRadiusKey) }
-        if ((inputKeys?.contains(kCIInputScaleKey))! && action.title == "CIBumpDistortion") { currentFilter?.setValue(3, forKey: kCIInputScaleKey) }
-        if ((inputKeys?.contains(kCIInputScaleKey))! && action.title == "CIBumpDistortionLinear") { currentFilter?.setValue(3, forKey: kCIInputScaleKey) }
-        if ((inputKeys?.contains(kCIInputScaleKey))! && action.title == "CIPixellate") { currentFilter?.setValue(10, forKey: kCIInputScaleKey) }
+        if (inputKeys?.contains(kCIInputRadiusKey))! { currentFilter?.setValue((200), forKey: kCIInputRadiusKey) }
+        if ((inputKeys?.contains(kCIInputScaleKey))! && action.title == "CIBumpDistortion") { currentFilter?.setValue(0.50, forKey: kCIInputScaleKey) }
+        if ((inputKeys?.contains(kCIInputScaleKey))! && action.title == "CIBumpDistortionLinear") { currentFilter?.setValue(2, forKey: kCIInputScaleKey) }
+        if ((inputKeys?.contains(kCIInputScaleKey))! && action.title == "CIPixellate") { currentFilter?.setValue(20, forKey: kCIInputScaleKey) }
 if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(x: xCord, y: CGFloat(image.height) - yCord), forKey: kCIInputCenterKey) }
       // if (inputKeys?.contains(kCIInputAngleKey))! { currentFilter?.setValue(3.14, forkey: kCIInputAngleKey) }
      
@@ -323,7 +323,8 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
         
         if let output = currentFilter?.value(forKey: kCIOutputImageKey) as? CIImage{
             self.imageView.image = UIImage(cgImage: context.createCGImage(output, from: output.extent)!)
-             centerScrollViewContents()
+            
+             //centerScrollViewContents()
         }
         
         
