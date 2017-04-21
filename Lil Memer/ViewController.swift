@@ -317,7 +317,7 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
         
         let outputImage = UIImage(cgImage: context.createCGImage(output, from: output.extent)!)
         
-        let imageTurned = UIImage(cgImage: outputImage.cgImage!, scale: CGFloat(1.0), orientation: .right)
+        let imageTurned = UIImage(cgImage: outputImage.cgImage!, scale: CGFloat(1.0), orientation: origImage.imageOrientation)
         centerScrollViewContents()
         self.imageView.image = imageTurned
         }
