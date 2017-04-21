@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StoreKit
 //import CoreImage
 
 class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
@@ -24,6 +25,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBOutlet weak var filterButton: UIButton!
     
     let screenSize: CGRect = UIScreen.main.bounds
+    let defaults = UserDefaults.standard
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var xCord:CGFloat = 0.0
     var yCord:CGFloat = 0.0
@@ -223,6 +226,13 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         textViewDidEndEditing(textView)
         
         picker.dismiss(animated: true, completion: nil)
+        
+        //activates skreview controller after 5 launches of the app
+        let reviewCount = defaults.integer(forKey: "launchCount")
+        
+        if reviewCount == 5 {
+            SKStoreReviewController.requestReview()
+        }
         
     }
    

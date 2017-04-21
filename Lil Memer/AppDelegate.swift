@@ -18,6 +18,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.shared.statusBarStyle = .lightContent
         
+        // get current number of times app has been launched
+        let currentCount = UserDefaults.standard.integer(forKey: "launchCount")
+        
+        // increment received number by one
+        UserDefaults.standard.set(currentCount+1, forKey:"launchCount")
+        
+        // save changes to disk
+        UserDefaults.standard.synchronize()
+        
+        //below erases userdefault values so I could test  skStoreReview
+//        let appDomain = Bundle.main.bundleIdentifier!
+//        UserDefaults.standard.removePersistentDomain(forName: appDomain)
+        
         return true
     }
 
