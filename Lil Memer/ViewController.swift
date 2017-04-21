@@ -314,9 +314,12 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
         
         
       if let output = currentFilter?.value(forKey: kCIOutputImageKey) as? CIImage{
-            self.imageView.image = UIImage(cgImage: context.createCGImage(output, from: output.extent)!)
-            
-             //centerScrollViewContents()
+        
+        let outputImage = UIImage(cgImage: context.createCGImage(output, from: output.extent)!)
+        
+        let imageTurned = UIImage(cgImage: outputImage.cgImage!, scale: CGFloat(1.0), orientation: .right)
+        centerScrollViewContents()
+        self.imageView.image = imageTurned
         }
         
         }
