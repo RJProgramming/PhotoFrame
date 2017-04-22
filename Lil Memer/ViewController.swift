@@ -195,7 +195,10 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         image = info[UIImagePickerControllerOriginalImage] as! UIImage
         
-       origImage = image
+        //below fixes image orietnation when before filter is applied. If these arent here to set image orientation after filters are applied
+        //some PNGs with rotate 90 degrees.
+        origImage = image.fixedOrientation()
+        image = image.fixedOrientation()
         
         scrollView.isHidden = false
         noImageHolder.isHidden = true
@@ -278,8 +281,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         guard (self.imageView.image?.cgImage) != nil else { return }
         
-        
-
         let ac = UIAlertController(title: "Choose filter", message: nil, preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "CIBumpDistortion", style: .default, handler: setFilter))
         ac.addAction(UIAlertAction(title: "CIBumpDistortionLinear", style: .default, handler: setFilter))
@@ -301,7 +302,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let context = CIContext(eaglContext: openGLContext!)
         let ciImage = CIImage(cgImage: image)
         
-        
         if action.title == "Remove All"{
             imageView.image = origImage
             
@@ -316,7 +316,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         if (inputKeys?.contains(kCIInputIntensityKey))! { currentFilter?.setValue(100, forKey: kCIInputIntensityKey) }
         if (inputKeys?.contains(kCIInputRadiusKey))! { currentFilter?.setValue((image.width / 4), forKey: kCIInputRadiusKey) }
         if ((inputKeys?.contains(kCIInputScaleKey))! && action.title == "CIBumpDistortion") { currentFilter?.setValue(0.70, forKey: kCIInputScaleKey) }
-        if ((inputKeys?.contains(kCIInputScaleKey))! && action.title == "CIBumpDistortionLinear") { currentFilter?.setValue(2, forKey: kCIInputScaleKey) }
+        if ((inputKeys?.contains(kCIInputScaleKey))! && action.title == "CIBumpDistortionLinear") { currentFilter?.setValue(3, forKey: kCIInputScaleKey) }
         if ((inputKeys?.contains(kCIInputScaleKey))! && action.title == "CIPixellate") { currentFilter?.setValue(20, forKey: kCIInputScaleKey) }
 if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(x: xCord, y: CGFloat(image.height) - yCord), forKey: kCIInputCenterKey) }
             
@@ -327,10 +327,9 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
         
         let outputImage = UIImage(cgImage: context.createCGImage(output, from: output.extent)!)
         
-        let imageTurned = UIImage(cgImage: outputImage.cgImage!, scale: CGFloat(1.0), orientation: origImage.imageOrientation)
-        centerScrollViewContents()
-        self.imageView.image = imageTurned
+        self.imageView.image = outputImage
         }
+            
         
         }
     }

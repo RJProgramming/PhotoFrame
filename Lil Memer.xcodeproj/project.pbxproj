@@ -13,6 +13,7 @@
 		E11976201E1FCD3F008CFCAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E119761F1E1FCD3F008CFCAF /* Assets.xcassets */; };
 		E11976231E1FCD3F008CFCAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E11976211E1FCD3F008CFCAF /* LaunchScreen.storyboard */; };
 		E162236C1E981AAF00B0A5A7 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E162236B1E981AAF00B0A5A7 /* Roboto-Regular.ttf */; };
+		E1F7C3531EABFC8500CAE68F /* UIImage+RotateUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7C3521EABFC8500CAE68F /* UIImage+RotateUp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		E11976221E1FCD3F008CFCAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E11976241E1FCD3F008CFCAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E162236B1E981AAF00B0A5A7 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		E1F7C3521EABFC8500CAE68F /* UIImage+RotateUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+RotateUp.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				E11976181E1FCD3F008CFCAF /* AppDelegate.swift */,
 				E119761A1E1FCD3F008CFCAF /* ViewController.swift */,
+				E1F7C3521EABFC8500CAE68F /* UIImage+RotateUp.swift */,
 				E119761C1E1FCD3F008CFCAF /* Main.storyboard */,
 				E119761F1E1FCD3F008CFCAF /* Assets.xcassets */,
 				E11976211E1FCD3F008CFCAF /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1F7C3531EABFC8500CAE68F /* UIImage+RotateUp.swift in Sources */,
 				E119761B1E1FCD3F008CFCAF /* ViewController.swift in Sources */,
 				E11976191E1FCD3F008CFCAF /* AppDelegate.swift in Sources */,
 			);
