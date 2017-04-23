@@ -290,7 +290,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)
         
-     
     }
     
     func setFilter(action: UIAlertAction) {
@@ -301,6 +300,15 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let openGLContext = EAGLContext(api: .openGLES3)
         let context = CIContext(eaglContext: openGLContext!)
         let ciImage = CIImage(cgImage: image)
+        
+        
+        //Had to do the below radiusValue because radiuskey wouldnt accept (image.height * image.width) / 4 for some reason
+        var radiusValue = 1
+        if image.height >= image.width{
+            radiusValue = image.height
+        }else{
+            radiusValue = image.width
+        }
         
         if action.title == "Remove All"{
             imageView.image = origImage
@@ -314,14 +322,15 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let inputKeys = currentFilter?.inputKeys
         
         if (inputKeys?.contains(kCIInputIntensityKey))! { currentFilter?.setValue(100, forKey: kCIInputIntensityKey) }
-        if (inputKeys?.contains(kCIInputRadiusKey))! { currentFilter?.setValue((image.width / 4), forKey: kCIInputRadiusKey) }
+        if (inputKeys?.contains(kCIInputRadiusKey))! { currentFilter?.setValue((radiusValue / 3), forKey: kCIInputRadiusKey) }
+        if ((inputKeys?.contains(kCIInputRadiusKey))! && action.title == "CIBumpDistortion"){ currentFilter?.setValue((radiusValue / 3), forKey: kCIInputRadiusKey) }
         if ((inputKeys?.contains(kCIInputScaleKey))! && action.title == "CIBumpDistortion") { currentFilter?.setValue(0.70, forKey: kCIInputScaleKey) }
-        if ((inputKeys?.contains(kCIInputScaleKey))! && action.title == "CIBumpDistortionLinear") { currentFilter?.setValue(3, forKey: kCIInputScaleKey) }
+        if ((inputKeys?.contains(kCIInputScaleKey))! && action.title == "CIBumpDistortionLinear") { currentFilter?.setValue(3.5, forKey: kCIInputScaleKey) }
         if ((inputKeys?.contains(kCIInputScaleKey))! && action.title == "CIPixellate") { currentFilter?.setValue(20, forKey: kCIInputScaleKey) }
 if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(x: xCord, y: CGFloat(image.height) - yCord), forKey: kCIInputCenterKey) }
             
-            if (inputKeys?.contains(kCIInputAngleKey))! { currentFilter?.setValue(1.0, forKey: kCIInputAngleKey) }
-        
+            if (inputKeys?.contains(kCIInputAngleKey))! { currentFilter?.setValue(1.5, forKey: kCIInputAngleKey) }
+        if ((inputKeys?.contains(kCIInputScaleKey))! && action.title == "CIBumpDistortionLinear") { currentFilter?.setValue(0, forKey: kCIInputAngleKey) }
         
       if let output = currentFilter?.value(forKey: kCIOutputImageKey) as? CIImage{
         
