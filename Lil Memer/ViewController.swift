@@ -41,6 +41,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "😂👌💯"
+        
         //textView.delegate = self
         //sets the delegate for the textfield
         youtubeTitle.delegate = self
@@ -112,11 +114,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     }
     //allows view to move when keyboard comes out for textfield pt1
     func textFieldDidBeginEditing(_ youtubeTitle: UITextField) {
-        animateViewMoving(up: true, moveValue: 100)
+        animateViewMoving(up: true, moveValue: 125)
     }
     //allows view to move when keyboard comes out for textfield pt2
     func textFieldDidEndEditing(_ youtubeTitle: UITextField) {
-        animateViewMoving(up: false, moveValue: 100)
+        animateViewMoving(up: false, moveValue: 125)
     }
     //allows view to move when keyboard comes out for textfield pt3
     func animateViewMoving (up:Bool, moveValue :CGFloat){
