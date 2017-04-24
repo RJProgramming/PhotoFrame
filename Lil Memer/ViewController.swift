@@ -352,8 +352,8 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
         let screenHeight = screenSize.height
         
         
-        //added -1 to get rid of a black line tht only appeared with zoomed out images and textview
-        let normalSize = CGSize(width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
+        //added -1 to get rid of a  1 pixel high black line only appeared with zoomed out images + textview and zoomed in portrait images
+        let normalSize = CGSize(width: scrollView.bounds.size.width, height: scrollView.bounds.size.height - 1)
         let textViewWithImageSize = CGSize(width: scrollView.bounds.size.width, height: ((screenHeight * 0.17) + scrollView.bounds.size.height - 1))
         let youtubeFrameImageSize = CGSize(width: scrollView.bounds.size.width, height: ((screenHeight * 0.15) + scrollView.bounds.size.height - 36))
         var yPos: Int = Int(-offset.y)
