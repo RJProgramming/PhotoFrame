@@ -82,10 +82,29 @@
                                 <color key="textColor" red="0.22352941179999999" green="0.2274509804" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0KH-Xc-1LJ">
+                                <rect key="frame" x="0.0" y="632.5" width="414" height="73.5"/>
+                                <color key="backgroundColor" red="0.22345766425132751" green="0.22738099098205566" blue="0.23610410094261169" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="35"/>
+                                <state key="normal" title="Got it!">
+                                    <color key="titleColor" red="0.080115370450000001" green="0.83893996479999999" blue="0.60622608659999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="gotItButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Oe1-TT-Q3n"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Before using a filter, tap anywhere on an image to set the filter's center." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9p-Lk-AqN">
+                                <rect key="frame" x="4" y="292.5" width="406" height="152"/>
+                                <color key="backgroundColor" red="0.28621393439999998" green="0.29403278230000002" blue="0.30280986430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="37"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.22352941176470587" green="0.22745098039215686" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="mfI-Wr-pxt" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="0aL-bB-ALm"/>
+                            <constraint firstAttribute="trailing" secondItem="0KH-Xc-1LJ" secondAttribute="trailing" id="0wR-vL-jfA"/>
                             <constraint firstItem="mfI-Wr-pxt" firstAttribute="top" secondItem="AAA-if-6KM" secondAttribute="bottom" id="36S-eS-Jyc"/>
                             <constraint firstItem="VHc-1o-ItN" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.09" id="3hB-VN-OlO"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="WR8-lS-ut8" secondAttribute="bottom" constant="30" id="4HK-Ew-EIC"/>
@@ -94,6 +113,7 @@
                             <constraint firstItem="VHc-1o-ItN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9N3-Od-Lsa"/>
                             <constraint firstItem="uif-c2-2Ea" firstAttribute="width" secondItem="ReZ-Il-OMa" secondAttribute="width" multiplier="0.85" constant="6.2000000000000171" id="AFj-n4-rax"/>
                             <constraint firstItem="jUW-pS-aJg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="BND-0b-8Ul"/>
+                            <constraint firstItem="0KH-Xc-1LJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="EDC-hs-yJ2"/>
                             <constraint firstItem="Prt-ao-cru" firstAttribute="height" secondItem="qA6-Yw-PCE" secondAttribute="height" id="G5J-Ff-Ntk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jUW-pS-aJg" secondAttribute="trailing" id="Goa-3y-ftv"/>
                             <constraint firstItem="AAA-if-6KM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="36" id="H0K-jT-cqG"/>
@@ -104,22 +124,28 @@
                             <constraint firstItem="mfI-Wr-pxt" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.4" id="Of7-m9-kMh"/>
                             <constraint firstItem="AAA-if-6KM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Pn0-ii-Cpe"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VHc-1o-ItN" secondAttribute="bottom" constant="30" id="Q11-9r-ooo"/>
+                            <constraint firstAttribute="trailing" secondItem="y9p-Lk-AqN" secondAttribute="trailing" constant="4" id="QMv-al-7AA"/>
+                            <constraint firstItem="0KH-Xc-1LJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Svs-Of-0xu"/>
                             <constraint firstAttribute="trailing" secondItem="WR8-lS-ut8" secondAttribute="trailing" id="UzT-5B-kou"/>
                             <constraint firstItem="ReZ-Il-OMa" firstAttribute="top" secondItem="qA6-Yw-PCE" secondAttribute="bottom" constant="-35" id="WAy-gB-LCk"/>
                             <constraint firstItem="AAA-if-6KM" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="Xto-Xo-k2g"/>
                             <constraint firstItem="qA6-Yw-PCE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZYA-Ox-NqQ"/>
                             <constraint firstItem="qA6-Yw-PCE" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.4" id="cLE-AG-9cX"/>
+                            <constraint firstItem="y9p-Lk-AqN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="eCe-QQ-3wh"/>
                             <constraint firstItem="mfI-Wr-pxt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fA6-kT-bUM"/>
                             <constraint firstItem="Prt-ao-cru" firstAttribute="top" secondItem="qA6-Yw-PCE" secondAttribute="top" id="fez-sJ-mqT"/>
                             <constraint firstItem="jUW-pS-aJg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="fwO-Rg-WMC"/>
                             <constraint firstItem="ReZ-Il-OMa" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="gH6-4w-obO"/>
                             <constraint firstItem="AAA-if-6KM" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.17" id="hXp-DR-jac"/>
                             <constraint firstItem="Prt-ao-cru" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hoZ-Ed-Ken"/>
+                            <constraint firstItem="y9p-Lk-AqN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="4" id="huU-YK-ShM"/>
                             <constraint firstItem="WR8-lS-ut8" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.49" id="i1I-X3-hhG"/>
                             <constraint firstItem="qA6-Yw-PCE" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="kir-1V-oY2"/>
+                            <constraint firstItem="0KH-Xc-1LJ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.1" id="l96-uV-KyF"/>
                             <constraint firstItem="ReZ-Il-OMa" firstAttribute="top" secondItem="uif-c2-2Ea" secondAttribute="top" constant="-22" id="lNg-Gx-eqW"/>
                             <constraint firstItem="uif-c2-2Ea" firstAttribute="leading" secondItem="ReZ-Il-OMa" secondAttribute="leading" constant="5" id="mnA-ST-F5P"/>
                             <constraint firstItem="Prt-ao-cru" firstAttribute="width" secondItem="qA6-Yw-PCE" secondAttribute="width" id="oYo-2g-9GT"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0KH-Xc-1LJ" secondAttribute="bottom" constant="30" id="wOi-BV-Agk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="X4f-xL-iI7">
@@ -142,10 +168,14 @@
                         <outlet property="dismissLabel" destination="jUW-pS-aJg" id="H9a-KP-fdl"/>
                         <outlet property="filterButton" destination="VHc-1o-ItN" id="gxL-Ub-5ia"/>
                         <outlet property="frameButton" destination="WR8-lS-ut8" id="fAI-2g-Obb"/>
+                        <outlet property="gotIt" destination="0KH-Xc-1LJ" id="ePW-2N-jP4"/>
                         <outlet property="noImageHolder" destination="mfI-Wr-pxt" id="vTQ-SN-TKu"/>
+                        <outlet property="saveNav" destination="8f3-JI-xmb" id="wk0-KD-b37"/>
                         <outlet property="sciFrame" destination="Prt-ao-cru" id="sei-9O-zeF"/>
                         <outlet property="scrollView" destination="qA6-Yw-PCE" id="MXE-pZ-N4W"/>
+                        <outlet property="shareNav" destination="WuG-m2-Kqi" id="al9-m3-q3q"/>
                         <outlet property="textView" destination="AAA-if-6KM" id="5M8-NZ-C5r"/>
+                        <outlet property="tutLabel" destination="y9p-Lk-AqN" id="06C-Wg-37f"/>
                         <outlet property="youtubeFrame" destination="ReZ-Il-OMa" id="rCR-vR-cT8"/>
                         <outlet property="youtubeFrameWidth" destination="Ngh-qr-oNL" id="ABl-Rl-jk5"/>
                         <outlet property="youtubeLabel" destination="lNg-Gx-eqW" id="GfB-sl-oam"/>

@@ -20,11 +20,15 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBOutlet weak var youtubeTitle: UITextField!
     @IBOutlet weak var youtubeLabel: NSLayoutConstraint!
     @IBOutlet weak var dismissLabel: UILabel!
+    @IBOutlet weak var tutLabel: UILabel!
+    @IBOutlet weak var saveNav: UIBarButtonItem!
+    @IBOutlet weak var shareNav: UIBarButtonItem!
     
     @IBOutlet weak var youtubeFrameWidth: NSLayoutConstraint!
     @IBOutlet weak var frameButton: UIButton!
     @IBOutlet weak var filterButton: UIButton!
     
+    @IBOutlet weak var gotIt: UIButton!
     let screenSize: CGRect = UIScreen.main.bounds
     let defaults = UserDefaults.standard
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -43,6 +47,18 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         super.viewDidLoad()
         
         title = "😂👌💯"
+        
+        let launchCount = defaults.integer(forKey: "launchCount")
+        
+        if launchCount == 1 {
+            
+            shareNav.isEnabled = false
+            saveNav.isEnabled = false
+            tutLabel.isHidden = false
+            gotIt.isHidden = false
+            
+            
+        }
         
         //textView.delegate = self
         //sets the delegate for the textfield
@@ -94,6 +110,16 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         scrollView.isHidden = true
         
 
+    }
+    
+    
+    @IBAction func gotItButton(_ sender: Any) {
+        
+        shareNav.isEnabled = true
+        saveNav.isEnabled = true
+        tutLabel.isHidden = true
+        gotIt.isHidden = true
+        
     }
     
     func textFieldShouldReturn(_ youtubeTitle: UITextField) -> Bool
@@ -288,6 +314,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBAction func filter(_ sender: Any) {
         
         guard (self.imageView.image?.cgImage) != nil else { return }
+        
+        
         
         let ac = UIAlertController(title: "Choose filter", message: nil, preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "CIBumpDistortion", style: .default, handler: setFilter))
