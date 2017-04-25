@@ -56,9 +56,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             saveNav.isEnabled = false
             tutLabel.isHidden = false
             gotIt.isHidden = false
+            title = "👀"
             
             
         }
+        
         
         //textView.delegate = self
         //sets the delegate for the textfield
@@ -119,6 +121,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         saveNav.isEnabled = true
         tutLabel.isHidden = true
         gotIt.isHidden = true
+        title = "😂👌💯"
+        
         
     }
     
