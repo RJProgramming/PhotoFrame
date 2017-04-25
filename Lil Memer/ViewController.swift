@@ -19,6 +19,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBOutlet weak var youtubeFrame: UIImageView!
     @IBOutlet weak var youtubeTitle: UITextField!
     @IBOutlet weak var youtubeLabel: NSLayoutConstraint!
+    @IBOutlet weak var dismissLabel: UILabel!
     
     @IBOutlet weak var youtubeFrameWidth: NSLayoutConstraint!
     @IBOutlet weak var frameButton: UIButton!
@@ -101,6 +102,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         return true
     }
     
+   
     func didTapImage(gesture: UIGestureRecognizer) {
         let point = gesture.location(in: gesture.view)
         print(point)
@@ -491,7 +493,7 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
             //textView
             textViewDidBeginEditing(textView)
             textViewDidEndEditing(textView)
-            
+            dismissLabel.isHidden = false
             textView.isHidden = false
             
         case 2:
@@ -499,6 +501,7 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
             sciFrame.image = UIImage(named: "sciFrameSmaller")
             textView.isHidden = true
             sciFrame.isHidden = false
+            dismissLabel.isHidden = true
         case 3:
             sciFrame.image = UIImage(named: "fbFrame")
             
