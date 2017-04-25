@@ -24,6 +24,10 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBOutlet weak var saveNav: UIBarButtonItem!
     @IBOutlet weak var shareNav: UIBarButtonItem!
     
+    @IBOutlet weak var frameButtonBot: NSLayoutConstraint!
+    @IBOutlet weak var filterButtonBot: NSLayoutConstraint!
+    @IBOutlet weak var gotItButtonBot: NSLayoutConstraint!
+    
     @IBOutlet weak var youtubeFrameWidth: NSLayoutConstraint!
     @IBOutlet weak var frameButton: UIButton!
     @IBOutlet weak var filterButton: UIButton!
@@ -90,6 +94,9 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             if screenHeight == Constants.iPhone4Height{
                 self.youtubeFrameWidth.constant = 12
                 self.youtubeLabel.constant = -22
+                self.frameButtonBot.constant = 10
+                self.filterButtonBot.constant = 10
+                self.gotItButtonBot.constant = 10
         }
             
         }else if screenWidth == Constants.iPhone6Width{

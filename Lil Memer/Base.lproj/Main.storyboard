@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -167,8 +166,11 @@
                     <connections>
                         <outlet property="dismissLabel" destination="jUW-pS-aJg" id="H9a-KP-fdl"/>
                         <outlet property="filterButton" destination="VHc-1o-ItN" id="gxL-Ub-5ia"/>
+                        <outlet property="filterButtonBot" destination="Q11-9r-ooo" id="Q6H-Vh-FA0"/>
                         <outlet property="frameButton" destination="WR8-lS-ut8" id="fAI-2g-Obb"/>
+                        <outlet property="frameButtonBot" destination="4HK-Ew-EIC" id="Zmf-Ml-yrm"/>
                         <outlet property="gotIt" destination="0KH-Xc-1LJ" id="ePW-2N-jP4"/>
+                        <outlet property="gotItButtonBot" destination="wOi-BV-Agk" id="68O-Ua-65u"/>
                         <outlet property="noImageHolder" destination="mfI-Wr-pxt" id="vTQ-SN-TKu"/>
                         <outlet property="saveNav" destination="8f3-JI-xmb" id="wk0-KD-b37"/>
                         <outlet property="sciFrame" destination="Prt-ao-cru" id="sei-9O-zeF"/>
