@@ -272,11 +272,18 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         picker.dismiss(animated: true, completion: nil)
         
         //activates skreview controller after 5 launches of the app
-        let reviewCount = defaults.integer(forKey: "launchCount")
         
-        if reviewCount == 5 {
-            SKStoreReviewController.requestReview()
+        if #available(iOS 10.3, *) {
+            
+            let reviewCount = defaults.integer(forKey: "launchCount")
+            
+            if reviewCount == 2 {
+                SKStoreReviewController.requestReview()
+            }
+            
+            
         }
+        
         
     }
    
@@ -340,7 +347,9 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
        
         guard let image = self.imageView.image?.cgImage else { return }
         
-        let openGLContext = EAGLContext(api: .openGLES3)
+        
+        //changed .openGLES3 to S2 to accomodate ios 9
+        let openGLContext = EAGLContext(api: .openGLES2)
         let context = CIContext(eaglContext: openGLContext!)
         let ciImage = CIImage(cgImage: image)
         
