@@ -233,6 +233,9 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         image = info[UIImagePickerControllerOriginalImage] as! UIImage
         
+        xCord = image.size.width / 2
+        yCord = image.size.height / 2
+        
         //below fixes image orietnation when before filter is applied. If these arent here to set image orientation after filters are applied
         //some PNGs with rotate 90 degrees.
         origImage = image.fixedOrientation()
