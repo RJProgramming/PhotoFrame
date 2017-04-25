@@ -92,8 +92,13 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         self.textView.delegate = self
         scrollView.isHidden = true
         
-        
 
+    }
+    
+    func textFieldShouldReturn(_ youtubeTitle: UITextField) -> Bool
+    {
+        youtubeTitle.resignFirstResponder()
+        return true
     }
     
     func didTapImage(gesture: UIGestureRecognizer) {

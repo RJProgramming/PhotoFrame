@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lic-eT-vaU">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -29,7 +29,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHc-1o-ItN">
-                                <rect key="frame" x="0.0" y="639.66666666666652" width="203" height="66.333333333333371"/>
+                                <rect key="frame" x="0.0" y="639.5" width="203" height="66.5"/>
                                 <color key="backgroundColor" red="0.22352941179999999" green="0.2274509804" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="30"/>
                                 <state key="normal" title="Filter">
@@ -40,7 +40,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WR8-lS-ut8">
-                                <rect key="frame" x="211" y="639.66666666666652" width="203" height="66.333333333333371"/>
+                                <rect key="frame" x="211" y="639.5" width="203" height="66.5"/>
                                 <color key="backgroundColor" red="0.22352941179999999" green="0.2274509804" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="30"/>
                                 <state key="normal" title="Frame">
@@ -171,7 +171,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="FilterCenterPrompt" width="372" height="294"/>
-        <image name="youtubeframeNEW" width="333" height="99"/>
+        <image name="FilterCenterPrompt" width="558" height="441"/>
+        <image name="youtubeframeNEW" width="500" height="148"/>
     </resources>
 </document>
