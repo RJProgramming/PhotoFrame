@@ -367,7 +367,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         if (inputKeys?.contains(kCIInputIntensityKey))! { currentFilter?.setValue(100, forKey: kCIInputIntensityKey) }
         if (inputKeys?.contains(kCIInputRadiusKey))! { currentFilter?.setValue((radiusValue / 3), forKey: kCIInputRadiusKey) }
         if ((inputKeys?.contains(kCIInputRadiusKey))! && action.title == "CIBumpDistortion"){ currentFilter?.setValue((radiusValue / 3), forKey: kCIInputRadiusKey) }
-        if ((inputKeys?.contains(kCIInputScaleKey))! && action.title == "CIBumpDistortion") { currentFilter?.setValue(0.70, forKey: kCIInputScaleKey) }
+        if ((inputKeys?.contains(kCIInputScaleKey))! && action.title == "CIBumpDistortion") { currentFilter?.setValue(0.50, forKey: kCIInputScaleKey) }
         if ((inputKeys?.contains(kCIInputScaleKey))! && action.title == "CIBumpDistortionLinear") { currentFilter?.setValue(0.50, forKey: kCIInputScaleKey) }
         if ((inputKeys?.contains(kCIInputScaleKey))! && action.title == "CIPixellate") { currentFilter?.setValue(20, forKey: kCIInputScaleKey) }
 if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(x: xCord, y: CGFloat(image.height) - yCord), forKey: kCIInputCenterKey) }
