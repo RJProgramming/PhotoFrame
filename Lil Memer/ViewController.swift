@@ -332,11 +332,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         let ac = UIAlertController(title: "Tap anywhere on your image to set new a filter center", message: nil, preferredStyle: .actionSheet)
         
-        ac.addAction(UIAlertAction(title: "Buldge", style: .default, handler: setFilter))
-        ac.addAction(UIAlertAction(title: "Long Buldge", style: .default, handler: setFilter))
-        ac.addAction(UIAlertAction(title: "Pinchy", style: .default, handler: setFilter))
-        ac.addAction(UIAlertAction(title: "Twist", style: .default, handler: setFilter))
-        ac.addAction(UIAlertAction(title: "Pixellate", style: .default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "Convex", style: .default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "Linear Convex", style: .default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "Concave", style: .default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "Spiral", style: .default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "Pixelate", style: .default, handler: setFilter))
         ac.addAction(UIAlertAction(title: "Remove Filters", style: .destructive, handler: setFilter))
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)
@@ -351,17 +351,20 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         guard let image = self.imageView.image?.cgImage else { return }
         
         var actionSheetFilter = "CIPixellate"
+        var pinchCheck = 0
         
-        if action.title == "Buldge"{
+        if action.title == "Convex"{
+            pinchCheck = 0
             actionSheetFilter = "CIBumpDistortion"
-        }else if action.title == "Long Buldge"{
+        }else if action.title == "Linear Convex"{
             actionSheetFilter = "CIBumpDistortionLinear"
-        }else if action.title == "Twist"{
+        }else if action.title == "Spiral"{
             actionSheetFilter = "CITwirlDistortion"
         }else if action.title == "Pixelate"{
             actionSheetFilter = "CIPixellate"
-        }else if action.title == "Pinchy"{
-            actionSheetFilter = "CIPinchDistortion"
+        }else if action.title == "Concave"{
+            pinchCheck = 1
+            actionSheetFilter = "CIBumpDistortion"
         }else if action.title == "Remove Filters"{
             actionSheetFilter = "Remove All"
         }
@@ -394,8 +397,10 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         if (inputKeys?.contains(kCIInputIntensityKey))! { currentFilter?.setValue(100, forKey: kCIInputIntensityKey) }
         if (inputKeys?.contains(kCIInputRadiusKey))! { currentFilter?.setValue((radiusValue / 4), forKey: kCIInputRadiusKey) }
-        if ((inputKeys?.contains(kCIInputRadiusKey))! && (actionSheetFilter == "CIBumpDistortion" || actionSheetFilter == "CIPinchDistortion")){ currentFilter?.setValue((radiusValue / 4), forKey: kCIInputRadiusKey) }
+        if ((inputKeys?.contains(kCIInputRadiusKey))! && actionSheetFilter == "CIBumpDistortion" ) { currentFilter?.setValue((radiusValue / 4), forKey: kCIInputRadiusKey) }
         if ((inputKeys?.contains(kCIInputScaleKey))! && actionSheetFilter == "CIBumpDistortion") { currentFilter?.setValue(0.50, forKey: kCIInputScaleKey) }
+         if ((inputKeys?.contains(kCIInputScaleKey))! && actionSheetFilter == "CIBumpDistortion" && pinchCheck == 1) { currentFilter?.setValue(-0.50, forKey: kCIInputScaleKey) }
+            
         if ((inputKeys?.contains(kCIInputScaleKey))! && actionSheetFilter == "CIBumpDistortionLinear") { currentFilter?.setValue(0.50, forKey: kCIInputScaleKey) }
         if ((inputKeys?.contains(kCIInputScaleKey))! && actionSheetFilter == "CIPixellate") { currentFilter?.setValue(20, forKey: kCIInputScaleKey) }
 if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(x: xCord, y: CGFloat(image.height) - yCord), forKey: kCIInputCenterKey) }
