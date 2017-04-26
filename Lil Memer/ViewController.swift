@@ -332,6 +332,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let ac = UIAlertController(title: "Choose filter", message: nil, preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "Buldge", style: .default, handler: setFilter))
         ac.addAction(UIAlertAction(title: "Long Buldge", style: .default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "Pinchy", style: .default, handler: setFilter))
         ac.addAction(UIAlertAction(title: "Twist", style: .default, handler: setFilter))
         ac.addAction(UIAlertAction(title: "Pixellate", style: .default, handler: setFilter))
         ac.addAction(UIAlertAction(title: "Remove Filters", style: .default, handler: setFilter))
@@ -339,6 +340,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         present(ac, animated: true)
         
     }
+    
+    //CIPinchDistortion
     
     func setFilter(action: UIAlertAction) {
         // make sure we have a valid image before continuing!
@@ -355,6 +358,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             actionSheetFilter = "CITwirlDistortion"
         }else if action.title == "Pixelate"{
             actionSheetFilter = "CIPixellate"
+        }else if action.title == "Pinchy"{
+            actionSheetFilter = "CIPinchDistortion"
         }else if action.title == "Remove Filters"{
             actionSheetFilter = "Remove All"
         }
@@ -387,7 +392,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         if (inputKeys?.contains(kCIInputIntensityKey))! { currentFilter?.setValue(100, forKey: kCIInputIntensityKey) }
         if (inputKeys?.contains(kCIInputRadiusKey))! { currentFilter?.setValue((radiusValue / 3), forKey: kCIInputRadiusKey) }
-        if ((inputKeys?.contains(kCIInputRadiusKey))! && actionSheetFilter == "CIBumpDistortion"){ currentFilter?.setValue((radiusValue / 3), forKey: kCIInputRadiusKey) }
+        if ((inputKeys?.contains(kCIInputRadiusKey))! && (actionSheetFilter == "CIBumpDistortion" || actionSheetFilter == "CIPinchDistortion")){ currentFilter?.setValue((radiusValue / 3), forKey: kCIInputRadiusKey) }
         if ((inputKeys?.contains(kCIInputScaleKey))! && actionSheetFilter == "CIBumpDistortion") { currentFilter?.setValue(0.50, forKey: kCIInputScaleKey) }
         if ((inputKeys?.contains(kCIInputScaleKey))! && actionSheetFilter == "CIBumpDistortionLinear") { currentFilter?.setValue(0.50, forKey: kCIInputScaleKey) }
         if ((inputKeys?.contains(kCIInputScaleKey))! && actionSheetFilter == "CIPixellate") { currentFilter?.setValue(20, forKey: kCIInputScaleKey) }
