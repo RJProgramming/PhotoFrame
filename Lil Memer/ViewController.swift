@@ -49,6 +49,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     var image: UIImage!
     var origImage: UIImage!
     var font: UIFont?
+    var movementValue: CGFloat = 125
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,6 +98,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
                 self.frameButtonBot.constant = 10
                 self.filterButtonBot.constant = 10
                 self.gotItButtonBot.constant = 10
+                //move view up passed keyboard more than other screen sizes for youtube frame
+                movementValue = 170
         }
             
         }else if screenWidth == Constants.iPhone6Width{
@@ -155,11 +158,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     }
     //allows view to move when keyboard comes out for textfield pt1
     func textFieldDidBeginEditing(_ youtubeTitle: UITextField) {
-        animateViewMoving(up: true, moveValue: 125)
+        animateViewMoving(up: true, moveValue: movementValue)
     }
     //allows view to move when keyboard comes out for textfield pt2
     func textFieldDidEndEditing(_ youtubeTitle: UITextField) {
-        animateViewMoving(up: false, moveValue: 125)
+        animateViewMoving(up: false, moveValue: movementValue)
     }
     //allows view to move when keyboard comes out for textfield pt3
     func animateViewMoving (up:Bool, moveValue :CGFloat){
@@ -215,7 +218,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     }
     //part 2 of calcing string length to keep textview at certain number of lines
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool{
-        let screenWidth = screenSize.width
+        let screenHeight = screenSize.height
         
         let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
         var textWidth = UIEdgeInsetsInsetRect(textView.frame, textView.textContainerInset).width
@@ -224,10 +227,12 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let boundingRect = sizeOfString(string: newText, constrainedToWidth: Double(textWidth), font: textView.font!)
         let numberOfLines = boundingRect.height / textView.font!.lineHeight;
         
-        if screenWidth == Constants.iPhone6Width || screenWidth == Constants.iPhone6PlusWidth {
-           return numberOfLines <= 6
-        }else{
+        
+        //allows text view to type 6 lines for every phone except 4s
+        if screenHeight == Constants.iPhone4Height {
            return numberOfLines <= 5
+        }else{
+           return numberOfLines <= 6
         }
         
         
@@ -324,10 +329,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBAction func filter(_ sender: Any) {
         
         guard (self.imageView.image?.cgImage) != nil else { return }
-        
-        
-        
-        
         
         let ac = UIAlertController(title: "Choose filter", message: nil, preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "Buldge", style: .default, handler: setFilter))
