@@ -60,7 +60,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
                             </textView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Choose" translatesAutoresizingMaskIntoConstraints="NO" id="mfI-Wr-pxt">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChooseLight" translatesAutoresizingMaskIntoConstraints="NO" id="mfI-Wr-pxt">
                                 <rect key="frame" x="21" y="225" width="373" height="294"/>
                             </imageView>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Prt-ao-cru">
@@ -195,7 +195,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="736"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hgf-sg-eby">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Hgf-sg-eby">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -215,7 +215,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Choose" width="1116" height="882"/>
+        <image name="ChooseLight" width="558" height="441"/>
         <image name="youtubeframeNEW" width="500" height="148"/>
     </resources>
 </document>
