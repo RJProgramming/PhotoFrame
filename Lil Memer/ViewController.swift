@@ -15,24 +15,27 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var noImageHolder: UIImageView!
+    
     @IBOutlet weak var sciFrame: UIImageView!
     @IBOutlet weak var youtubeFrame: UIImageView!
     @IBOutlet weak var youtubeTitle: UITextField!
+    
     @IBOutlet weak var youtubeLabel: NSLayoutConstraint!
     @IBOutlet weak var dismissLabel: UILabel!
     @IBOutlet weak var tutLabel: UILabel!
     @IBOutlet weak var saveNav: UIBarButtonItem!
-    @IBOutlet weak var shareNav: UIBarButtonItem!
     
+    @IBOutlet weak var shareNav: UIBarButtonItem!
     @IBOutlet weak var frameButtonBot: NSLayoutConstraint!
     @IBOutlet weak var filterButtonBot: NSLayoutConstraint!
-    @IBOutlet weak var gotItButtonBot: NSLayoutConstraint!
     
+    @IBOutlet weak var gotItButtonBot: NSLayoutConstraint!
     @IBOutlet weak var youtubeFrameWidth: NSLayoutConstraint!
     @IBOutlet weak var frameButton: UIButton!
-    @IBOutlet weak var filterButton: UIButton!
     
+    @IBOutlet weak var filterButton: UIButton!
     @IBOutlet weak var gotIt: UIButton!
+    
     let screenSize: CGRect = UIScreen.main.bounds
     let defaults = UserDefaults.standard
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -62,11 +65,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             gotIt.isHidden = false
             title = "👀"
             
-            
         }
         
-        
-        //textView.delegate = self
         //sets the delegate for the textfield
         youtubeTitle.delegate = self
         
@@ -118,10 +118,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         self.textView.delegate = self
         scrollView.isHidden = true
         
-
     }
-    
-    
+
     @IBAction func gotItButton(_ sender: Any) {
         
         shareNav.isEnabled = true
@@ -294,10 +292,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
     }
    
-   
-    
-    
-    
     func centerScrollViewContents(){
        
         let boundsSize = scrollView.bounds.size
@@ -316,8 +310,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         }
 
         imageView.frame = contentsFrame
-        
-        
+    
 
     }
     
@@ -329,9 +322,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         return imageView
     }
     
-   
-    
-   
     @IBAction func filter(_ sender: Any) {
         
         guard (self.imageView.image?.cgImage) != nil else { return }
