@@ -128,7 +128,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         gotIt.isHidden = true
         title = "😂👌💯"
         
-        
     }
     
     func textFieldShouldReturn(_ youtubeTitle: UITextField) -> Bool
@@ -328,12 +327,14 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         
         
+        
+        
         let ac = UIAlertController(title: "Choose filter", message: nil, preferredStyle: .actionSheet)
-        ac.addAction(UIAlertAction(title: "CIBumpDistortion", style: .default, handler: setFilter))
-        ac.addAction(UIAlertAction(title: "CIBumpDistortionLinear", style: .default, handler: setFilter))
-        ac.addAction(UIAlertAction(title: "CITwirlDistortion", style: .default, handler: setFilter))
-        ac.addAction(UIAlertAction(title: "CIPixellate", style: .default, handler: setFilter))
-        ac.addAction(UIAlertAction(title: "Remove All", style: .default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "Buldge", style: .default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "Long Buldge", style: .default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "Twist", style: .default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "Pixellate", style: .default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "Remove Filters", style: .default, handler: setFilter))
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)
         
@@ -343,6 +344,20 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         // make sure we have a valid image before continuing!
        
         guard let image = self.imageView.image?.cgImage else { return }
+        
+        var actionSheetFilter = "CIPixellate"
+        
+        if action.title == "Buldge"{
+            actionSheetFilter = "CIBumpDistortion"
+        }else if action.title == "Long Buldge"{
+            actionSheetFilter = "CIBumpDistortionLinear"
+        }else if action.title == "Twist"{
+            actionSheetFilter = "CITwirlDistortion"
+        }else if action.title == "Pixelate"{
+            actionSheetFilter = "CIPixellate"
+        }else if action.title == "Remove Filters"{
+            actionSheetFilter = "Remove All"
+        }
         
         
         //changed .openGLES3 to S2 to accomodate ios 9
@@ -359,12 +374,12 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             radiusValue = image.width
         }
         
-        if action.title == "Remove All"{
+        if actionSheetFilter == "Remove All"{
             imageView.image = origImage
             
         }else{
             
-        let currentFilter = CIFilter(name: action.title!)
+        let currentFilter = CIFilter(name: actionSheetFilter)
         
         currentFilter?.setValue(ciImage, forKey: kCIInputImageKey)
 
@@ -372,14 +387,14 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         if (inputKeys?.contains(kCIInputIntensityKey))! { currentFilter?.setValue(100, forKey: kCIInputIntensityKey) }
         if (inputKeys?.contains(kCIInputRadiusKey))! { currentFilter?.setValue((radiusValue / 3), forKey: kCIInputRadiusKey) }
-        if ((inputKeys?.contains(kCIInputRadiusKey))! && action.title == "CIBumpDistortion"){ currentFilter?.setValue((radiusValue / 3), forKey: kCIInputRadiusKey) }
-        if ((inputKeys?.contains(kCIInputScaleKey))! && action.title == "CIBumpDistortion") { currentFilter?.setValue(0.50, forKey: kCIInputScaleKey) }
-        if ((inputKeys?.contains(kCIInputScaleKey))! && action.title == "CIBumpDistortionLinear") { currentFilter?.setValue(0.50, forKey: kCIInputScaleKey) }
-        if ((inputKeys?.contains(kCIInputScaleKey))! && action.title == "CIPixellate") { currentFilter?.setValue(20, forKey: kCIInputScaleKey) }
+        if ((inputKeys?.contains(kCIInputRadiusKey))! && actionSheetFilter == "CIBumpDistortion"){ currentFilter?.setValue((radiusValue / 3), forKey: kCIInputRadiusKey) }
+        if ((inputKeys?.contains(kCIInputScaleKey))! && actionSheetFilter == "CIBumpDistortion") { currentFilter?.setValue(0.50, forKey: kCIInputScaleKey) }
+        if ((inputKeys?.contains(kCIInputScaleKey))! && actionSheetFilter == "CIBumpDistortionLinear") { currentFilter?.setValue(0.50, forKey: kCIInputScaleKey) }
+        if ((inputKeys?.contains(kCIInputScaleKey))! && actionSheetFilter == "CIPixellate") { currentFilter?.setValue(20, forKey: kCIInputScaleKey) }
 if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(x: xCord, y: CGFloat(image.height) - yCord), forKey: kCIInputCenterKey) }
             
             if (inputKeys?.contains(kCIInputAngleKey))! { currentFilter?.setValue(1.5, forKey: kCIInputAngleKey) }
-        if ((inputKeys?.contains(kCIInputAngleKey))! && action.title == "CIBumpDistortionLinear") { currentFilter?.setValue(0.0, forKey: kCIInputAngleKey) }
+        if ((inputKeys?.contains(kCIInputAngleKey))! && actionSheetFilter == "CIBumpDistortionLinear") { currentFilter?.setValue(0.0, forKey: kCIInputAngleKey) }
         
       if let output = currentFilter?.value(forKey: kCIOutputImageKey) as? CIImage{
         
