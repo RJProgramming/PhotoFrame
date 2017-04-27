@@ -8,7 +8,6 @@
 
 import UIKit
 import StoreKit
-//import CoreImage
 
 class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
 
