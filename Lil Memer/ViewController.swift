@@ -22,14 +22,14 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     
     @IBOutlet weak var youtubeLabel: NSLayoutConstraint!
     @IBOutlet weak var dismissLabel: UILabel!
-    @IBOutlet weak var tutLabel: UILabel!
+   
     @IBOutlet weak var saveNav: UIBarButtonItem!
     
     @IBOutlet weak var shareNav: UIBarButtonItem!
     @IBOutlet weak var frameButtonBot: NSLayoutConstraint!
     @IBOutlet weak var filterButtonBot: NSLayoutConstraint!
     
-    @IBOutlet weak var gotItButtonBot: NSLayoutConstraint!
+   
     @IBOutlet weak var youtubeFrameWidth: NSLayoutConstraint!
     @IBOutlet weak var frameButton: UIButton!
     
@@ -56,17 +56,9 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         title = "😂👌💯"
         
-        let launchCount = defaults.integer(forKey: "launchCount")
-        
-        if launchCount == 1 {
-            
-            shareNav.isEnabled = false
-            saveNav.isEnabled = false
-            tutLabel.isHidden = false
-            gotIt.isHidden = false
-            title = "👀"
-            
-        }
+        frameButtonBot.constant = -100
+        filterButtonBot.constant = -100
+        shareNav.isEnabled = false
         
         //sets the delegate for the textfield
         youtubeTitle.delegate = self
@@ -95,9 +87,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             if screenHeight == Constants.iPhone4Height{
                 self.youtubeFrameWidth.constant = 12
                 self.youtubeLabel.constant = -22
-                self.frameButtonBot.constant = 10
-                self.filterButtonBot.constant = 10
-                self.gotItButtonBot.constant = 10
+                
+                
                 //move view up passed keyboard more than other screen sizes for youtube frame
                 movementValue = 170
         }
@@ -123,15 +114,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
     }
 
-    @IBAction func gotItButton(_ sender: Any) {
-        
-        shareNav.isEnabled = true
-        saveNav.isEnabled = true
-        tutLabel.isHidden = true
-        gotIt.isHidden = true
-        title = "😂👌💯"
-        
-    }
     
     func textFieldShouldReturn(_ youtubeTitle: UITextField) -> Bool
     {
@@ -292,6 +274,23 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             
             
         }
+        
+        shareNav.isEnabled = true
+        
+        //brings buttons back into view after being hidden before inital iage is choosen
+        let screenHeight = screenSize.height
+
+        if screenHeight == Constants.iPhone4Height{
+        
+            frameButtonBot.constant = 10
+            filterButtonBot.constant = 10
+        }else{
+            
+            self.frameButtonBot.constant = 30
+            self.filterButtonBot.constant = 30
+            
+        }
+        
         
         
     }
@@ -542,6 +541,8 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
         imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         
         self.present(imagePicker, animated: true, completion: nil)
+        
+        
     }
     
     
