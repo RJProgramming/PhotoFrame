@@ -31,6 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let appDomain = Bundle.main.bundleIdentifier!
 //        UserDefaults.standard.removePersistentDomain(forName: appDomain)
         
+        //use this for app preview video to show touches
+       //Visualizer.start()
+        
         return true
     }
 

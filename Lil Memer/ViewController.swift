@@ -129,6 +129,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         yCord = point.y
         
         print ("\(point) and x\(xCord) and \(yCord)")
+        
     }
     
     //limits youtube textfield characters so it doesnt scroll
