@@ -12,11 +12,6 @@
 		E119761E1E1FCD3F008CFCAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E119761C1E1FCD3F008CFCAF /* Main.storyboard */; };
 		E11976201E1FCD3F008CFCAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E119761F1E1FCD3F008CFCAF /* Assets.xcassets */; };
 		E11976231E1FCD3F008CFCAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E11976211E1FCD3F008CFCAF /* LaunchScreen.storyboard */; };
-		E12AAFD71EB38BFE009B28D9 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12AAFD11EB38BFE009B28D9 /* Configuration.swift */; };
-		E12AAFD81EB38BFE009B28D9 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E12AAFD21EB38BFE009B28D9 /* Info.plist */; };
-		E12AAFD91EB38BFE009B28D9 /* TouchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12AAFD31EB38BFE009B28D9 /* TouchView.swift */; };
-		E12AAFDA1EB38BFE009B28D9 /* UIWindow+Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12AAFD51EB38BFE009B28D9 /* UIWindow+Swizzle.swift */; };
-		E12AAFDB1EB38BFE009B28D9 /* Visualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12AAFD61EB38BFE009B28D9 /* Visualizer.swift */; };
 		E162236C1E981AAF00B0A5A7 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E162236B1E981AAF00B0A5A7 /* Roboto-Regular.ttf */; };
 		E1F7C3531EABFC8500CAE68F /* UIImage+RotateUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7C3521EABFC8500CAE68F /* UIImage+RotateUp.swift */; };
 /* End PBXBuildFile section */
@@ -29,12 +24,6 @@
 		E119761F1E1FCD3F008CFCAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E11976221E1FCD3F008CFCAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E11976241E1FCD3F008CFCAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E12AAFD11EB38BFE009B28D9 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		E12AAFD21EB38BFE009B28D9 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E12AAFD31EB38BFE009B28D9 /* TouchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchView.swift; sourceTree = "<group>"; };
-		E12AAFD41EB38BFE009B28D9 /* TouchVisualizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchVisualizer.h; sourceTree = "<group>"; };
-		E12AAFD51EB38BFE009B28D9 /* UIWindow+Swizzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Swizzle.swift"; sourceTree = "<group>"; };
-		E12AAFD61EB38BFE009B28D9 /* Visualizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Visualizer.swift; sourceTree = "<group>"; };
 		E162236B1E981AAF00B0A5A7 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		E1F7C3521EABFC8500CAE68F /* UIImage+RotateUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+RotateUp.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,22 +66,8 @@
 				E11976211E1FCD3F008CFCAF /* LaunchScreen.storyboard */,
 				E11976241E1FCD3F008CFCAF /* Info.plist */,
 				E162236B1E981AAF00B0A5A7 /* Roboto-Regular.ttf */,
-				E12AAFD01EB38BFE009B28D9 /* TouchVisualizer */,
 			);
 			path = "Lil Memer";
-			sourceTree = "<group>";
-		};
-		E12AAFD01EB38BFE009B28D9 /* TouchVisualizer */ = {
-			isa = PBXGroup;
-			children = (
-				E12AAFD11EB38BFE009B28D9 /* Configuration.swift */,
-				E12AAFD21EB38BFE009B28D9 /* Info.plist */,
-				E12AAFD31EB38BFE009B28D9 /* TouchView.swift */,
-				E12AAFD41EB38BFE009B28D9 /* TouchVisualizer.h */,
-				E12AAFD51EB38BFE009B28D9 /* UIWindow+Swizzle.swift */,
-				E12AAFD61EB38BFE009B28D9 /* Visualizer.swift */,
-			);
-			path = TouchVisualizer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,7 +133,6 @@
 				E11976231E1FCD3F008CFCAF /* LaunchScreen.storyboard in Resources */,
 				E11976201E1FCD3F008CFCAF /* Assets.xcassets in Resources */,
 				E162236C1E981AAF00B0A5A7 /* Roboto-Regular.ttf in Resources */,
-				E12AAFD81EB38BFE009B28D9 /* Info.plist in Resources */,
 				E119761E1E1FCD3F008CFCAF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -170,12 +144,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E12AAFDB1EB38BFE009B28D9 /* Visualizer.swift in Sources */,
-				E12AAFDA1EB38BFE009B28D9 /* UIWindow+Swizzle.swift in Sources */,
 				E1F7C3531EABFC8500CAE68F /* UIImage+RotateUp.swift in Sources */,
-				E12AAFD91EB38BFE009B28D9 /* TouchView.swift in Sources */,
 				E119761B1E1FCD3F008CFCAF /* ViewController.swift in Sources */,
-				E12AAFD71EB38BFE009B28D9 /* Configuration.swift in Sources */,
 				E11976191E1FCD3F008CFCAF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
