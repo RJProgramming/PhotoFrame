@@ -173,6 +173,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
+        
     }
     
     //adds placeholder text for textview pt 1
@@ -180,6 +181,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         if textView.textColor == UIColor.lightGray {
             textView.text = nil
             textView.textColor = UIColor.black
+             dismissLabel.isHidden = false
         }
     }
     //placeholder text for textview pt 2
@@ -188,6 +190,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             //textView.font = UIFont(name: "Courier", size: 15)
             textView.text = "Tap here to enter text"
             textView.textColor = UIColor.lightGray
+             dismissLabel.isHidden = true
         }
     }
 
@@ -336,6 +339,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         ac.addAction(UIAlertAction(title: "Concave", style: .default, handler: setFilter))
         ac.addAction(UIAlertAction(title: "Spiral", style: .default, handler: setFilter))
         ac.addAction(UIAlertAction(title: "Pixelate", style: .default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "Black and White", style: .default, handler: setFilter))
         ac.addAction(UIAlertAction(title: "Remove Filters", style: .destructive, handler: setFilter))
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)
@@ -366,6 +370,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             actionSheetFilter = "CIBumpDistortion"
         }else if action.title == "Remove Filters"{
             actionSheetFilter = "Remove All"
+        }else if action.title == "Black and White"{
+            actionSheetFilter = "CIPhotoEffectMono"
         }
         
         
@@ -562,7 +568,7 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
             //textView
             textViewDidBeginEditing(textView)
             textViewDidEndEditing(textView)
-            dismissLabel.isHidden = false
+           
             textView.isHidden = false
             
         case 2:
@@ -570,7 +576,7 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
             sciFrame.image = UIImage(named: "sciFrameSmaller")
             textView.isHidden = true
             sciFrame.isHidden = false
-            dismissLabel.isHidden = true
+            
         case 3:
             sciFrame.image = UIImage(named: "fbFrame")
             
