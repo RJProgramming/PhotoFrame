@@ -53,7 +53,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Share Frame"
+        title = ""
         
         frameButtonBot.constant = -200
         filterButtonBot.constant = -200
@@ -62,9 +62,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         filterButton.layer.cornerRadius = 20
         frameButton.layer.cornerRadius = 20
         
-        imageView.layer.borderWidth = 1
-        
-        imageView.layer.borderColor = UIColor.gray.cgColor
         
         //sets the delegate for the textfield
         youtubeTitle.delegate = self
@@ -466,9 +463,9 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
         let screenHeight = screenSize.height
         
         
-        //added -1 to get rid of a  1 pixel high black line only appeared with zoomed out images + textview and zoomed in portrait images
+        //added -2 to get rid of a  1 pixel high black line only appeared with zoomed out images + textview and zoomed in portrait images
         let normalSize = CGSize(width: scrollView.bounds.size.width, height: scrollView.bounds.size.height - 1)
-        let textViewWithImageSize = CGSize(width: scrollView.bounds.size.width, height: ((screenHeight * 0.17) + scrollView.bounds.size.height - 1))
+        let textViewWithImageSize = CGSize(width: scrollView.bounds.size.width, height: ((screenHeight * 0.17) + scrollView.bounds.size.height - 2))
         let youtubeFrameImageSize = CGSize(width: scrollView.bounds.size.width, height: ((screenHeight * 0.15) + scrollView.bounds.size.height - 36))
         var yPos: Int = Int(-offset.y)
         
@@ -558,15 +555,7 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
             
             //adds correct font on youtube title output
             let myAttribute = [ NSFontAttributeName: UIFont(name: "Roboto", size: 12.0)!]
-            
-            
-//
-//            let backgroundColor: UIColor = UIColor.white
-//            backgroundColor.setFill()
-//
-//            UIGraphicsGetCurrentContext()!.fill(CGRect(x: 0 , y: (screenHeight * 0.7) , width: youtubeFrame.frame.size.width * 2, height: youtubeFrame.frame.size.height))
 
-            
             
             UIGraphicsGetCurrentContext()!.translateBy(x: offset.x, y: offset.y + ((screenHeight * 0.15) * number))
             youtubeFrame.layer.render(in: UIGraphicsGetCurrentContext()!)
