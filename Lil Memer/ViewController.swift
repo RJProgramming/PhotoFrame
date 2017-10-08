@@ -20,8 +20,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBOutlet weak var youtubeTitle: UITextField!
     
     @IBOutlet weak var youtubeLabel: NSLayoutConstraint!
-    @IBOutlet weak var dismissLabel: UILabel!
-   
     @IBOutlet weak var saveNav: UIBarButtonItem!
     
     @IBOutlet weak var shareNav: UIBarButtonItem!
@@ -134,6 +132,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         return true
     }
     
+  
+    
    
     func didTapImage(gesture: UIGestureRecognizer) {
         let point = gesture.location(in: gesture.view)
@@ -151,6 +151,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         guard let text = youtubeTitle.text else { return true }
         let newLength = text.characters.count + string.characters.count - range.length
         return newLength <= limitLength
+        
+        
     }
     //allows view to move when keyboard comes out for textfield pt1
     func textFieldDidBeginEditing(_ youtubeTitle: UITextField) {
@@ -196,7 +198,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         if textView.textColor == UIColor.lightGray {
             textView.text = nil
             textView.textColor = UIColor.black
-             dismissLabel.isHidden = false
         }
     }
     //placeholder text for textview pt 2
@@ -205,7 +206,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             //textView.font = UIFont(name: "Courier", size: 15)
             textView.text = "Tap here to enter text"
             textView.textColor = UIColor.lightGray
-             dismissLabel.isHidden = true
         }
     }
 
@@ -227,6 +227,12 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let boundingRect = sizeOfString(string: newText, constrainedToWidth: Double(textWidth), font: textView.font!)
         let numberOfLines = boundingRect.height / textView.font!.lineHeight;
         
+        //lets done/return key dismiss keyboard
+        if text == "\n"  // Recognizes enter key in keyboard
+        {
+            textView.resignFirstResponder()
+            return false
+        }
         
         //allows text view to type 6 lines for every phone except 4s
         if screenHeight == Constants.iPhone4Height {
