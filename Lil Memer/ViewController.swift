@@ -100,7 +100,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             
             if screenHeight == Constants.iPhoneXHeight{
                 
-                self.youtubeLabel.constant = -30
+                self.youtubeLabel.constant = -35
+                self.youtubeFrame.contentMode = .scaleAspectFit
                 youtubeFrame.image = UIImage(named: "youtubeframeiphonex")
                 
                 
@@ -290,7 +291,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         shareNav.isEnabled = true
         
-        //brings buttons back into view after being hidden before inital iage is choosen
+        //brings buttons back into view after being hidden before inital image is choosen
         let screenHeight = screenSize.height
 
         if screenHeight == Constants.iPhone4Height{
@@ -298,10 +299,16 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             frameButtonBot.constant = 10
             filterButtonBot.constant = 10
             
+        }else if screenHeight == Constants.iPhoneXHeight{
+            
+            self.frameButtonBot.constant = 10
+            self.filterButtonBot.constant = 10
+            
         }else{
             
             self.frameButtonBot.constant = 30
             self.filterButtonBot.constant = 30
+            
             
         }
         

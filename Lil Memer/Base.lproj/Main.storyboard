@@ -71,8 +71,8 @@
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Prt-ao-cru">
                                 <rect key="frame" x="18.666666666666657" y="262" width="337.66666666666663" height="325"/>
                             </imageView>
-                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="youtubeframeNEW" translatesAutoresizingMaskIntoConstraints="NO" id="ReZ-Il-OMa">
-                                <rect key="frame" x="18.666666666666657" y="552" width="337.66666666666663" height="121.66666666666663"/>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="youtubeframeiphonex" translatesAutoresizingMaskIntoConstraints="NO" id="ReZ-Il-OMa">
+                                <rect key="frame" x="18.666666666666657" y="552" width="337.66666666666663" height="129.66666666666663"/>
                             </imageView>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tap here to enter text" adjustsFontSizeToFit="NO" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="uif-c2-2Ea">
                                 <rect key="frame" x="23.666666666666657" y="574" width="292.66666666666663" height="14"/>
@@ -104,7 +104,7 @@
                             <constraint firstItem="jUW-pS-aJg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JCo-Cb-zfH"/>
                             <constraint firstItem="VHc-1o-ItN" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.49" id="JUI-6K-KAL"/>
                             <constraint firstItem="qA6-Yw-PCE" firstAttribute="top" secondItem="AAA-if-6KM" secondAttribute="bottom" id="Kne-LK-RfK"/>
-                            <constraint firstItem="ReZ-Il-OMa" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.15" id="Ngh-qr-oNL"/>
+                            <constraint firstItem="ReZ-Il-OMa" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.16" id="Ngh-qr-oNL"/>
                             <constraint firstItem="mfI-Wr-pxt" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.4" id="Of7-m9-kMh"/>
                             <constraint firstItem="AAA-if-6KM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Pn0-ii-Cpe"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VHc-1o-ItN" secondAttribute="bottom" constant="30" id="Q11-9r-ooo"/>
@@ -192,6 +192,6 @@
     </scenes>
     <resources>
         <image name="ChooseLight" width="372" height="294"/>
-        <image name="youtubeframeNEW" width="333" height="99"/>
+        <image name="youtubeframeiphonex" width="333" height="120"/>
     </resources>
 </document>
