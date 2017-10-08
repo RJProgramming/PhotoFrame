@@ -48,12 +48,12 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     var image: UIImage!
     var origImage: UIImage!
     var font: UIFont?
-    var movementValue: CGFloat = 125
+    var movementValue: CGFloat = 135
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "😂👌💯"
+        title = "Share Frame"
         
         frameButtonBot.constant = -200
         filterButtonBot.constant = -200
@@ -97,6 +97,14 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             textView.textContainerInset = UIEdgeInsetsMake(0.0, -5.0, 0.0, 0.0)
             limitLength = 36
             self.youtubeLabel.constant = -30
+            
+            if screenHeight == Constants.iPhoneXHeight{
+                
+                self.youtubeLabel.constant = -40
+                
+                
+            }
+            
         }else if screenWidth >= Constants.iPhone6PlusWidth{
             textView.font = UIFont(name: "Courier", size: 19)
             textView.textContainerInset = UIEdgeInsetsMake(0.0, -5.0, 0.0, 0.0)
@@ -167,6 +175,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         static let iPhone6PlusWidth = CGFloat(414)
         static let iPhoneElseWidth = CGFloat(320)
         static let iPhone4Height = CGFloat(480)
+        static let iPhoneXHeight = CGFloat(812)
         
     }
         
@@ -287,6 +296,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
             frameButtonBot.constant = 10
             filterButtonBot.constant = 10
+            
         }else{
             
             self.frameButtonBot.constant = 30
@@ -518,6 +528,13 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
                 
             }else if screenWidth == Constants.iPhone6Width{
                 number = 2.33
+                
+                if screenHeight == Constants.iPhoneXHeight{
+                    
+                    number = 2.39
+                    //youtubeFrame.contentMode = .scaleToFill
+                    
+                }
             }else if screenWidth >= Constants.iPhone6PlusWidth{
                 number = 2.35
             }
@@ -526,11 +543,22 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
             //adds correct font on youtube title output
             let myAttribute = [ NSFontAttributeName: UIFont(name: "Roboto", size: 12.0)!]
             
+            
+
+            let backgroundColor: UIColor = UIColor.white
+            backgroundColor.setFill()
+
+            UIGraphicsGetCurrentContext()!.fill(CGRect(x: 0 , y: (screenHeight * 0.7) , width: youtubeFrame.frame.size.width * 2, height: youtubeFrame.frame.size.height))
+
+            
+            
             UIGraphicsGetCurrentContext()!.translateBy(x: offset.x, y: offset.y + ((screenHeight * 0.15) * number))
             youtubeFrame.layer.render(in: UIGraphicsGetCurrentContext()!)
             youtubeTitle.font = UIFont(name: "Roboto-Regular", size: 12)
             let labelRect = CGRect(x: 5, y: (self.youtubeLabel.constant * -1), width: youtubeFrame.bounds.size.width, height: youtubeFrame.bounds.size.height)
             youtubeTitle.text?.draw(in: labelRect, withAttributes: myAttribute)
+            
+          
             
         }
         
