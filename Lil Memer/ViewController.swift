@@ -84,10 +84,10 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             textView.font = UIFont(name: "Courier", size: 15)
             textView.textContainerInset = UIEdgeInsetsMake(0.0, -5.0, 0.0, 0.0)
             limitLength = 200
-            self.youtubeLabel.constant = -25
+            self.youtubeLabel.constant = -13
             if screenHeight == Constants.iPhone4Height{
-                self.youtubeFrameWidth.constant = 12
-                self.youtubeLabel.constant = -22
+                //self.youtubeFrameWidth.constant = 12
+                //self.youtubeLabel.constant = -5
                 
                 
                 //move view up passed keyboard more than other screen sizes for youtube frame
@@ -203,7 +203,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     //placeholder text for textview pt 2
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            //textView.font = UIFont(name: "Courier", size: 15)
             textView.text = "Tap here to enter text"
             textView.textColor = UIColor.lightGray
         }
