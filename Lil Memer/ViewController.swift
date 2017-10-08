@@ -113,7 +113,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             textView.font = UIFont(name: "Courier", size: 19)
             textView.textContainerInset = UIEdgeInsetsMake(0.0, -5.0, 0.0, 0.0)
             limitLength = 200
-            self.youtubeLabel.constant = -35
+            self.youtubeLabel.constant = -20
         }
         
         // place holder text for textview
