@@ -103,6 +103,7 @@
 					E11976141E1FCD3F008CFCAF = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = KG8K7FTEAN;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
