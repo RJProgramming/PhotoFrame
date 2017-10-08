@@ -100,7 +100,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             
             if screenHeight == Constants.iPhoneXHeight{
                 
-                self.youtubeLabel.constant = -40
+                self.youtubeLabel.constant = -30
+                youtubeFrame.image = UIImage(named: "youtubeframeiphonex")
                 
                 
             }
@@ -534,6 +535,7 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
                     number = 2.39
                     //youtubeFrame.contentMode = .scaleToFill
                     
+                    
                 }
             }else if screenWidth >= Constants.iPhone6PlusWidth{
                 number = 2.35
@@ -544,11 +546,11 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
             let myAttribute = [ NSFontAttributeName: UIFont(name: "Roboto", size: 12.0)!]
             
             
-
-            let backgroundColor: UIColor = UIColor.white
-            backgroundColor.setFill()
-
-            UIGraphicsGetCurrentContext()!.fill(CGRect(x: 0 , y: (screenHeight * 0.7) , width: youtubeFrame.frame.size.width * 2, height: youtubeFrame.frame.size.height))
+//
+//            let backgroundColor: UIColor = UIColor.white
+//            backgroundColor.setFill()
+//
+//            UIGraphicsGetCurrentContext()!.fill(CGRect(x: 0 , y: (screenHeight * 0.7) , width: youtubeFrame.frame.size.width * 2, height: youtubeFrame.frame.size.height))
 
             
             
