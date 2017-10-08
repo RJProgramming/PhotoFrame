@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lic-eT-vaU">
-    <device id="retina5_9" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -13,7 +13,6 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="Avenir.ttc">
-            <string>Avenir-Heavy</string>
             <string>Avenir-Light</string>
         </array>
         <array key="Roboto-Regular.ttf">
@@ -30,85 +29,85 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHc-1o-ItN">
-                                <rect key="frame" x="0.0" y="675" width="183.66666666666666" height="73"/>
-                                <color key="backgroundColor" red="0.22352941179999999" green="0.2274509804" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="30"/>
+                                <rect key="frame" x="10" y="433.5" width="128" height="40.5"/>
+                                <color key="backgroundColor" red="1" green="0.32713929368037198" blue="0.26151021234249094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="30"/>
                                 <state key="normal" title="Filter">
-                                    <color key="titleColor" red="0.080115370450000001" green="0.83893996479999999" blue="0.60622608659999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="filter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FiP-iG-9mt"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WR8-lS-ut8">
-                                <rect key="frame" x="191.33333333333337" y="675" width="183.66666666666663" height="73"/>
-                                <color key="backgroundColor" red="0.22352941179999999" green="0.2274509804" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="30"/>
+                                <rect key="frame" x="182" y="433.5" width="128" height="40.5"/>
+                                <color key="backgroundColor" red="1" green="0.32713929368037198" blue="0.26151021234249094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="30"/>
                                 <state key="normal" title="Frame">
-                                    <color key="titleColor" red="0.0" green="0.63174337150000004" blue="0.88428491350000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="frame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i2o-0M-kZ8"/>
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qA6-Yw-PCE">
-                                <rect key="frame" x="18.666666666666657" y="262" width="337.66666666666663" height="325"/>
+                                <rect key="frame" x="16" y="121.5" width="288" height="202"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </scrollView>
                             <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAA-if-6KM">
-                                <rect key="frame" x="18.666666666666657" y="124" width="337.66666666666663" height="138"/>
+                                <rect key="frame" x="16" y="36" width="288" height="85.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
                             </textView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChooseLight" translatesAutoresizingMaskIntoConstraints="NO" id="mfI-Wr-pxt">
-                                <rect key="frame" x="18.666666666666657" y="262" width="337.66666666666663" height="325"/>
+                                <rect key="frame" x="16" y="121.5" width="288" height="202"/>
                             </imageView>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Prt-ao-cru">
-                                <rect key="frame" x="18.666666666666657" y="262" width="337.66666666666663" height="325"/>
+                                <rect key="frame" x="16" y="121.5" width="288" height="202"/>
                             </imageView>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="youtubeframeiphonex" translatesAutoresizingMaskIntoConstraints="NO" id="ReZ-Il-OMa">
-                                <rect key="frame" x="18.666666666666657" y="552" width="337.66666666666663" height="129.66666666666663"/>
+                                <rect key="frame" x="16" y="288.5" width="288" height="80.5"/>
                             </imageView>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tap here to enter text" adjustsFontSizeToFit="NO" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="uif-c2-2Ea">
-                                <rect key="frame" x="23.666666666666657" y="574" width="292.66666666666663" height="14"/>
+                                <rect key="frame" x="21" y="310.5" width="250.5" height="15"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="done"/>
                             </textField>
                             <label hidden="YES" opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap here to dismiss keyboard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUW-pS-aJg">
-                                <rect key="frame" x="16" y="96" width="343" height="19.666666666666671"/>
+                                <rect key="frame" x="16" y="8" width="288" height="19.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="14"/>
                                 <color key="textColor" red="0.22352941179999999" green="0.2274509804" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.22352941176470587" green="0.22745098039215686" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.92549019607843142" green="0.94117647058823528" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="mfI-Wr-pxt" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="0aL-bB-ALm"/>
                             <constraint firstItem="mfI-Wr-pxt" firstAttribute="top" secondItem="AAA-if-6KM" secondAttribute="bottom" id="36S-eS-Jyc"/>
-                            <constraint firstItem="VHc-1o-ItN" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.09" id="3hB-VN-OlO"/>
+                            <constraint firstItem="VHc-1o-ItN" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.08" id="3hB-VN-OlO"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="WR8-lS-ut8" secondAttribute="bottom" constant="30" id="4HK-Ew-EIC"/>
-                            <constraint firstItem="WR8-lS-ut8" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.09" id="4db-g0-pff"/>
+                            <constraint firstItem="WR8-lS-ut8" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.08" id="4db-g0-pff"/>
                             <constraint firstItem="ReZ-Il-OMa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="587-Ir-07E"/>
-                            <constraint firstItem="VHc-1o-ItN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9N3-Od-Lsa"/>
+                            <constraint firstItem="VHc-1o-ItN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="9N3-Od-Lsa"/>
                             <constraint firstItem="uif-c2-2Ea" firstAttribute="width" secondItem="ReZ-Il-OMa" secondAttribute="width" multiplier="0.85" constant="6.2000000000000171" id="AFj-n4-rax"/>
                             <constraint firstItem="jUW-pS-aJg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="BND-0b-8Ul"/>
                             <constraint firstItem="Prt-ao-cru" firstAttribute="height" secondItem="qA6-Yw-PCE" secondAttribute="height" id="G5J-Ff-Ntk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jUW-pS-aJg" secondAttribute="trailing" id="Goa-3y-ftv"/>
                             <constraint firstItem="AAA-if-6KM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="36" id="H0K-jT-cqG"/>
                             <constraint firstItem="jUW-pS-aJg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JCo-Cb-zfH"/>
-                            <constraint firstItem="VHc-1o-ItN" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.49" id="JUI-6K-KAL"/>
+                            <constraint firstItem="VHc-1o-ItN" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.4" id="JUI-6K-KAL"/>
                             <constraint firstItem="qA6-Yw-PCE" firstAttribute="top" secondItem="AAA-if-6KM" secondAttribute="bottom" id="Kne-LK-RfK"/>
                             <constraint firstItem="ReZ-Il-OMa" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.16" id="Ngh-qr-oNL"/>
                             <constraint firstItem="mfI-Wr-pxt" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.4" id="Of7-m9-kMh"/>
                             <constraint firstItem="AAA-if-6KM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Pn0-ii-Cpe"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VHc-1o-ItN" secondAttribute="bottom" constant="30" id="Q11-9r-ooo"/>
-                            <constraint firstAttribute="trailing" secondItem="WR8-lS-ut8" secondAttribute="trailing" id="UzT-5B-kou"/>
+                            <constraint firstAttribute="trailing" secondItem="WR8-lS-ut8" secondAttribute="trailing" constant="10" id="UzT-5B-kou"/>
                             <constraint firstItem="ReZ-Il-OMa" firstAttribute="top" secondItem="qA6-Yw-PCE" secondAttribute="bottom" constant="-35" id="WAy-gB-LCk"/>
                             <constraint firstItem="AAA-if-6KM" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="Xto-Xo-k2g"/>
                             <constraint firstItem="qA6-Yw-PCE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZYA-Ox-NqQ"/>
@@ -119,7 +118,7 @@
                             <constraint firstItem="ReZ-Il-OMa" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="gH6-4w-obO"/>
                             <constraint firstItem="AAA-if-6KM" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.17" id="hXp-DR-jac"/>
                             <constraint firstItem="Prt-ao-cru" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hoZ-Ed-Ken"/>
-                            <constraint firstItem="WR8-lS-ut8" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.49" id="i1I-X3-hhG"/>
+                            <constraint firstItem="WR8-lS-ut8" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.4" id="i1I-X3-hhG"/>
                             <constraint firstItem="qA6-Yw-PCE" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="kir-1V-oY2"/>
                             <constraint firstItem="ReZ-Il-OMa" firstAttribute="top" secondItem="uif-c2-2Ea" secondAttribute="top" constant="-22" id="lNg-Gx-eqW"/>
                             <constraint firstItem="uif-c2-2Ea" firstAttribute="leading" secondItem="ReZ-Il-OMa" secondAttribute="leading" constant="5" id="mnA-ST-F5P"/>
@@ -171,11 +170,11 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="736"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hgf-sg-eby">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Hgf-sg-eby">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="0.18431372549019609" green="0.18823529411764706" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="1" green="0.42011716889027795" blue="0.3261631263749184" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
@@ -191,7 +190,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ChooseLight" width="372" height="294"/>
-        <image name="youtubeframeiphonex" width="333" height="120"/>
+        <image name="ChooseLight" width="558" height="441"/>
+        <image name="youtubeframeiphonex" width="500" height="180"/>
     </resources>
 </document>

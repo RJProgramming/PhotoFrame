@@ -59,6 +59,13 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         filterButtonBot.constant = -200
         shareNav.isEnabled = false
         
+        filterButton.layer.cornerRadius = 20
+        frameButton.layer.cornerRadius = 20
+        
+        imageView.layer.borderWidth = 1
+        
+        imageView.layer.borderColor = UIColor.gray.cgColor
+        
         //sets the delegate for the textfield
         youtubeTitle.delegate = self
         
@@ -81,7 +88,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         if screenWidth == Constants.iPhoneElseWidth{
             textView.font = UIFont(name: "Courier", size: 15)
             textView.textContainerInset = UIEdgeInsetsMake(0.0, -5.0, 0.0, 0.0)
-            limitLength = 32
+            limitLength = 200
             self.youtubeLabel.constant = -25
             if screenHeight == Constants.iPhone4Height{
                 self.youtubeFrameWidth.constant = 12
@@ -95,8 +102,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         }else if screenWidth == Constants.iPhone6Width{
             textView.font = UIFont(name: "Courier", size: 17)
             textView.textContainerInset = UIEdgeInsetsMake(0.0, -5.0, 0.0, 0.0)
-            limitLength = 36
-            self.youtubeLabel.constant = -30
+            limitLength = 200
+            self.youtubeLabel.constant = -20
             
             if screenHeight == Constants.iPhoneXHeight{
                 
@@ -110,7 +117,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         }else if screenWidth >= Constants.iPhone6PlusWidth{
             textView.font = UIFont(name: "Courier", size: 19)
             textView.textContainerInset = UIEdgeInsetsMake(0.0, -5.0, 0.0, 0.0)
-            limitLength = 40
+            limitLength = 200
             self.youtubeLabel.constant = -35
         }
         
