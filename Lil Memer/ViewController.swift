@@ -55,8 +55,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         title = "😂👌💯"
         
-        frameButtonBot.constant = -100
-        filterButtonBot.constant = -100
+        frameButtonBot.constant = -200
+        filterButtonBot.constant = -200
         shareNav.isEnabled = false
         
         //sets the delegate for the textfield

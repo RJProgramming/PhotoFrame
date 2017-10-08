@@ -24,6 +24,8 @@
 	<true/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Dank Meme needs access to your photos</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>This app needs access to your photos to save images.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Roboto-Regular.ttf</string>
