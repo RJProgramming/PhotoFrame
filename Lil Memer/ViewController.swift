@@ -228,7 +228,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         if text == "\n"  // Recognizes enter key in keyboard
         {
             textView.resignFirstResponder()
-            return false
+//            return false
         }
         
         //allows text view to type 6 lines for every phone except 4s
