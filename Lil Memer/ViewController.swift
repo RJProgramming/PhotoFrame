@@ -554,7 +554,7 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
                     
                 }
             }else if screenWidth >= Constants.iPhone6PlusWidth{
-                number = 2.35
+                number = 2.01
             }
             
             
@@ -562,7 +562,7 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
             let myAttribute = [ NSFontAttributeName: UIFont(name: "Roboto", size: 12.0)!]
 
             
-            UIGraphicsGetCurrentContext()!.translateBy(x: offset.x, y: offset.y + ((screenHeight * 0.15) * number))
+            UIGraphicsGetCurrentContext()!.translateBy(x: offset.x, y: offset.y + ((screenHeight * 0.16) * number))
             youtubeFrame.layer.render(in: UIGraphicsGetCurrentContext()!)
             youtubeTitle.font = UIFont(name: "Roboto-Regular", size: 12)
             let labelRect = CGRect(x: 5, y: (self.youtubeLabel.constant * -1), width: youtubeFrame.bounds.size.width, height: youtubeFrame.bounds.size.height)
