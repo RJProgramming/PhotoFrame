@@ -543,7 +543,7 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
             
             //   number allows different screen sizes to export youtube frame properly
             if screenWidth == Constants.iPhoneElseWidth{
-                number = 2.26
+                number = 1.9
                 
                 if screenHeight == Constants.iPhone4Height{
                     number = 2
