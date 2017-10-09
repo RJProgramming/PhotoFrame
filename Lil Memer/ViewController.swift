@@ -102,7 +102,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             
             if screenHeight == Constants.iPhoneXHeight{
                 
-                self.youtubeLabel.constant = -30
+                self.youtubeLabel.constant = -29
                 //self.youtubeFrame.contentMode = .scaleAspectFit
                 youtubeFrame.image = UIImage(named: "youtubeframeiphonex")
                 
@@ -548,7 +548,7 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
                 
                 if screenHeight == Constants.iPhoneXHeight{
                     
-                    number = 2.39
+                    number = 2
                     //youtubeFrame.contentMode = .scaleToFill
                     
                     
