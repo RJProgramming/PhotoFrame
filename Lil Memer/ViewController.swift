@@ -226,12 +226,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let boundingRect = sizeOfString(string: newText, constrainedToWidth: Double(textWidth), font: textView.font!)
         let numberOfLines = boundingRect.height / textView.font!.lineHeight;
         
-//        //lets done/return key dismiss keyboard
-//        if text == "\n"  // Recognizes enter key in keyboard
-//        {
-//            textView.resignFirstResponder()
-////            return false
-//        }
         
         //allows text view to type 6 lines for every phone except 4s
         if screenWidth == Constants.iPhoneElseWidth {
