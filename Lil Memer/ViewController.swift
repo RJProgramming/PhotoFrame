@@ -102,8 +102,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             
             if screenHeight == Constants.iPhoneXHeight{
                 
-                self.youtubeLabel.constant = -35
-                self.youtubeFrame.contentMode = .scaleAspectFit
+                self.youtubeLabel.constant = -30
+                //self.youtubeFrame.contentMode = .scaleAspectFit
                 youtubeFrame.image = UIImage(named: "youtubeframeiphonex")
                 
                 
