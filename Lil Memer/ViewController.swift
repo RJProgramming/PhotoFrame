@@ -57,7 +57,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         filterButtonBot.constant = -200
         shareNav.isEnabled = false
         
-        filterButton.layer.cornerRadius = 20
+        filterButton.layer.cornerRadius = ((filterButton.frame.size.height / 2) + (filterButton.frame.size.width / 2) / 2)
         frameButton.layer.cornerRadius = 20
         
         
@@ -466,10 +466,15 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
         
         let offset = scrollView.contentOffset
         let screenHeight = screenSize.height
-        
+        let iphoneScreenWidth = screenSize.width
         
         //added -2 to get rid of a  1 pixel high black line only appeared with zoomed out images + textview and zoomed in portrait images
-        let normalSize = CGSize(width: scrollView.bounds.size.width, height: scrollView.bounds.size.height - 1)
+        var normalSize = CGSize(width: scrollView.bounds.size.width, height: scrollView.bounds.size.height - 1)
+        
+        if iphoneScreenWidth == Constants.iPhone6Width{
+             normalSize = CGSize(width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
+        }
+        
         let textViewWithImageSize = CGSize(width: scrollView.bounds.size.width, height: ((screenHeight * 0.17) + scrollView.bounds.size.height - 2))
         let youtubeFrameImageSize = CGSize(width: scrollView.bounds.size.width, height: ((screenHeight * 0.15) + scrollView.bounds.size.height - 36))
         var yPos: Int = Int(-offset.y)
