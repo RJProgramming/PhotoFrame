@@ -102,12 +102,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             self.youtubeLabel.constant = -18
             
             if screenHeight == Constants.iPhoneXHeight{
-                
                 self.youtubeLabel.constant = -29
-                //self.youtubeFrame.contentMode = .scaleAspectFit
                 youtubeFrame.image = UIImage(named: "youtubeframeiphonex")
-                
-                
             }
             
         }else if screenWidth >= Constants.iPhone6PlusWidth{
@@ -148,6 +144,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     }
     
     //limits youtube textfield characters so it doesnt scroll
+    // left this but made the limit huge essenitally removing it
     func textField(_ youtubeTitle: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = youtubeTitle.text else { return true }
         let newLength = text.characters.count + string.characters.count - range.length
@@ -235,7 +232,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         }
         
         //allows text view to type 6 lines for every phone except 4s
-        if screenHeight == Constants.iPhone4Height {
+        if screenHeight == Constants.iPhoneElseWidth {
            return numberOfLines <= 5
         }else{
            return numberOfLines <= 6
