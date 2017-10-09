@@ -98,7 +98,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             textView.font = UIFont(name: "Courier", size: 17)
             textView.textContainerInset = UIEdgeInsetsMake(0.0, -5.0, 0.0, 0.0)
             limitLength = 200
-            self.youtubeLabel.constant = -20
+            self.youtubeLabel.constant = -18
             
             if screenHeight == Constants.iPhoneXHeight{
                 
@@ -544,7 +544,7 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
                 }
                 
             }else if screenWidth == Constants.iPhone6Width{
-                number = 2.33
+                number = 2
                 
                 if screenHeight == Constants.iPhoneXHeight{
                     
