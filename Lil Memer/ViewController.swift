@@ -75,9 +75,10 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
+        tap.cancelsTouchesInView = false
         
-        let imageTouch: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.didTapImage))
-        imageView.addGestureRecognizer(imageTouch)
+//        let imageTouch: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.didTapImage))
+//        imageView.addGestureRecognizer(imageTouch)
      
     
        //these font sizes along with screen width and writing the string at size 15 seems to line everything up nicely.
@@ -132,16 +133,16 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
   
     
    
-    func didTapImage(gesture: UIGestureRecognizer) {
-        let point = gesture.location(in: gesture.view)
-        print(point)
-        
-        xCord = point.x
-        yCord = point.y
-        
-        print ("\(point) and x\(xCord) and \(yCord)")
-        
-    }
+//    func didTapImage(gesture: UIGestureRecognizer) {
+//        let point = gesture.location(in: gesture.view)
+//        print(point)
+//
+//        xCord = point.x
+//        yCord = point.y
+//
+//        print ("\(point) and x\(xCord) and \(yCord)")
+//
+//    }
     
     //limits youtube textfield characters so it doesnt scroll
     // left this but made the limit huge essenitally removing it
@@ -187,6 +188,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
+       
         view.endEditing(true)
         
     }
@@ -215,7 +217,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     }
     //part 2 of calcing string length to keep textview at certain number of lines
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool{
-        let screenHeight = screenSize.height
+        let screenWidth = screenSize.width
         
         let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
         var textWidth = UIEdgeInsetsInsetRect(textView.frame, textView.textContainerInset).width
@@ -224,15 +226,15 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let boundingRect = sizeOfString(string: newText, constrainedToWidth: Double(textWidth), font: textView.font!)
         let numberOfLines = boundingRect.height / textView.font!.lineHeight;
         
-        //lets done/return key dismiss keyboard
-        if text == "\n"  // Recognizes enter key in keyboard
-        {
-            textView.resignFirstResponder()
-//            return false
-        }
+//        //lets done/return key dismiss keyboard
+//        if text == "\n"  // Recognizes enter key in keyboard
+//        {
+//            textView.resignFirstResponder()
+////            return false
+//        }
         
         //allows text view to type 6 lines for every phone except 4s
-        if screenHeight == Constants.iPhoneElseWidth {
+        if screenWidth == Constants.iPhoneElseWidth {
            return numberOfLines <= 5
         }else{
            return numberOfLines <= 6
