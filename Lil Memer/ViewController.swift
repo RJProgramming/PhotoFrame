@@ -57,9 +57,10 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         filterButtonBot.constant = -200
         shareNav.isEnabled = false
         
-        filterButton.layer.cornerRadius = ((filterButton.frame.size.height / 2) + (filterButton.frame.size.width / 2) / 2)
+        filterButton.layer.cornerRadius = 20
         frameButton.layer.cornerRadius = 20
-        
+        filterButton.clipsToBounds = true
+        frameButton.clipsToBounds = true
         
         //sets the delegate for the textfield
         youtubeTitle.delegate = self
