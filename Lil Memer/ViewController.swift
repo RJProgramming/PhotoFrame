@@ -507,7 +507,7 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
         
         let textColor = UIColor.black
         let screenWidth = screenSize.width
-        var textFont = UIFont(name: "Courier", size: 15)
+        var textFont = UIFont(name: "Roboto-Regular", size: 15)
         // I thoght I neede different sized string fonts to make the saved image line up correctly. it seems i dont but im going
         // to leave it there just in case i find another bug with it.
         if screenWidth == Constants.iPhoneElseWidth{
