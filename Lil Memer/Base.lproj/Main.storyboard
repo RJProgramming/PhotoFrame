@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -74,7 +76,7 @@
                                 <rect key="frame" x="16" y="288" width="288" height="80.5"/>
                             </imageView>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tap here to enter text" adjustsFontSizeToFit="NO" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="uif-c2-2Ea">
-                                <rect key="frame" x="21" y="310" width="250.5" height="14"/>
+                                <rect key="frame" x="26" y="310" width="245.5" height="15"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardAppearance="light"/>
@@ -89,13 +91,11 @@
                             <constraint firstItem="WR8-lS-ut8" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.08" id="4db-g0-pff"/>
                             <constraint firstItem="ReZ-Il-OMa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="587-Ir-07E"/>
                             <constraint firstItem="VHc-1o-ItN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9N3-Od-Lsa"/>
-                            <constraint firstItem="uif-c2-2Ea" firstAttribute="width" secondItem="ReZ-Il-OMa" secondAttribute="width" multiplier="0.85" constant="6.2000000000000171" id="AFj-n4-rax"/>
                             <constraint firstItem="Prt-ao-cru" firstAttribute="height" secondItem="qA6-Yw-PCE" secondAttribute="height" id="G5J-Ff-Ntk"/>
                             <constraint firstItem="AAA-if-6KM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="36" id="H0K-jT-cqG"/>
                             <constraint firstAttribute="trailing" secondItem="VHc-1o-ItN" secondAttribute="trailing" constant="182" id="HCr-Cd-8Yf"/>
                             <constraint firstItem="VHc-1o-ItN" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.4" id="JUI-6K-KAL"/>
                             <constraint firstItem="qA6-Yw-PCE" firstAttribute="top" secondItem="AAA-if-6KM" secondAttribute="bottom" id="Kne-LK-RfK"/>
-                            <constraint firstAttribute="trailing" secondItem="uif-c2-2Ea" secondAttribute="trailing" constant="48.5" id="MYw-Nq-FWA"/>
                             <constraint firstItem="ReZ-Il-OMa" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.16" id="Ngh-qr-oNL"/>
                             <constraint firstItem="mfI-Wr-pxt" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.4" id="Of7-m9-kMh"/>
                             <constraint firstItem="AAA-if-6KM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Pn0-ii-Cpe"/>
@@ -114,8 +114,9 @@
                             <constraint firstItem="WR8-lS-ut8" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.4" id="i1I-X3-hhG"/>
                             <constraint firstItem="qA6-Yw-PCE" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="kir-1V-oY2"/>
                             <constraint firstItem="ReZ-Il-OMa" firstAttribute="top" secondItem="uif-c2-2Ea" secondAttribute="top" constant="-22" id="lNg-Gx-eqW"/>
-                            <constraint firstItem="uif-c2-2Ea" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ReZ-Il-OMa" secondAttribute="leading" id="mnA-ST-F5P"/>
+                            <constraint firstItem="ReZ-Il-OMa" firstAttribute="trailingMargin" secondItem="uif-c2-2Ea" secondAttribute="trailing" constant="24.5" id="oXQ-pP-dVy"/>
                             <constraint firstItem="Prt-ao-cru" firstAttribute="width" secondItem="qA6-Yw-PCE" secondAttribute="width" id="oYo-2g-9GT"/>
+                            <constraint firstItem="uif-c2-2Ea" firstAttribute="leading" secondItem="ReZ-Il-OMa" secondAttribute="leadingMargin" constant="2" id="rCN-hS-wy2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="X4f-xL-iI7">
