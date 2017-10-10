@@ -583,7 +583,7 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
                 (activity, success, items, error) in
                 if(success && error == nil){
                     //Do Work
-                    let alert = UIAlertController(title: "Alright!", message: "Your image was saved.", preferredStyle: UIAlertControllerStyle.alert)
+                    let alert = UIAlertController(title: "Alright!", message: "Operation complete.", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                     
