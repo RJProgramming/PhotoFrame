@@ -577,11 +577,25 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
         if  image != nil {
             //brings out the share menu
             let vc = UIActivityViewController(activityItems: [image], applicationActivities: [])
-            present(vc, animated: true)
             
+            //saved image prompt that doesnt appear when share menu cancelled
+            vc.completionWithItemsHandler = {
+                (activity, success, items, error) in
+                if(success && error == nil){
+                    //Do Work
+                    let alert = UIAlertController(title: "Alright!", message: "Your image was saved.", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    
+                }
+                else if (error != nil){
+                    //log the error
+                }
+            }
+             present(vc, animated: true)
         }
 
-        
+       
     }
     
 
