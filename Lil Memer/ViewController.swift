@@ -83,7 +83,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     
        //these font sizes along with screen width and writing the string at size 15 seems to line everything up nicely.
         if screenWidth == Constants.iPhoneElseWidth{
-            textView.font = UIFont(name: "Courier", size: 15)
+            textView.font = UIFont(name: "Roboto-Regular", size: 13)
             textView.textContainerInset = UIEdgeInsetsMake(0.0, -5.0, 0.0, 0.0)
             limitLength = 200
             self.youtubeLabel.constant = -13
@@ -97,7 +97,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         }
             
         }else if screenWidth == Constants.iPhone6Width{
-            textView.font = UIFont(name: "Courier", size: 17)
+            textView.font = UIFont(name: "Roboto-Regular", size: 15)
             textView.textContainerInset = UIEdgeInsetsMake(0.0, -5.0, 0.0, 0.0)
             limitLength = 200
             self.youtubeLabel.constant = -18
@@ -108,7 +108,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             }
             
         }else if screenWidth >= Constants.iPhone6PlusWidth{
-            textView.font = UIFont(name: "Courier", size: 19)
+            textView.font = UIFont(name: "Roboto-Regular", size: 17)
             textView.textContainerInset = UIEdgeInsetsMake(0.0, -5.0, 0.0, 0.0)
             limitLength = 200
             self.youtubeLabel.constant = -20
@@ -217,8 +217,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     }
     //part 2 of calcing string length to keep textview at certain number of lines
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool{
-        let screenWidth = screenSize.width
-        
+       // let screenWidth = screenSize.width
+        let screenHeight = screenSize.height
         let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
         var textWidth = UIEdgeInsetsInsetRect(textView.frame, textView.textContainerInset).width
         textWidth -= 2.0 * textView.textContainer.lineFragmentPadding;
@@ -227,11 +227,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let numberOfLines = boundingRect.height / textView.font!.lineHeight;
         
         
-        //allows text view to type 6 lines for every phone except 4s
-        if screenWidth == Constants.iPhoneElseWidth {
-           return numberOfLines <= 5
-        }else{
+
+        if screenHeight == Constants.iPhoneXHeight {
            return numberOfLines <= 6
+        }else{
+           return numberOfLines <= 5
         }
         
         
@@ -511,11 +511,11 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
         // I thoght I neede different sized string fonts to make the saved image line up correctly. it seems i dont but im going
         // to leave it there just in case i find another bug with it.
         if screenWidth == Constants.iPhoneElseWidth{
-            textFont = UIFont(name: "Courier", size: 15)
+            textFont = UIFont(name: "Roboto-Regular", size: 13)
         }else if screenWidth == Constants.iPhone6Width{
-            textFont = UIFont(name: "Courier", size: 17)
+            textFont = UIFont(name: "Roboto-Regular", size: 15)
         }else if screenWidth >= Constants.iPhone6PlusWidth{
-            textFont = UIFont(name: "Courier", size: 19)
+            textFont = UIFont(name: "Roboto-Regular", size: 17)
         }
         
         //let textFont = UIFont(name: "Courier", size: 15)!
