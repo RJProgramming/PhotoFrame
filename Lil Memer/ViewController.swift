@@ -9,7 +9,7 @@
 import UIKit
 import StoreKit
 
-class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
+class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var textView: UITextView!
@@ -47,6 +47,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     var origImage: UIImage!
     var font: UIFont?
     var movementValue: CGFloat = 135
+    var canSetFilterCenter:Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,13 +74,19 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         imageView.isUserInteractionEnabled = true
         scrollView.addSubview(imageView)
         
+        //tap to dismiss keyboard
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         tap.cancelsTouchesInView = false
         
-//        let imageTouch: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.didTapImage))
-//        imageView.addGestureRecognizer(imageTouch)
+        //tap to center a filter
+        let imageTouch: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.didTapImage))
+        imageView.addGestureRecognizer(imageTouch)
+        imageTouch.cancelsTouchesInView = false
      
+        //set the deletes for both gestures at same time
+        tap.delegate = self
+        imageTouch.delegate = self
     
        //these font sizes along with screen width and writing the string at size 15 seems to line everything up nicely.
         if screenWidth == Constants.iPhoneElseWidth{
@@ -123,6 +130,12 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
     }
 
+    //added this to allow custom filter centers and tap keyboard to dismiss on imageview
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
+                           shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer)
+        -> Bool {
+            return true
+    }
     
     func textFieldShouldReturn(_ youtubeTitle: UITextField) -> Bool
     {
@@ -133,16 +146,16 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
   
     
    
-//    func didTapImage(gesture: UIGestureRecognizer) {
-//        let point = gesture.location(in: gesture.view)
-//        print(point)
-//
-//        xCord = point.x
-//        yCord = point.y
-//
-//        print ("\(point) and x\(xCord) and \(yCord)")
-//
-//    }
+    func didTapImage(gesture: UIGestureRecognizer) {
+        let point = gesture.location(in: gesture.view)
+        print(point)
+
+        xCord = point.x
+        yCord = point.y
+
+        print ("\(point) and x\(xCord) and \(yCord)")
+
+    }
     
     //limits youtube textfield characters so it doesnt scroll
     // left this but made the limit huge essenitally removing it
@@ -237,7 +250,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
     }
 
-    //picker once user taps imageview
+    //picker once user taps plus
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         image = info[UIImagePickerControllerOriginalImage] as! UIImage
         
