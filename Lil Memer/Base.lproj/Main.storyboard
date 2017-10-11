@@ -76,7 +76,7 @@
                                 <rect key="frame" x="20.666666666666657" y="451.33333333333337" width="372.66666666666663" height="107.33333333333326"/>
                             </imageView>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tap here to enter text" adjustsFontSizeToFit="NO" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="uif-c2-2Ea">
-                                <rect key="frame" x="30.666666666666657" y="473.33333333333337" width="330" height="15"/>
+                                <rect key="frame" x="29.666666666666657" y="473.33333333333337" width="331" height="14"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardAppearance="light"/>
@@ -116,7 +116,7 @@
                             <constraint firstItem="ReZ-Il-OMa" firstAttribute="top" secondItem="uif-c2-2Ea" secondAttribute="top" constant="-22" id="lNg-Gx-eqW"/>
                             <constraint firstItem="ReZ-Il-OMa" firstAttribute="trailingMargin" secondItem="uif-c2-2Ea" secondAttribute="trailing" constant="24.5" id="oXQ-pP-dVy"/>
                             <constraint firstItem="Prt-ao-cru" firstAttribute="width" secondItem="qA6-Yw-PCE" secondAttribute="width" id="oYo-2g-9GT"/>
-                            <constraint firstItem="uif-c2-2Ea" firstAttribute="leading" secondItem="ReZ-Il-OMa" secondAttribute="leadingMargin" constant="2" id="rCN-hS-wy2"/>
+                            <constraint firstItem="uif-c2-2Ea" firstAttribute="leading" secondItem="ReZ-Il-OMa" secondAttribute="leadingMargin" constant="0.5" id="rCN-hS-wy2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="X4f-xL-iI7">
