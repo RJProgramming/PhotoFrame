@@ -368,9 +368,9 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         let ac = UIAlertController(title: "Tap anywhere on your image to set new a filter center", message: nil, preferredStyle: .actionSheet)
         
-        ac.addAction(UIAlertAction(title: "Convex", style: .default, handler: setFilter))
-        ac.addAction(UIAlertAction(title: "Linear Convex", style: .default, handler: setFilter))
-        ac.addAction(UIAlertAction(title: "Concave", style: .default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "Bump", style: .default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "Linear Bump", style: .default, handler: setFilter))
+        ac.addAction(UIAlertAction(title: "Pinch", style: .default, handler: setFilter))
         ac.addAction(UIAlertAction(title: "Spiral", style: .default, handler: setFilter))
         ac.addAction(UIAlertAction(title: "Pixelate", style: .default, handler: setFilter))
         ac.addAction(UIAlertAction(title: "Black and White", style: .default, handler: setFilter))
@@ -391,16 +391,16 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         var actionSheetFilter = "CIPixellate"
         var pinchCheck = 0
         
-        if action.title == "Convex"{
+        if action.title == "Bump"{
             pinchCheck = 0
             actionSheetFilter = "CIBumpDistortion"
-        }else if action.title == "Linear Convex"{
+        }else if action.title == "Linear Bump"{
             actionSheetFilter = "CIBumpDistortionLinear"
         }else if action.title == "Spiral"{
             actionSheetFilter = "CITwirlDistortion"
         }else if action.title == "Pixelate"{
             actionSheetFilter = "CIPixellate"
-        }else if action.title == "Concave"{
+        }else if action.title == "Pinch"{
             pinchCheck = 1
             actionSheetFilter = "CIBumpDistortion"
         }else if action.title == "Remove Filters"{
