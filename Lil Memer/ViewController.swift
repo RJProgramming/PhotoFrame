@@ -14,6 +14,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var noImageHolder: UIImageView!
+    @IBOutlet weak var filterPointerImage: UIImageView!
+    
     
     @IBOutlet weak var sciFrame: UIImageView!
     @IBOutlet weak var youtubeFrame: UIImageView!
@@ -155,6 +157,22 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
 
         print ("\(point) and x\(xCord) and \(yCord)")
 
+        
+    }
+    
+    var lastLocation = CGPoint()
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            self.lastLocation = touch.location(in: self.scrollView)
+        }
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            let location = touch.location(in: self.scrollView)
+            self.filterPointerImage.center = CGPoint(x: (location.x - self.lastLocation.x) + self.filterPointerImage.center.x, y: (location.y - self.lastLocation.y) + self.filterPointerImage.center.y)
+            lastLocation = touch.location(in: self.scrollView)
+        }
     }
     
     //limits youtube textfield characters so it doesnt scroll
