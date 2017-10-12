@@ -294,7 +294,47 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         textViewDidBeginEditing(textView)
         textViewDidEndEditing(textView)
         
-        picker.dismiss(animated: true, completion: nil)
+        //picker.dismiss(animated: true, completion: nil)
+        
+        picker.dismiss(animated: true, completion:{
+            
+            self.shareNav.isEnabled = true
+            
+            //brings buttons back into view after being hidden before inital image is choosen
+            let screenHeight = self.screenSize.height
+            
+            if screenHeight == Constants.iPhone4Height{
+                
+                self.frameButtonBot.constant = 10
+                self.filterButtonBot.constant = 10
+                
+            }else if screenHeight == Constants.iPhoneXHeight{
+                
+                self.frameButtonBot.constant = 10
+                self.filterButtonBot.constant = 10
+                
+                UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
+                    
+                    self.view.layoutIfNeeded()
+                })
+                
+            }else{
+                
+             
+                self.view.layoutIfNeeded()
+                self.frameButtonBot.constant = 30 // Some value
+                self.filterButtonBot.constant = 30
+                
+                UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
+                    
+                    self.view.layoutIfNeeded()
+                })
+                
+                
+                
+            }
+            
+        })
         
         //activates skreview controller after 5 launches of the app
         
@@ -309,28 +349,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             
         }
         
-        shareNav.isEnabled = true
         
-        //brings buttons back into view after being hidden before inital image is choosen
-        let screenHeight = screenSize.height
-
-        if screenHeight == Constants.iPhone4Height{
-        
-            frameButtonBot.constant = 10
-            filterButtonBot.constant = 10
-            
-        }else if screenHeight == Constants.iPhoneXHeight{
-            
-            self.frameButtonBot.constant = 10
-            self.filterButtonBot.constant = 10
-            
-        }else{
-            
-            self.frameButtonBot.constant = 30
-            self.filterButtonBot.constant = 30
-            
-            
-        }
         
         
         
@@ -640,6 +659,9 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
             sciFrame.isHidden = true
             youtubeFrame.isHidden = true
             youtubeTitle.isHidden = true
+            
+           
+            
         case 1:
             //textView
             textViewDidBeginEditing(textView)
