@@ -683,11 +683,11 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
            
             textView.isHidden = false
 
-            UIView.animate(withDuration: 0.5, delay: 0,options: UIViewAnimationOptions.curveEaseOut,animations: {
+            UIView.animate(withDuration: 0.5, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
                 self.textView.transform = CGAffineTransform(scaleX: 2, y: 2)
             })
             
-            UIView.animate(withDuration: 0.5, delay: 0,options: UIViewAnimationOptions.curveEaseOut,animations: {
+            UIView.animate(withDuration: 0.5, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
                 self.textView.transform = CGAffineTransform(scaleX: 1, y: 1)
             })
  
