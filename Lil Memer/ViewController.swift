@@ -51,8 +51,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         filterButtonBot.constant = -200
         shareNav.isEnabled = false
         
-        filterButton.layer.cornerRadius = 20
-        frameButton.layer.cornerRadius = 20
+        filterButton.layer.cornerRadius = 10
+        frameButton.layer.cornerRadius = 10
         filterButton.clipsToBounds = true
         frameButton.clipsToBounds = true
         
@@ -87,37 +87,24 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             textView.textContainerInset = UIEdgeInsetsMake(0.0, -5.0, 0.0, 0.0)
             limitLength = 200
             self.youtubeLabel.constant = -13
-            if screenHeight == Constants.iPhone4Height{
-                //self.youtubeFrameWidth.constant = 12
-                //self.youtubeLabel.constant = -5
-                
-                
-                //move view up passed keyboard more than other screen sizes for youtube frame
-                movementValue = 170
-        }
-            
         }else if screenWidth == Constants.iPhone6Width{
             textView.font = UIFont(name: "Roboto-Regular", size: 15)
             textView.textContainerInset = UIEdgeInsetsMake(0.0, -5.0, 0.0, 0.0)
             limitLength = 200
             self.youtubeLabel.constant = -18
-            
             if screenHeight == Constants.iPhoneXHeight{
                 self.youtubeLabel.constant = -29
                 youtubeFrame.image = UIImage(named: "youtubeframeiphonex")
             }
-            
         }else if screenWidth >= Constants.iPhone6PlusWidth{
             textView.font = UIFont(name: "Roboto-Regular", size: 17)
             textView.textContainerInset = UIEdgeInsetsMake(0.0, -5.0, 0.0, 0.0)
             limitLength = 200
             self.youtubeLabel.constant = -20
         }
-        
         // place holder text for textview
         textView.text = "Tap here to enter text"
         textView.textColor = UIColor.lightGray
-        
         self.textView.delegate = self
         scrollView.isHidden = true
         
