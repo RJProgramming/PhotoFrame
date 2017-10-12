@@ -135,31 +135,21 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         youtubeTitle.resignFirstResponder()
         return true
     }
-    
-  
-    
-   
+
     func didTapImage(gesture: UIGestureRecognizer) {
         let point = gesture.location(in: gesture.view)
         print(point)
-
         xCord = point.x
         yCord = point.y
-
         print ("\(point) and x\(xCord) and \(yCord)")
-
-        
     }
-    
-    
+ 
     //limits youtube textfield characters so it doesnt scroll
     // left this but made the limit huge essenitally removing it
     func textField(_ youtubeTitle: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = youtubeTitle.text else { return true }
         let newLength = text.characters.count + string.characters.count - range.length
         return newLength <= limitLength
-        
-        
     }
     //allows view to move when keyboard comes out for textfield pt1
     func textFieldDidBeginEditing(_ youtubeTitle: UITextField) {
@@ -185,20 +175,16 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     }
     
     struct Constants {
-        
         static let iPhone6Width = CGFloat(375)
         static let iPhone6PlusWidth = CGFloat(414)
         static let iPhoneElseWidth = CGFloat(320)
         static let iPhone4Height = CGFloat(480)
         static let iPhoneXHeight = CGFloat(812)
-        
     }
         
     func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
-       
         view.endEditing(true)
-        
     }
     
     //adds placeholder text for textview pt 1
@@ -233,16 +219,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         let boundingRect = sizeOfString(string: newText, constrainedToWidth: Double(textWidth), font: textView.font!)
         let numberOfLines = boundingRect.height / textView.font!.lineHeight;
-        
-        
-
         if screenHeight == Constants.iPhoneXHeight {
            return numberOfLines <= 6
         }else{
            return numberOfLines <= 5
         }
-        
-        
     }
 
     //picker once user taps plus
@@ -284,16 +265,12 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         textView.text = ""
         textViewDidBeginEditing(textView)
         textViewDidEndEditing(textView)
-        
-        //picker.dismiss(animated: true, completion: nil)
-        
+
         picker.dismiss(animated: true, completion:{
             
             self.shareNav.isEnabled = true
-            
             //brings buttons back into view after being hidden before inital image is choosen
             let screenHeight = self.screenSize.height
-            
             if screenHeight == Constants.iPhone4Height{
                 
                 self.frameButtonBot.constant = 10
@@ -310,47 +287,29 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
                 })
                 
             }else{
-                
-             
+
                 self.view.layoutIfNeeded()
                 self.frameButtonBot.constant = 30 // Some value
                 self.filterButtonBot.constant = 30
-                
                 UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
-                    
                     self.view.layoutIfNeeded()
                 })
-                
-                
-                
             }
             
         })
         
         //activates skreview controller after 5 launches of the app
-        
         if #available(iOS 10.3, *) {
-            
             let reviewCount = defaults.integer(forKey: "launchCount")
-            
             if reviewCount == 2 {
                 SKStoreReviewController.requestReview()
             }
-            
-            
         }
-        
-        
-        
-        
-        
     }
    
     func centerScrollViewContents(){
-       
         let boundsSize = scrollView.bounds.size
         var contentsFrame = imageView.frame
-        
         if contentsFrame.size.width < boundsSize.width{
             contentsFrame.origin.x = (boundsSize.width - contentsFrame.size.width) / 2
         }else{
@@ -362,10 +321,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         }else{
             contentsFrame.origin.y = 0
         }
-
         imageView.frame = contentsFrame
-    
-
     }
     
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
@@ -392,16 +348,12 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         ac.addAction(UIAlertAction(title: "Remove Filters", style: .destructive, handler: setFilter))
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)
-        
     }
-    
-    //CIPinchDistortion
-    
+
     func setFilter(action: UIAlertAction) {
         // make sure we have a valid image before continuing!
        
         guard let image = self.imageView.image?.cgImage else { return }
-        
         var actionSheetFilter = "CIPixellate"
         var pinchCheck = 0
         
@@ -424,14 +376,12 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         }else if action.title == "Motion Blur"{
             actionSheetFilter = "CIMotionBlur"
         }
-        
-        
+
         //changed .openGLES3 to S2 to accomodate ios 9
         let openGLContext = EAGLContext(api: .openGLES2)
         let context = CIContext(eaglContext: openGLContext!)
         let ciImage = CIImage(cgImage: image)
-        
-        
+
         //Had to do the below radiusValue because radiuskey wouldnt accept (image.height * image.width) / 4 for some reason
         var radiusValue = 1
         if image.height >= image.width{
@@ -446,9 +396,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         }else{
             
         let currentFilter = CIFilter(name: actionSheetFilter)
-        
         currentFilter?.setValue(ciImage, forKey: kCIInputImageKey)
-
         let inputKeys = currentFilter?.inputKeys
         
         if (inputKeys?.contains(kCIInputIntensityKey))! { currentFilter?.setValue(100, forKey: kCIInputIntensityKey) }
@@ -463,7 +411,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             
         if ((inputKeys?.contains(kCIInputScaleKey))! && actionSheetFilter == "CIBumpDistortionLinear") { currentFilter?.setValue(0.50, forKey: kCIInputScaleKey) }
         if ((inputKeys?.contains(kCIInputScaleKey))! && actionSheetFilter == "CIPixellate") { currentFilter?.setValue(radiusValue / 50, forKey: kCIInputScaleKey) }
-if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(x: xCord, y: CGFloat(image.height) - yCord), forKey: kCIInputCenterKey) }
+            if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(x: xCord, y: CGFloat(image.height) - yCord), forKey: kCIInputCenterKey) }
             
             if (inputKeys?.contains(kCIInputAngleKey))! { currentFilter?.setValue(1.5, forKey: kCIInputAngleKey) }
         if ((inputKeys?.contains(kCIInputAngleKey))! && actionSheetFilter == "CIBumpDistortionLinear") { currentFilter?.setValue(0.0, forKey: kCIInputAngleKey) }
@@ -473,18 +421,13 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
         let outputImage = UIImage(cgImage: context.createCGImage(output, from: output.extent)!)
         
         self.imageView.image = outputImage
-        }
-            
-        
+            }
         }
     }
-    
-    
-   
+
     @IBAction func navSave(_ sender: UIBarButtonItem) {
         
         guard image != nil else { return }
-        
         let offset = scrollView.contentOffset
         let screenHeight = screenSize.height
         let iphoneScreenWidth = screenSize.width
@@ -531,7 +474,6 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
             sciFrame.layer.render(in: UIGraphicsGetCurrentContext()!)
         }
         
-        
         let textColor = UIColor.black
         let screenWidth = screenSize.width
         var textFont = UIFont(name: "Roboto-Regular", size: 15)
@@ -564,39 +506,22 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
             //   number allows different screen sizes to export youtube frame properly
             if screenWidth == Constants.iPhoneElseWidth{
                 number = 2.45
-                
-                //4 no longer supported
-//                if screenHeight == Constants.iPhone4Height{
-//                    number = 2
-//                }
-                
             }else if screenWidth == Constants.iPhone6Width{
                 number = 2.54
-                
                 if screenHeight == Constants.iPhoneXHeight{
-                    
                     number = 2.6
-                    //youtubeFrame.contentMode = .scaleToFill
-                    
-                    
                 }
             }else if screenWidth >= Constants.iPhone6PlusWidth{
                 number = 2.6
             }
-            
-            
+
             //adds correct font on youtube title output
             let myAttribute = [ NSFontAttributeName: UIFont(name: "Roboto", size: 12.0)!]
-
-            
             UIGraphicsGetCurrentContext()!.translateBy(x: offset.x, y: offset.y + ((screenHeight * 0.16) * number))
             youtubeFrame.layer.render(in: UIGraphicsGetCurrentContext()!)
             youtubeTitle.font = UIFont(name: "Roboto-Regular", size: 12)
             let labelRect = CGRect(x: 5, y: (self.youtubeLabel.constant * -1), width: youtubeFrame.bounds.size.width, height: youtubeFrame.bounds.size.height)
             youtubeTitle.text?.draw(in: labelRect, withAttributes: myAttribute)
-            
-          
-            
         }
         
         image = UIGraphicsGetImageFromCurrentImageContext()
@@ -613,7 +538,6 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        
         self.present(imagePicker, animated: true, completion: nil)
     }
     
@@ -690,13 +614,5 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
             currentFrame = 0
         }
 }
-    
-    func animateFrameChange (){
-    
-    
-    
-    }
-    
-    
 }
 
