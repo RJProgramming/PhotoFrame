@@ -107,7 +107,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         textView.textColor = UIColor.lightGray
         self.textView.delegate = self
         scrollView.isHidden = true
-        
     }
 
     //added this to allow custom filter centers and tap keyboard to dismiss on imageview
@@ -258,16 +257,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             self.shareNav.isEnabled = true
             //brings buttons back into view after being hidden before inital image is choosen
             let screenHeight = self.screenSize.height
-            if screenHeight == Constants.iPhone4Height{
+            if screenHeight == Constants.iPhoneXHeight{
                 
+                self.view.layoutIfNeeded()
                 self.frameButtonBot.constant = 10
                 self.filterButtonBot.constant = 10
-                
-            }else if screenHeight == Constants.iPhoneXHeight{
-                
-                self.frameButtonBot.constant = 10
-                self.filterButtonBot.constant = 10
-                
                 UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
                     
                     self.view.layoutIfNeeded()
