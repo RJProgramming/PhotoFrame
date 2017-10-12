@@ -9,45 +9,22 @@
 import UIKit
 import StoreKit
 
-extension UIView {
-    func rotate360Degrees(duration: CFTimeInterval = 1) {
-        let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
-        rotateAnimation.fromValue = 0.0
-        rotateAnimation.toValue = CGFloat(M_PI * 2)
-        rotateAnimation.isRemovedOnCompletion = false
-        rotateAnimation.duration = duration
-        rotateAnimation.repeatCount = 1
-        self.layer.add(rotateAnimation, forKey: nil)
-        
-        //use view.rotate360degree()
-    }
-}
-
 class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var noImageHolder: UIImageView!
-   
-    
-    
     @IBOutlet weak var sciFrame: UIImageView!
     @IBOutlet weak var youtubeFrame: UIImageView!
     @IBOutlet weak var youtubeTitle: UITextField!
-    
     @IBOutlet weak var youtubeLabel: NSLayoutConstraint!
     @IBOutlet weak var saveNav: UIBarButtonItem!
-    
     @IBOutlet weak var shareNav: UIBarButtonItem!
     @IBOutlet weak var frameButtonBot: NSLayoutConstraint!
     @IBOutlet weak var filterButtonBot: NSLayoutConstraint!
-    
-   
     @IBOutlet weak var youtubeFrameWidth: NSLayoutConstraint!
     @IBOutlet weak var frameButton: UIButton!
-    
     @IBOutlet weak var filterButton: UIButton!
-    @IBOutlet weak var gotIt: UIButton!
     
     let screenSize: CGRect = UIScreen.main.bounds
     let defaults = UserDefaults.standard
