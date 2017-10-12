@@ -9,6 +9,20 @@
 import UIKit
 import StoreKit
 
+extension UIView {
+    func rotate360Degrees(duration: CFTimeInterval = 1) {
+        let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
+        rotateAnimation.fromValue = 0.0
+        rotateAnimation.toValue = CGFloat(M_PI * 2)
+        rotateAnimation.isRemovedOnCompletion = false
+        rotateAnimation.duration = duration
+        rotateAnimation.repeatCount = 1
+        self.layer.add(rotateAnimation, forKey: nil)
+        
+        //use view.rotate360degree()
+    }
+}
+
 class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
@@ -668,7 +682,15 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
             textViewDidEndEditing(textView)
            
             textView.isHidden = false
+
+            UIView.animate(withDuration: 0.5, delay: 0,options: UIViewAnimationOptions.curveEaseOut,animations: {
+                self.textView.transform = CGAffineTransform(scaleX: 2, y: 2)
+            })
             
+            UIView.animate(withDuration: 0.5, delay: 0,options: UIViewAnimationOptions.curveEaseOut,animations: {
+                self.textView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            })
+ 
         case 2:
             //sciFrame
             sciFrame.image = UIImage(named: "sciFrameSmaller")
