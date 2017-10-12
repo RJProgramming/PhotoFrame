@@ -605,27 +605,9 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
         if  image != nil {
             //brings out the share menu
             let vc = UIActivityViewController(activityItems: [image], applicationActivities: [])
-            
-            //saved image prompt that doesnt appear when share menu cancelled
-            vc.completionWithItemsHandler = {
-                (activity, success, items, error) in
-                if(success && error == nil){
-                    //Do Work
-                    let alert = UIAlertController(title: "Alright!", message: "Operation complete.", preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                    
-                }
-                else if (error != nil){
-                    //log the error
-                }
-            }
-             present(vc, animated: true)
+            present(vc, animated: true)
         }
-
-       
     }
-    
 
     @IBAction func navChooseImage(_ sender: UIBarButtonItem) {
         let imagePicker = UIImagePickerController()
@@ -633,19 +615,13 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
         imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         
         self.present(imagePicker, animated: true, completion: nil)
-        
-        
     }
     
-    
-  
     @IBAction func frame(_ sender: Any) {
         guard image != nil else { return }
-        
         switch currentFrame{
         case 0:
             //no textView
-            
             textView.isHidden = true
             sciFrame.isHidden = true
             youtubeFrame.isHidden = true
@@ -715,7 +691,11 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
         }
 }
     
-   
+    func animateFrameChange (){
+    
+    
+    
+    }
     
     
 }
