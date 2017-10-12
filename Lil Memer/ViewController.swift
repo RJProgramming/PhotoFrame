@@ -51,8 +51,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         filterButtonBot.constant = -200
         shareNav.isEnabled = false
         
-        filterButton.layer.cornerRadius = 5
-        frameButton.layer.cornerRadius = 5
+        filterButton.layer.cornerRadius = 10
+        frameButton.layer.cornerRadius = 10
         filterButton.clipsToBounds = true
         frameButton.clipsToBounds = true
         
