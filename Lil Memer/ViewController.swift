@@ -650,21 +650,18 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
             sciFrame.isHidden = true
             youtubeFrame.isHidden = true
             youtubeTitle.isHidden = true
-            
-           
-            
+
         case 1:
             //textView
             textViewDidBeginEditing(textView)
             textViewDidEndEditing(textView)
-           
             textView.isHidden = false
 
-            UIView.animate(withDuration: 0.5, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
-                self.textView.transform = CGAffineTransform(scaleX: 2, y: 2)
+            UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
+                self.textView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
             })
             
-            UIView.animate(withDuration: 0.5, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
+            UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
                 self.textView.transform = CGAffineTransform(scaleX: 1, y: 1)
             })
  
@@ -674,14 +671,41 @@ if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(
             textView.isHidden = true
             sciFrame.isHidden = false
             
+            UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
+                self.sciFrame.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+            })
+            
+            UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
+                self.sciFrame.transform = CGAffineTransform(scaleX: 1, y: 1)
+            })
+            
         case 3:
             sciFrame.image = UIImage(named: "fbFrame")
+            
+            UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
+                self.sciFrame.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+            })
+            
+            UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
+                self.sciFrame.transform = CGAffineTransform(scaleX: 1, y: 1)
+            })
             
         case 4:
             textView.isHidden = true
             sciFrame.isHidden = true
             youtubeFrame.isHidden = false
             youtubeTitle.isHidden = false
+            
+            UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
+                self.youtubeFrame.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+                self.youtubeTitle.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+            })
+            
+            UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
+                self.youtubeFrame.transform = CGAffineTransform(scaleX: 1, y: 1)
+                self.youtubeTitle.transform = CGAffineTransform(scaleX: 1, y: 1)
+            })
+            
           default:
             break
         }
