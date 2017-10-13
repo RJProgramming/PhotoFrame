@@ -529,6 +529,10 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     
     @IBAction func frame(_ sender: Any) {
         guard image != nil else { return }
+        
+        frameButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {self.frameButton.transform = CGAffineTransform.identity}, completion: nil)
+        
         switch currentFrame{
         case 0:
             //no textView
@@ -536,72 +540,59 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             sciFrame.isHidden = true
             youtubeFrame.isHidden = true
             youtubeTitle.isHidden = true
-
         case 1:
             //textView
             textViewDidBeginEditing(textView)
             textViewDidEndEditing(textView)
             textView.isHidden = false
-
             UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
                 self.textView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
                 self.textView.alpha = 0.0
             })
-            
             UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
                 self.textView.transform = CGAffineTransform(scaleX: 1, y: 1)
                 self.textView.alpha = 1.0
             })
- 
         case 2:
             //sciFrame
             sciFrame.image = UIImage(named: "sciFrameSmaller")
             textView.isHidden = true
             sciFrame.isHidden = false
-            
             UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
                 self.sciFrame.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
                 self.sciFrame.alpha = 0.0
             })
-            
             UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
                 self.sciFrame.transform = CGAffineTransform(scaleX: 1, y: 1)
                 self.sciFrame.alpha = 1.0
             })
-            
         case 3:
             sciFrame.image = UIImage(named: "fbFrame")
-            
             UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
                 self.sciFrame.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
                 self.sciFrame.alpha = 0.0
             })
-            
             UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
                 self.sciFrame.transform = CGAffineTransform(scaleX: 1, y: 1)
                 self.sciFrame.alpha = 1.0
             })
-            
         case 4:
             textView.isHidden = true
             sciFrame.isHidden = true
             youtubeFrame.isHidden = false
             youtubeTitle.isHidden = false
-            
             UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
                 self.youtubeFrame.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
                 self.youtubeTitle.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
                 self.youtubeFrame.alpha = 0.0
                 self.youtubeTitle.alpha = 0.0
             })
-            
             UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
                 self.youtubeFrame.transform = CGAffineTransform(scaleX: 1, y: 1)
                 self.youtubeTitle.transform = CGAffineTransform(scaleX: 1, y: 1)
                 self.youtubeFrame.alpha = 1.0
                 self.youtubeTitle.alpha = 1.0
             })
-            
           default:
             break
         }
@@ -609,10 +600,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         if currentFrame > 4 {
             currentFrame = 0
         }
-        
-        frameButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {self.frameButton.transform = CGAffineTransform.identity}, completion: nil)
-    
     }
 }
 
