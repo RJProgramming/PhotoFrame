@@ -319,28 +319,26 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         let ac = UIAlertController(title: "Tap anywhere on your image to set new a filter center", message: nil, preferredStyle: .actionSheet)
         
-        ac.addAction(UIAlertAction(title: "Bump", style: .default, handler: setFilter))
-        ac.addAction(UIAlertAction(title: "Linear Bump", style: .default, handler: setFilter))
-        ac.addAction(UIAlertAction(title: "Pinch", style: .default, handler: setFilter))
-        ac.addAction(UIAlertAction(title: "Spiral", style: .default, handler: setFilter))
-        ac.addAction(UIAlertAction(title: "Pixelate", style: .default, handler: setFilter))
-        ac.addAction(UIAlertAction(title: "Black and White", style: .default, handler: setFilter))
-        ac.addAction(UIAlertAction(title: "Motion Blur", style: .default, handler: setFilter))
-        ac.addAction(UIAlertAction(title: "Remove Filters", style: .destructive, handler: setFilter))
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        present(ac, animated: true)
+        filterButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
+            self.filterButton.transform = CGAffineTransform.identity
+        }, completion:{ finish in
+            ac.addAction(UIAlertAction(title: "Bump", style: .default, handler: self.setFilter))
+            ac.addAction(UIAlertAction(title: "Linear Bump", style: .default, handler: self.setFilter))
+            ac.addAction(UIAlertAction(title: "Pinch", style: .default, handler: self.setFilter))
+            ac.addAction(UIAlertAction(title: "Spiral", style: .default, handler: self.setFilter))
+            ac.addAction(UIAlertAction(title: "Pixelate", style: .default, handler: self.setFilter))
+            ac.addAction(UIAlertAction(title: "Black and White", style: .default, handler: self.setFilter))
+            ac.addAction(UIAlertAction(title: "Motion Blur", style: .default, handler: self.setFilter))
+            ac.addAction(UIAlertAction(title: "Remove Filters", style: .destructive, handler: self.setFilter))
+            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            self.present(ac, animated: true)})
     }
 
     func setFilter(action: UIAlertAction) {
         // make sure we have a valid image before continuing!
        
         guard let image = self.imageView.image?.cgImage else { return }
-        
-        frameButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
-            self.frameButton.transform = .identity
-        })
-        
         
         var actionSheetFilter = "CIPixellate"
         var pinchCheck = 0
@@ -603,10 +601,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         }
         
         frameButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
-            self.frameButton.transform = .identity
-        })
-        
-}
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {self.frameButton.transform = CGAffineTransform.identity}, completion: nil)
+    
+    }
 }
 
