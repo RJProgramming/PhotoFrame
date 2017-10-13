@@ -335,6 +335,13 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         // make sure we have a valid image before continuing!
        
         guard let image = self.imageView.image?.cgImage else { return }
+        
+        frameButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
+            self.frameButton.transform = .identity
+        })
+        
+        
         var actionSheetFilter = "CIPixellate"
         var pinchCheck = 0
         
@@ -414,7 +421,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let iphoneScreenWidth = screenSize.width
         
         //added -2 to get rid of a  1 pixel high black line only appeared with zoomed out images + textview and zoomed in portrait images
-        var normalSize = CGSize(width: scrollView.bounds.size.width, height: scrollView.bounds.size.height - 1)
+        var normalSize = CGSize(width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
         
         if iphoneScreenWidth == Constants.iPhone6Width{
              normalSize = CGSize(width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
@@ -594,6 +601,12 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         if currentFrame > 4 {
             currentFrame = 0
         }
+        
+        frameButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
+            self.frameButton.transform = .identity
+        })
+        
 }
 }
 
