@@ -544,11 +544,13 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             textView.isHidden = false
 
             UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
-                self.textView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+                self.textView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+                self.textView.alpha = 0.0
             })
             
             UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
                 self.textView.transform = CGAffineTransform(scaleX: 1, y: 1)
+                self.textView.alpha = 1.0
             })
  
         case 2:
@@ -558,22 +560,26 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             sciFrame.isHidden = false
             
             UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
-                self.sciFrame.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+                self.sciFrame.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+                self.sciFrame.alpha = 0.0
             })
             
             UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
                 self.sciFrame.transform = CGAffineTransform(scaleX: 1, y: 1)
+                self.sciFrame.alpha = 1.0
             })
             
         case 3:
             sciFrame.image = UIImage(named: "fbFrame")
             
             UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
-                self.sciFrame.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+                self.sciFrame.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+                self.sciFrame.alpha = 0.0
             })
             
             UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
                 self.sciFrame.transform = CGAffineTransform(scaleX: 1, y: 1)
+                self.sciFrame.alpha = 1.0
             })
             
         case 4:
@@ -583,13 +589,17 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             youtubeTitle.isHidden = false
             
             UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
-                self.youtubeFrame.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
-                self.youtubeTitle.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+                self.youtubeFrame.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+                self.youtubeTitle.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+                self.youtubeFrame.alpha = 0.0
+                self.youtubeTitle.alpha = 0.0
             })
             
             UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
                 self.youtubeFrame.transform = CGAffineTransform(scaleX: 1, y: 1)
                 self.youtubeTitle.transform = CGAffineTransform(scaleX: 1, y: 1)
+                self.youtubeFrame.alpha = 1.0
+                self.youtubeTitle.alpha = 1.0
             })
             
           default:
