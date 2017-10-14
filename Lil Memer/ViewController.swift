@@ -419,7 +419,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let iphoneScreenWidth = screenSize.width
         
         //added -2 to get rid of a  1 pixel high black line only appeared with zoomed out images + textview and zoomed in portrait images
-        var normalSize = CGSize(width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
+        var normalSize = CGSize(width: scrollView.bounds.size.width, height: scrollView.bounds.size.height - 2)
         
         if iphoneScreenWidth == Constants.iPhone6Width{
              normalSize = CGSize(width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
@@ -435,7 +435,9 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         if textView.isHidden == true {
             UIGraphicsBeginImageContextWithOptions(normalSize, true, UIScreen.main.scale)
             textView.text = ""
-            yPos = Int(-offset.y)
+            
+            // -2 here along with the var normalSize gets rid of the thin black/grey line that appears on top of images sometimes. I think.
+            yPos = Int(-offset.y - 2)
             
             
         }else if textView.isHidden == false {
