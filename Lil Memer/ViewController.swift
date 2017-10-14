@@ -466,7 +466,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         if sciFrame.isHidden == false{
             
             //the offsets put the frame right over the image regardless off how the image is zoomed
-            UIGraphicsGetCurrentContext()!.translateBy(x: offset.x, y: offset.y + 2)
+            UIGraphicsGetCurrentContext()!.translateBy(x: offset.x, y: offset.y)
             sciFrame.layer.render(in: UIGraphicsGetCurrentContext()!)
         }
         
