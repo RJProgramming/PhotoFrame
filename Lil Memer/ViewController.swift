@@ -45,7 +45,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = ""
+        title = "Photo Frame"
         
         frameButtonBot.constant = -200
         filterButtonBot.constant = -200
