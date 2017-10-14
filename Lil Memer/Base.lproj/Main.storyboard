@@ -76,7 +76,7 @@
                                 <rect key="frame" x="20.666666666666657" y="451.33333333333337" width="372.66666666666663" height="107.33333333333326"/>
                             </imageView>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tap here to enter text" adjustsFontSizeToFit="NO" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="uif-c2-2Ea">
-                                <rect key="frame" x="29.666666666666657" y="473.33333333333337" width="331" height="14"/>
+                                <rect key="frame" x="29.666666666666657" y="473.33333333333337" width="331" height="15"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardAppearance="light"/>
@@ -167,7 +167,7 @@
                         <color key="tintColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="1" green="0.42011716889027795" blue="0.3261631263749184" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="FabfeltScript-Bold" family="FabfeltScript" pointSize="15"/>
+                            <fontDescription key="fontDescription" name="FabfeltScript-Bold" family="FabfeltScript" pointSize="30"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
