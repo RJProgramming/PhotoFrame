@@ -429,14 +429,9 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         guard image != nil else { return }
         let offset = scrollView.contentOffset
         let screenHeight = screenSize.height
-        let iphoneScreenWidth = screenSize.width
-        
+
         //added -2 to get rid of a  1 pixel high black line only appeared with zoomed out images + textview and zoomed in portrait images
-        var normalSize = CGSize(width: scrollView.bounds.size.width, height: scrollView.bounds.size.height - 2)
-        
-        if iphoneScreenWidth == Constants.iPhone6Width{
-             normalSize = CGSize(width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
-        }
+        let normalSize = CGSize(width: scrollView.bounds.size.width, height: scrollView.bounds.size.height - 2)
         
         let textViewWithImageSize = CGSize(width: scrollView.bounds.size.width, height: ((screenHeight * 0.17) + scrollView.bounds.size.height - 2))
         let youtubeFrameImageSize = CGSize(width: scrollView.bounds.size.width, height: ((screenHeight * 0.15) + scrollView.bounds.size.height - 36))
@@ -471,7 +466,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         if sciFrame.isHidden == false{
             
             //the offsets put the frame right over the image regardless off how the image is zoomed
-            UIGraphicsGetCurrentContext()!.translateBy(x: offset.x, y: offset.y)
+            UIGraphicsGetCurrentContext()!.translateBy(x: offset.x, y: offset.y + 2)
             sciFrame.layer.render(in: UIGraphicsGetCurrentContext()!)
         }
         
