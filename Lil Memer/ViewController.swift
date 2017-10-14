@@ -13,7 +13,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var noImageHolder: UIImageView!
     @IBOutlet weak var sciFrame: UIImageView!
     @IBOutlet weak var youtubeFrame: UIImageView!
     @IBOutlet weak var youtubeTitle: UITextField!
@@ -25,6 +24,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBOutlet weak var youtubeFrameWidth: NSLayoutConstraint!
     @IBOutlet weak var frameButton: UIButton!
     @IBOutlet weak var filterButton: UIButton!
+    @IBOutlet weak var chooseImageLabel: UILabel!
     
     let screenSize: CGRect = UIScreen.main.bounds
     let defaults = UserDefaults.standard
@@ -46,6 +46,14 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         super.viewDidLoad()
         
         title = "Photo Frame"
+        
+        let xPosition = chooseImageLabel.frame.origin.x
+        let yPosition = chooseImageLabel.frame.origin.y - 20
+        let labelHeight = chooseImageLabel.frame.height
+        let labelWidth = chooseImageLabel.frame.width
+        
+        UIView.animate(withDuration: 2.0, delay: 0, options: [.repeat, .autoreverse, .curveEaseInOut], animations: {
+        self.chooseImageLabel.frame = CGRect(x: xPosition,y: yPosition,width: labelWidth,height: labelHeight)}, completion: nil)
         
         frameButtonBot.constant = -200
         filterButtonBot.constant = -200
@@ -225,7 +233,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         image = image.fixedOrientation()
         
         scrollView.isHidden = false
-        noImageHolder.isHidden = true
+        chooseImageLabel.isHidden = true
+        chooseImageLabel.layer.removeAllAnimations()
         imageView.image = image
         imageView.contentMode = UIViewContentMode.center
         imageView.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lic-eT-vaU">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -30,11 +30,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHc-1o-ItN">
-                                <rect key="frame" x="20" y="428.5" width="128" height="45.5"/>
+                                <rect key="frame" x="20" y="581.66666666666652" width="165.66666666666666" height="60.333333333333371"/>
                                 <color key="backgroundColor" red="1" green="0.41960784313725491" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="FabfeltScript-Bold" family="FabfeltScript" pointSize="40"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -46,7 +46,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WR8-lS-ut8">
-                                <rect key="frame" x="172" y="428.5" width="128" height="45.5"/>
+                                <rect key="frame" x="228.33333333333337" y="581.66666666666652" width="165.66666666666663" height="60.333333333333371"/>
                                 <color key="backgroundColor" red="1" green="0.41960784313725491" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="FabfeltScript-Bold" family="FabfeltScript" pointSize="40"/>
                                 <state key="normal" title="Frame">
@@ -57,54 +57,55 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qA6-Yw-PCE">
-                                <rect key="frame" x="16" y="121.5" width="288" height="252"/>
+                                <rect key="frame" x="20.666666666666657" y="150.33333333333337" width="372.66666666666663" height="336"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </scrollView>
                             <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAA-if-6KM">
-                                <rect key="frame" x="16" y="36" width="288" height="85.5"/>
+                                <rect key="frame" x="20.666666666666657" y="36" width="372.66666666666663" height="114.33333333333334"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes" keyboardAppearance="light"/>
                             </textView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChooseLight" translatesAutoresizingMaskIntoConstraints="NO" id="mfI-Wr-pxt">
-                                <rect key="frame" x="16" y="121.5" width="288" height="202"/>
-                            </imageView>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Prt-ao-cru">
-                                <rect key="frame" x="16" y="121.5" width="288" height="252"/>
+                                <rect key="frame" x="20.666666666666657" y="150.33333333333337" width="372.66666666666663" height="336"/>
                             </imageView>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="youtubeframeiphonex" translatesAutoresizingMaskIntoConstraints="NO" id="ReZ-Il-OMa">
-                                <rect key="frame" x="16" y="338.5" width="288" height="81"/>
+                                <rect key="frame" x="20.666666666666657" y="451.33333333333337" width="372.66666666666663" height="107.33333333333326"/>
                             </imageView>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tap here to enter text" adjustsFontSizeToFit="NO" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="uif-c2-2Ea">
-                                <rect key="frame" x="25" y="360.5" width="246" height="14"/>
+                                <rect key="frame" x="29.666666666666657" y="473.33333333333337" width="330.66666666666663" height="14"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardAppearance="light"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="50" translatesAutoresizingMaskIntoConstraints="NO" id="jm2-2K-134">
+                                <rect key="frame" x="-21" y="295.33333333333326" width="455.66666666666669" height="81.666666666666686"/>
+                                <fontDescription key="fontDescription" name="FabfeltScript-Bold" family="FabfeltScript" pointSize="70"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.92549019607843142" green="0.94117647058823528" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="mfI-Wr-pxt" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="0aL-bB-ALm"/>
-                            <constraint firstItem="mfI-Wr-pxt" firstAttribute="top" secondItem="AAA-if-6KM" secondAttribute="bottom" id="36S-eS-Jyc"/>
                             <constraint firstItem="VHc-1o-ItN" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.09" id="3hB-VN-OlO"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="WR8-lS-ut8" secondAttribute="bottom" constant="30" id="4HK-Ew-EIC"/>
                             <constraint firstItem="WR8-lS-ut8" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.09" id="4db-g0-pff"/>
                             <constraint firstItem="ReZ-Il-OMa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="587-Ir-07E"/>
                             <constraint firstItem="VHc-1o-ItN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="9N3-Od-Lsa"/>
+                            <constraint firstItem="jm2-2K-134" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9X7-ca-kab"/>
                             <constraint firstItem="Prt-ao-cru" firstAttribute="height" secondItem="qA6-Yw-PCE" secondAttribute="height" id="G5J-Ff-Ntk"/>
                             <constraint firstItem="AAA-if-6KM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="36" id="H0K-jT-cqG"/>
                             <constraint firstItem="VHc-1o-ItN" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.4" id="JUI-6K-KAL"/>
                             <constraint firstItem="qA6-Yw-PCE" firstAttribute="top" secondItem="AAA-if-6KM" secondAttribute="bottom" id="Kne-LK-RfK"/>
                             <constraint firstItem="ReZ-Il-OMa" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.16" id="Ngh-qr-oNL"/>
-                            <constraint firstItem="mfI-Wr-pxt" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.4" id="Of7-m9-kMh"/>
                             <constraint firstItem="AAA-if-6KM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Pn0-ii-Cpe"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VHc-1o-ItN" secondAttribute="bottom" constant="30" id="Q11-9r-ooo"/>
+                            <constraint firstItem="jm2-2K-134" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Rtq-fQ-Eup"/>
                             <constraint firstAttribute="trailing" secondItem="WR8-lS-ut8" secondAttribute="trailing" constant="20" id="UzT-5B-kou"/>
                             <constraint firstItem="ReZ-Il-OMa" firstAttribute="top" secondItem="qA6-Yw-PCE" secondAttribute="bottom" constant="-35" id="WAy-gB-LCk"/>
                             <constraint firstItem="AAA-if-6KM" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="Xto-Xo-k2g"/>
                             <constraint firstItem="qA6-Yw-PCE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZYA-Ox-NqQ"/>
                             <constraint firstItem="qA6-Yw-PCE" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="cLE-AG-9cX"/>
-                            <constraint firstItem="mfI-Wr-pxt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fA6-kT-bUM"/>
                             <constraint firstItem="Prt-ao-cru" firstAttribute="top" secondItem="qA6-Yw-PCE" secondAttribute="top" id="fez-sJ-mqT"/>
                             <constraint firstItem="ReZ-Il-OMa" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="gH6-4w-obO"/>
                             <constraint firstItem="AAA-if-6KM" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.17" id="hXp-DR-jac"/>
@@ -134,11 +135,11 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="chooseImageLabel" destination="jm2-2K-134" id="AF0-rL-JEt"/>
                         <outlet property="filterButton" destination="VHc-1o-ItN" id="gxL-Ub-5ia"/>
                         <outlet property="filterButtonBot" destination="Q11-9r-ooo" id="Q6H-Vh-FA0"/>
                         <outlet property="frameButton" destination="WR8-lS-ut8" id="fAI-2g-Obb"/>
                         <outlet property="frameButtonBot" destination="4HK-Ew-EIC" id="Zmf-Ml-yrm"/>
-                        <outlet property="noImageHolder" destination="mfI-Wr-pxt" id="vTQ-SN-TKu"/>
                         <outlet property="saveNav" destination="8f3-JI-xmb" id="wk0-KD-b37"/>
                         <outlet property="sciFrame" destination="Prt-ao-cru" id="sei-9O-zeF"/>
                         <outlet property="scrollView" destination="qA6-Yw-PCE" id="MXE-pZ-N4W"/>
@@ -152,7 +153,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1020" y="120"/>
+            <point key="canvasLocation" x="1020" y="119.36619718309859"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="w5P-Pz-SLM">
@@ -182,7 +183,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ChooseLight" width="558" height="441"/>
-        <image name="youtubeframeiphonex" width="500" height="180"/>
+        <image name="youtubeframeiphonex" width="333" height="120"/>
     </resources>
 </document>
