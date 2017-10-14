@@ -39,7 +39,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     var image: UIImage!
     var origImage: UIImage!
     var font: UIFont?
-    var movementValue: CGFloat = 135
+    var movementValue: CGFloat = 175
     var canSetFilterCenter:Bool = true
     
     override func viewDidLoad() {
