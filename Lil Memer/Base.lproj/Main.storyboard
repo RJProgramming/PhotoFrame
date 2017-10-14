@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lic-eT-vaU">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -30,11 +30,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHc-1o-ItN">
-                                <rect key="frame" x="20" y="581.66666666666652" width="165.66666666666666" height="60.333333333333371"/>
+                                <rect key="frame" x="20" y="428.5" width="128" height="45.5"/>
                                 <color key="backgroundColor" red="1" green="0.41960784313725491" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="FabfeltScript-Bold" family="FabfeltScript" pointSize="40"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -46,7 +46,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WR8-lS-ut8">
-                                <rect key="frame" x="228.33333333333337" y="581.66666666666652" width="165.66666666666663" height="60.333333333333371"/>
+                                <rect key="frame" x="172" y="428.5" width="128" height="45.5"/>
                                 <color key="backgroundColor" red="1" green="0.41960784313725491" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="FabfeltScript-Bold" family="FabfeltScript" pointSize="40"/>
                                 <state key="normal" title="Frame">
@@ -57,29 +57,29 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qA6-Yw-PCE">
-                                <rect key="frame" x="20.666666666666657" y="150.33333333333337" width="372.66666666666663" height="336"/>
+                                <rect key="frame" x="16" y="121.5" width="288" height="252"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </scrollView>
                             <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAA-if-6KM">
-                                <rect key="frame" x="20.666666666666657" y="36" width="372.66666666666663" height="114.33333333333334"/>
+                                <rect key="frame" x="16" y="36" width="288" height="85.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="yes" keyboardAppearance="light"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes" keyboardAppearance="light"/>
                             </textView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChooseLight" translatesAutoresizingMaskIntoConstraints="NO" id="mfI-Wr-pxt">
-                                <rect key="frame" x="20.666666666666657" y="150.33333333333331" width="372.66666666666663" height="268.66666666666663"/>
+                                <rect key="frame" x="16" y="121.5" width="288" height="202"/>
                             </imageView>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Prt-ao-cru">
-                                <rect key="frame" x="20.666666666666657" y="150.33333333333337" width="372.66666666666663" height="336"/>
+                                <rect key="frame" x="16" y="121.5" width="288" height="252"/>
                             </imageView>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="youtubeframeiphonex" translatesAutoresizingMaskIntoConstraints="NO" id="ReZ-Il-OMa">
-                                <rect key="frame" x="20.666666666666657" y="451.33333333333337" width="372.66666666666663" height="107.33333333333326"/>
+                                <rect key="frame" x="16" y="338.5" width="288" height="81"/>
                             </imageView>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tap here to enter text" adjustsFontSizeToFit="NO" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="uif-c2-2Ea">
-                                <rect key="frame" x="29.666666666666657" y="473.33333333333337" width="331" height="15"/>
+                                <rect key="frame" x="25" y="360.5" width="246" height="15"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardAppearance="light"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardAppearance="light"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.92549019607843142" green="0.94117647058823528" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -182,7 +182,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ChooseLight" width="372" height="294"/>
-        <image name="youtubeframeiphonex" width="333" height="120"/>
+        <image name="ChooseLight" width="558" height="441"/>
+        <image name="youtubeframeiphonex" width="500" height="180"/>
     </resources>
 </document>
