@@ -12,6 +12,7 @@
 		E119761E1E1FCD3F008CFCAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E119761C1E1FCD3F008CFCAF /* Main.storyboard */; };
 		E11976201E1FCD3F008CFCAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E119761F1E1FCD3F008CFCAF /* Assets.xcassets */; };
 		E11976231E1FCD3F008CFCAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E11976211E1FCD3F008CFCAF /* LaunchScreen.storyboard */; };
+		E1377B111F91F142001F2FC8 /* FabfeltScript-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E1377B101F91EF34001F2FC8 /* FabfeltScript-Bold.otf */; };
 		E162236C1E981AAF00B0A5A7 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E162236B1E981AAF00B0A5A7 /* Roboto-Regular.ttf */; };
 		E1F7C3531EABFC8500CAE68F /* UIImage+RotateUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F7C3521EABFC8500CAE68F /* UIImage+RotateUp.swift */; };
 /* End PBXBuildFile section */
@@ -135,6 +136,7 @@
 			files = (
 				E11976231E1FCD3F008CFCAF /* LaunchScreen.storyboard in Resources */,
 				E11976201E1FCD3F008CFCAF /* Assets.xcassets in Resources */,
+				E1377B111F91F142001F2FC8 /* FabfeltScript-Bold.otf in Resources */,
 				E162236C1E981AAF00B0A5A7 /* Roboto-Regular.ttf in Resources */,
 				E119761E1E1FCD3F008CFCAF /* Main.storyboard in Resources */,
 			);
