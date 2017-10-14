@@ -260,9 +260,14 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             if screenHeight == Constants.iPhoneXHeight{
                 
                 self.view.layoutIfNeeded()
-                self.frameButtonBot.constant = 10
+                
                 self.filterButtonBot.constant = 10
                 UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
+                    
+                    self.view.layoutIfNeeded()
+                })
+                self.frameButtonBot.constant = 10
+                UIView.animate(withDuration: 1.2, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
                     
                     self.view.layoutIfNeeded()
                 })
@@ -270,11 +275,19 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             }else{
 
                 self.view.layoutIfNeeded()
-                self.frameButtonBot.constant = 30 // Some value
+                
                 self.filterButtonBot.constant = 30
                 UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
                     self.view.layoutIfNeeded()
                 })
+                
+                self.frameButtonBot.constant = 30
+                UIView.animate(withDuration: 1.2, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
+                    
+                    self.view.layoutIfNeeded()
+                })
+                
+                
             }
             
         })
