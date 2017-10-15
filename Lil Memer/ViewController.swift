@@ -610,7 +610,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
                 self.sciFrame.alpha = 1.0
             })
         case 3:
-            sciFrame.image = UIImage(named: "fbFrame")
+            sciFrame.image = UIImage(named: "LionFrameNew")
             UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
                 self.sciFrame.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
                 self.sciFrame.alpha = 0.0
