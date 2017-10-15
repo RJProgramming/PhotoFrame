@@ -563,11 +563,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         UIView.animate(withDuration: 1.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
             self.frameButtonTitle.alpha = 0.5})
         
+        frameButtonTitle.alpha = 1.0
+        
         frameButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {self.frameButton.transform = CGAffineTransform.identity}, completion: nil)
-        
-        self.frameButtonTitle.alpha = 1.0
-        
+
         switch currentFrame{
         case 0:
             //no textView
