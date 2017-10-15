@@ -49,14 +49,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         title = "Photo Frame"
         
-        let xPosition = chooseImageLabel.frame.origin.x
-        let yPosition = chooseImageLabel.frame.origin.y - 20
-        let labelHeight = chooseImageLabel.frame.height
-        let labelWidth = chooseImageLabel.frame.width
-        
-        UIView.animate(withDuration: 2.0, delay: 0, options: [.repeat, .autoreverse, .curveEaseInOut], animations: {
-        self.chooseImageLabel.frame = CGRect(x: xPosition,y: yPosition,width: labelWidth,height: labelHeight)}, completion: nil)
-        
         frameButtonBot.constant = -200
         filterButtonBot.constant = -200
         shareNav.isEnabled = false
@@ -117,6 +109,22 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         textView.textColor = UIColor.lightGray
         self.textView.delegate = self
         scrollView.isHidden = true
+    }
+    
+    //need this function if someone cancels the inital image picker the anmiation will continue
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let xPosition = chooseImageLabel.frame.origin.x
+        let yPosition = chooseImageLabel.frame.origin.y - 20
+        let labelHeight = chooseImageLabel.frame.height
+        let labelWidth = chooseImageLabel.frame.width
+        
+        UIView.animate(withDuration: 2.0, delay: 0, options: [.repeat, .autoreverse, .curveEaseInOut], animations: {
+            self.chooseImageLabel.frame = CGRect(x: xPosition,y: yPosition,width: labelWidth,height: labelHeight)}, completion: nil)
+        
+        
+        // your code that needs to run each time a view appears
     }
 
     //added this to allow custom filter centers and tap keyboard to dismiss on imageview
@@ -266,7 +274,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         picker.dismiss(animated: true, completion:{
             
             self.shareNav.isEnabled = true
-            //brings buttons back into view after being hidden before inital image is choosen
+            self.chooseImageLabel.layer.removeAllAnimations()
             let screenHeight = self.screenSize.height
             if screenHeight == Constants.iPhoneXHeight{
                 
