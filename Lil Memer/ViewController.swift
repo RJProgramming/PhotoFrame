@@ -597,29 +597,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
                 self.textView.alpha = 1.0
             })
         case 2:
-            //sciFrame
-            sciFrame.image = UIImage(named: "sciFrameSmaller")
-            textView.isHidden = true
-            sciFrame.isHidden = false
-            UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
-                self.sciFrame.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-                self.sciFrame.alpha = 0.0
-            })
-            UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
-                self.sciFrame.transform = CGAffineTransform(scaleX: 1, y: 1)
-                self.sciFrame.alpha = 1.0
-            })
-        case 3:
-            sciFrame.image = UIImage(named: "LionFrameNew")
-            UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
-                self.sciFrame.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-                self.sciFrame.alpha = 0.0
-            })
-            UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
-                self.sciFrame.transform = CGAffineTransform(scaleX: 1, y: 1)
-                self.sciFrame.alpha = 1.0
-            })
-        case 4:
+            
             textView.isHidden = true
             sciFrame.isHidden = true
             youtubeFrame.isHidden = false
@@ -636,6 +614,38 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
                 self.youtubeFrame.alpha = 1.0
                 self.youtubeTitle.alpha = 1.0
             })
+            
+            
+        case 3:
+            
+            youtubeFrame.isHidden = true
+            youtubeTitle.isHidden = true
+            textView.isHidden = true
+            sciFrame.isHidden = false
+            sciFrame.image = UIImage(named: "LionFrameNew")
+            UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
+                self.sciFrame.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+                self.sciFrame.alpha = 0.0
+            })
+            UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
+                self.sciFrame.transform = CGAffineTransform(scaleX: 1, y: 1)
+                self.sciFrame.alpha = 1.0
+            })
+        case 4:
+            
+            //sciFrame
+            sciFrame.image = UIImage(named: "sciFrameSmaller")
+            textView.isHidden = true
+            sciFrame.isHidden = false
+            UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
+                self.sciFrame.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+                self.sciFrame.alpha = 0.0
+            })
+            UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
+                self.sciFrame.transform = CGAffineTransform(scaleX: 1, y: 1)
+                self.sciFrame.alpha = 1.0
+            })
+           
           default:
             break
         }
