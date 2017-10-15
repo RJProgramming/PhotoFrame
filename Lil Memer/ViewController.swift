@@ -26,6 +26,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBOutlet weak var filterButton: UIButton!
     @IBOutlet weak var chooseImageLabel: UILabel!
     
+    @IBOutlet weak var frameButtonTitle: UILabel!
     @IBOutlet weak var filterButtonTitle: UILabel!
     let screenSize: CGRect = UIScreen.main.bounds
     let defaults = UserDefaults.standard
@@ -341,15 +342,13 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         guard (self.imageView.image?.cgImage) != nil else { return }
         
         let ac = UIAlertController(title: "Tap anywhere on your image to set new a filter center", message: nil, preferredStyle: .actionSheet)
+        
         filterButtonTitle.alpha = 0.0
         UIView.animate(withDuration: 1.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
-            self.filterButtonTitle.alpha = 0.5
-            
-        }, completion:{ finish in
-            self.filterButtonTitle.alpha = 1.0})
+            self.filterButtonTitle.alpha = 0.5})
         
+        self.filterButtonTitle.alpha = 1.0
         
-        filterButtonTitle.alpha = 1.0
         filterButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
             self.filterButton.transform = CGAffineTransform.identity
@@ -560,8 +559,14 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBAction func frame(_ sender: Any) {
         guard image != nil else { return }
         
+        frameButtonTitle.alpha = 0.0
+        UIView.animate(withDuration: 1.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
+            self.frameButtonTitle.alpha = 0.5})
+        
         frameButton.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {self.frameButton.transform = CGAffineTransform.identity}, completion: nil)
+        
+        self.frameButtonTitle.alpha = 1.0
         
         switch currentFrame{
         case 0:
