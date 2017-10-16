@@ -598,6 +598,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             })
         case 2:
             
+            textView.text = ""
             textView.isHidden = true
             sciFrame.isHidden = true
             youtubeFrame.isHidden = false
@@ -618,6 +619,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             
         case 3:
             
+            youtubeTitle.text = ""
             youtubeFrame.isHidden = true
             youtubeTitle.isHidden = true
             textView.isHidden = true
