@@ -86,12 +86,12 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
        //these font sizes along with screen width and writing the string at size 15 seems to line everything up nicely.
         if screenWidth == Constants.iPhoneElseWidth{
             textView.font = UIFont(name: "Roboto-Regular", size: 13)
-            textView.textContainerInset = UIEdgeInsetsMake(0.0, -5.0, 0.0, 0.0)
+            textView.textContainerInset = UIEdgeInsets.init(top: 0.0, left: -5.0, bottom: 0.0, right: 0.0)
             limitLength = 200
             self.youtubeLabel.constant = -13
         }else if screenWidth == Constants.iPhone6Width{
             textView.font = UIFont(name: "Roboto-Regular", size: 15)
-            textView.textContainerInset = UIEdgeInsetsMake(0.0, -5.0, 0.0, 0.0)
+            textView.textContainerInset = UIEdgeInsets.init(top: 0.0, left: -5.0, bottom: 0.0, right: 0.0)
             limitLength = 200
             self.youtubeLabel.constant = -18
             if screenHeight == Constants.iPhoneXHeight{
@@ -100,7 +100,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             }
         }else if screenWidth >= Constants.iPhone6PlusWidth{
             textView.font = UIFont(name: "Roboto-Regular", size: 17)
-            textView.textContainerInset = UIEdgeInsetsMake(0.0, -5.0, 0.0, 0.0)
+            textView.textContainerInset = UIEdgeInsets.init(top: 0.0, left: -5.0, bottom: 0.0, right: 0.0)
             limitLength = 200
             self.youtubeLabel.constant = -20
         }
@@ -140,7 +140,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         return true
     }
 
-    func didTapImage(gesture: UIGestureRecognizer) {
+    @objc func didTapImage(gesture: UIGestureRecognizer) {
         let point = gesture.location(in: gesture.view)
         print(point)
         xCord = point.x
@@ -152,7 +152,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     // left this but made the limit huge essenitally removing it
     func textField(_ youtubeTitle: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = youtubeTitle.text else { return true }
-        let newLength = text.characters.count + string.characters.count - range.length
+        let newLength = text.count + string.count - range.length
         return newLength <= limitLength
     }
     //allows view to move when keyboard comes out for textfield pt1
@@ -186,7 +186,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         static let iPhoneXHeight = CGFloat(812)
     }
         
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
@@ -210,7 +210,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     func sizeOfString (string: String, constrainedToWidth width: Double, font: UIFont) -> CGSize {
         return (string as NSString).boundingRect(with: CGSize(width: width, height: Double.greatestFiniteMagnitude),
                                                  options: NSStringDrawingOptions.usesLineFragmentOrigin,
-                                                 attributes: [NSFontAttributeName: font],
+                                                 attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): font]),
                                                  context: nil).size
     }
     //part 2 of calcing string length to keep textview at certain number of lines
@@ -218,7 +218,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
        // let screenWidth = screenSize.width
         let screenHeight = screenSize.height
         let newText = (textView.text as NSString).replacingCharacters(in: range, with: text)
-        var textWidth = UIEdgeInsetsInsetRect(textView.frame, textView.textContainerInset).width
+        var textWidth = textView.frame.inset(by: textView.textContainerInset).width
         textWidth -= 2.0 * textView.textContainer.lineFragmentPadding;
         
         let boundingRect = sizeOfString(string: newText, constrainedToWidth: Double(textWidth), font: textView.font!)
@@ -231,8 +231,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     }
 
     //picker once user taps plus
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        image = info[UIImagePickerControllerOriginalImage] as! UIImage
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
+        image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage
         
         xCord = image.size.width / 2
         yCord = image.size.height / 2
@@ -246,7 +249,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         chooseImageLabel.isHidden = true
         chooseImageLabel.layer.removeAllAnimations()
         imageView.image = image
-        imageView.contentMode = UIViewContentMode.center
+        imageView.contentMode = UIView.ContentMode.center
         imageView.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
         
         scrollView.contentSize = image.size
@@ -511,12 +514,12 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         }
         
         //let textFont = UIFont(name: "Courier", size: 15)!
-        let textFontAttributes = [NSFontAttributeName: textFont!,NSForegroundColorAttributeName: textColor] as [String : Any]
+        let textFontAttributes = [convertFromNSAttributedStringKey(NSAttributedString.Key.font): textFont!,convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor): textColor] as [String : Any]
         
         //-10 to .width to line up the drawn text to the actual typed textview
         let rect = CGRect(x: offset.x, y: (offset.y + 5 - (screenHeight * 0.17)), width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
         
-        textView.text.draw(in: rect, withAttributes: textFontAttributes)
+        textView.text.draw(in: rect, withAttributes: convertToOptionalNSAttributedStringKeyDictionary(textFontAttributes))
         
         if youtubeFrame.isHidden == false{
             
@@ -539,12 +542,12 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             }
 
             //adds correct font on youtube title output
-            let myAttribute = [ NSFontAttributeName: UIFont(name: "Roboto", size: 12.0)!]
+            let myAttribute = [ convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont(name: "Roboto", size: 12.0)!]
             UIGraphicsGetCurrentContext()!.translateBy(x: offset.x, y: offset.y + ((screenHeight * 0.16) * number))
             youtubeFrame.layer.render(in: UIGraphicsGetCurrentContext()!)
             youtubeTitle.font = UIFont(name: "Roboto-Regular", size: 12)
             let labelRect = CGRect(x: 5, y: (self.youtubeLabel.constant * -1), width: youtubeFrame.bounds.size.width, height: youtubeFrame.bounds.size.height)
-            youtubeTitle.text?.draw(in: labelRect, withAttributes: myAttribute)
+            youtubeTitle.text?.draw(in: labelRect, withAttributes: convertToOptionalNSAttributedStringKeyDictionary(myAttribute))
         }
         
         image = UIGraphicsGetImageFromCurrentImageContext()
@@ -560,7 +563,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBAction func navChooseImage(_ sender: UIBarButtonItem) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
         self.present(imagePicker, animated: true, completion: nil)
     }
     
@@ -588,11 +591,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             textViewDidBeginEditing(textView)
             textViewDidEndEditing(textView)
             textView.isHidden = false
-            UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
+            UIView.animate(withDuration: 0.4, delay: 0,options: UIView.AnimationOptions.curveEaseInOut,animations: {
                 self.textView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
                 self.textView.alpha = 0.0
             })
-            UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
+            UIView.animate(withDuration: 0.4, delay: 0,options: UIView.AnimationOptions.curveEaseInOut,animations: {
                 self.textView.transform = CGAffineTransform(scaleX: 1, y: 1)
                 self.textView.alpha = 1.0
             })
@@ -603,13 +606,13 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             sciFrame.isHidden = true
             youtubeFrame.isHidden = false
             youtubeTitle.isHidden = false
-            UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
+            UIView.animate(withDuration: 0.4, delay: 0,options: UIView.AnimationOptions.curveEaseInOut,animations: {
                 self.youtubeFrame.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
                 self.youtubeTitle.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
                 self.youtubeFrame.alpha = 0.0
                 self.youtubeTitle.alpha = 0.0
             })
-            UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
+            UIView.animate(withDuration: 0.4, delay: 0,options: UIView.AnimationOptions.curveEaseInOut,animations: {
                 self.youtubeFrame.transform = CGAffineTransform(scaleX: 1, y: 1)
                 self.youtubeTitle.transform = CGAffineTransform(scaleX: 1, y: 1)
                 self.youtubeFrame.alpha = 1.0
@@ -625,11 +628,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             textView.isHidden = true
             sciFrame.isHidden = false
             sciFrame.image = UIImage(named: "LionFrameNew")
-            UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
+            UIView.animate(withDuration: 0.4, delay: 0,options: UIView.AnimationOptions.curveEaseInOut,animations: {
                 self.sciFrame.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
                 self.sciFrame.alpha = 0.0
             })
-            UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
+            UIView.animate(withDuration: 0.4, delay: 0,options: UIView.AnimationOptions.curveEaseInOut,animations: {
                 self.sciFrame.transform = CGAffineTransform(scaleX: 1, y: 1)
                 self.sciFrame.alpha = 1.0
             })
@@ -639,11 +642,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             sciFrame.image = UIImage(named: "sciFrameSmaller")
             textView.isHidden = true
             sciFrame.isHidden = false
-            UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
+            UIView.animate(withDuration: 0.4, delay: 0,options: UIView.AnimationOptions.curveEaseInOut,animations: {
                 self.sciFrame.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
                 self.sciFrame.alpha = 0.0
             })
-            UIView.animate(withDuration: 0.4, delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: {
+            UIView.animate(withDuration: 0.4, delay: 0,options: UIView.AnimationOptions.curveEaseInOut,animations: {
                 self.sciFrame.transform = CGAffineTransform(scaleX: 1, y: 1)
                 self.sciFrame.alpha = 1.0
             })
@@ -658,3 +661,24 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     }
 }
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
+}
