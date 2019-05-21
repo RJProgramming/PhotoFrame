@@ -113,7 +113,9 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         textView.textColor = UIColor.lightGray
         self.textView.delegate = self
         scrollView.isHidden = true
-        imageView.isMultipleTouchEnabled = true
+       
+        
+        
         
     }
     
