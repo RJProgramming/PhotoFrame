@@ -78,10 +78,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardAppearance="light"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="jm2-2K-134">
-                                <rect key="frame" x="57" y="146" width="300" height="324"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="bWu-NC-By4"/>
-                                </constraints>
+                                <rect key="frame" x="83" y="277" width="248" height="62"/>
                                 <fontDescription key="fontDescription" name="FabfeltScript-Bold" family="FabfeltScript" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -130,7 +127,6 @@
                             <constraint firstItem="qA6-Yw-PCE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZYA-Ox-NqQ"/>
                             <constraint firstItem="KeE-8G-KKl" firstAttribute="height" secondItem="VHc-1o-ItN" secondAttribute="height" id="bp4-i2-VTP"/>
                             <constraint firstItem="qA6-Yw-PCE" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="cLE-AG-9cX"/>
-                            <constraint firstItem="jm2-2K-134" firstAttribute="height" secondItem="qA6-Yw-PCE" secondAttribute="height" id="fQL-Kn-f0D"/>
                             <constraint firstItem="Prt-ao-cru" firstAttribute="top" secondItem="qA6-Yw-PCE" secondAttribute="top" id="fez-sJ-mqT"/>
                             <constraint firstItem="ReZ-Il-OMa" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="gH6-4w-obO"/>
                             <constraint firstItem="AAA-if-6KM" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.17" id="hXp-DR-jac"/>
