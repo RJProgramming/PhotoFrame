@@ -409,7 +409,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         }
 
         //changed .openGLES3 to S2 to accomodate ios 9
-        let openGLContext = EAGLContext(api: .openGLES2)
+        let openGLContext = EAGLContext(api: .openGLES3)
         let context = CIContext(eaglContext: openGLContext!)
         let ciImage = CIImage(cgImage: image)
 
