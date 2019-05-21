@@ -78,12 +78,12 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardAppearance="light"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="jm2-2K-134">
-                                <rect key="frame" x="83" y="277" width="248" height="62"/>
+                                <rect key="frame" x="82.5" y="277.5" width="249" height="61"/>
                                 <fontDescription key="fontDescription" name="FabfeltScript-Bold" family="FabfeltScript" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <size key="shadowOffset" width="1" height="2"/>
+                                <size key="shadowOffset" width="2" height="1"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="30" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KeE-8G-KKl">
                                 <rect key="frame" x="20" y="525.5" width="165.5" height="58.5"/>
@@ -180,7 +180,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1020" y="119.36619718309859"/>
+            <point key="canvasLocation" x="1018.840579710145" y="119.19642857142857"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="w5P-Pz-SLM">

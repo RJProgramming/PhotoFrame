@@ -12,6 +12,7 @@ import Metal
 
 class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate {
 
+
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var sciFrame: UIImageView!
@@ -44,6 +45,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     var font: UIFont?
     var movementValue: CGFloat = 175
     var canSetFilterCenter:Bool = true
+    var panGesture = UIPanGestureRecognizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,24 +112,10 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         textView.textColor = UIColor.lightGray
         self.textView.delegate = self
         scrollView.isHidden = true
+        imageView.isMultipleTouchEnabled = true
+        
     }
     
-    //need this function if someone cancels the inital image picker the anmiation will continue
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        let xPosition = chooseImageLabel.frame.origin.x
-        let yPosition = chooseImageLabel.frame.origin.y - 20
-        let labelHeight = chooseImageLabel.frame.height
-        let labelWidth = chooseImageLabel.frame.width
-        
-        UIView.animate(withDuration: 2.0, delay: 0, options: [.repeat, .autoreverse, .curveEaseInOut], animations: {
-            self.chooseImageLabel.frame = CGRect(x: xPosition,y: yPosition,width: labelWidth,height: labelHeight)}, completion: nil)
-        
-        
-        // your code that needs to run each time a view appears
-    }
-
     //added this to allow custom filter centers and tap keyboard to dismiss on imageview
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
                            shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer)
@@ -147,8 +135,10 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         xCord = point.x
         yCord = point.y
         print ("\(point) and x\(xCord) and \(yCord)")
+        
+        
     }
- 
+    
     //limits youtube textfield characters so it doesnt scroll
     // left this but made the limit huge essenitally removing it
     func textField(_ youtubeTitle: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -250,7 +240,6 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         
         scrollView.isHidden = false
         chooseImageLabel.isHidden = true
-        chooseImageLabel.layer.removeAllAnimations()
         imageView.image = image
         imageView.contentMode = UIView.ContentMode.center
         imageView.frame = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
@@ -280,7 +269,6 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         picker.dismiss(animated: true, completion:{
             
             self.shareNav.isEnabled = true
-            self.chooseImageLabel.layer.removeAllAnimations()
             let screenHeight = self.screenSize.height
             if screenHeight == Constants.iPhoneXHeight || screenHeight == Constants.iPhoneXsRHeight{
                 
