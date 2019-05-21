@@ -45,7 +45,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     var font: UIFont?
     var movementValue: CGFloat = 175
     var canSetFilterCenter:Bool = true
-    var panGesture = UIPanGestureRecognizer()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
