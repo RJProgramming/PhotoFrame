@@ -8,6 +8,7 @@
 
 import UIKit
 import StoreKit
+import Metal
 
 class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate, UIGestureRecognizerDelegate {
 
@@ -375,6 +376,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
             ac.addAction(UIAlertAction(title: "Pixelate", style: .default, handler: self.setFilter))
             ac.addAction(UIAlertAction(title: "Black and White", style: .default, handler: self.setFilter))
             ac.addAction(UIAlertAction(title: "Motion Blur", style: .default, handler: self.setFilter))
+            ac.addAction(UIAlertAction(title: "Deep Fry 👌", style: .default, handler: self.setFilter))
             ac.addAction(UIAlertAction(title: "Remove Filters", style: .destructive, handler: self.setFilter))
             ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             self.present(ac, animated: true)})
@@ -406,11 +408,15 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
             actionSheetFilter = "CIPhotoEffectMono"
         }else if action.title == "Motion Blur"{
             actionSheetFilter = "CIMotionBlur"
+        }else if action.title == "Deep Fry 👌"{
+            actionSheetFilter = "CITemperatureAndTint"
         }
 
         //changed .openGLES3 to S2 to accomodate ios 9
-        let openGLContext = EAGLContext(api: .openGLES3)
-        let context = CIContext(eaglContext: openGLContext!)
+        //let openGLContext = EAGLContext(api: .openGLES3)
+        let device: MTLDevice? = MTLCreateSystemDefaultDevice()
+        //let context = CIContext(eaglContext: openGLContext!)
+        let context = CIContext(mtlDevice: device!)
         let ciImage = CIImage(cgImage: image)
 
         //Had to do the below radiusValue because radiuskey wouldnt accept (image.height * image.width) / 4 for some reason
@@ -445,7 +451,13 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
             if (inputKeys?.contains(kCIInputCenterKey))! { currentFilter?.setValue(CIVector(x: xCord, y: CGFloat(image.height) - yCord), forKey: kCIInputCenterKey) }
             
             if (inputKeys?.contains(kCIInputAngleKey))! { currentFilter?.setValue(1.5, forKey: kCIInputAngleKey) }
+            
         if ((inputKeys?.contains(kCIInputAngleKey))! && actionSheetFilter == "CIBumpDistortionLinear") { currentFilter?.setValue(0.0, forKey: kCIInputAngleKey) }
+            
+//            if ((inputKeys?.contains(kCIInputN))! && actionSheetFilter == "CITemperatureAndTint") {
+//                currentFilter?.setValue(0.0, forKey: kCIInputTargetImageKey)
+//
+//            }
         
       if let output = currentFilter?.value(forKey: kCIOutputImageKey) as? CIImage{
         
