@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lic-eT-vaU">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -26,11 +26,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="648"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHc-1o-ItN">
-                                <rect key="frame" x="20" y="581.66666666666663" width="165.66666666666666" height="60.333333333333371"/>
+                                <rect key="frame" x="20" y="525.66666666666663" width="165.66666666666666" height="58.333333333333371"/>
                                 <color key="backgroundColor" red="1" green="0.41960784313725491" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="FabfeltScript-Bold" family="FabfeltScript" pointSize="40"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -43,7 +43,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WR8-lS-ut8">
-                                <rect key="frame" x="228.33333333333337" y="581.66666666666663" width="165.66666666666663" height="60.333333333333371"/>
+                                <rect key="frame" x="228.33333333333337" y="525.66666666666663" width="165.66666666666663" height="58.333333333333371"/>
                                 <color key="backgroundColor" red="1" green="0.41960784313725491" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="FabfeltScript-Bold" family="FabfeltScript" pointSize="40"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
@@ -56,29 +56,29 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qA6-Yw-PCE">
-                                <rect key="frame" x="20.666666666666657" y="150.33333333333337" width="372.66666666666674" height="336"/>
+                                <rect key="frame" x="20.666666666666657" y="146" width="372.66666666666674" height="324"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </scrollView>
                             <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAA-if-6KM">
-                                <rect key="frame" x="20.666666666666657" y="35.999999999999993" width="372.66666666666674" height="114.33333333333331"/>
+                                <rect key="frame" x="20.666666666666657" y="36" width="372.66666666666674" height="110"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes" keyboardAppearance="light"/>
                             </textView>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Prt-ao-cru">
-                                <rect key="frame" x="20.666666666666657" y="150.33333333333337" width="372.66666666666674" height="336"/>
+                                <rect key="frame" x="20.666666666666657" y="146" width="372.66666666666674" height="324"/>
                             </imageView>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="youtubeframeiphonex" translatesAutoresizingMaskIntoConstraints="NO" id="ReZ-Il-OMa">
-                                <rect key="frame" x="20.666666666666657" y="451.33333333333337" width="372.66666666666674" height="107.33333333333337"/>
+                                <rect key="frame" x="20.666666666666657" y="435" width="372.66666666666674" height="104"/>
                             </imageView>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tap here to enter text" adjustsFontSizeToFit="NO" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="uif-c2-2Ea">
-                                <rect key="frame" x="29.333333333333343" y="473.33333333333337" width="331.33333333333326" height="15"/>
+                                <rect key="frame" x="29.333333333333343" y="457" width="331.33333333333326" height="15"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardAppearance="light"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="jm2-2K-134">
-                                <rect key="frame" x="57" y="150.33333333333337" width="300" height="336"/>
+                                <rect key="frame" x="57" y="146" width="300" height="324"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="bWu-NC-By4"/>
                                 </constraints>
@@ -89,7 +89,7 @@
                                 <size key="shadowOffset" width="1" height="2"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="30" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KeE-8G-KKl">
-                                <rect key="frame" x="20" y="581.66666666666663" width="165.66666666666666" height="60.333333333333371"/>
+                                <rect key="frame" x="20" y="525.66666666666663" width="165.66666666666666" height="58.333333333333371"/>
                                 <fontDescription key="fontDescription" name="FabfeltScript-Bold" family="FabfeltScript" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -97,7 +97,7 @@
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frame" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9V-j9-V6n">
-                                <rect key="frame" x="228.33333333333337" y="581.66666666666663" width="165.66666666666663" height="60.333333333333371"/>
+                                <rect key="frame" x="228.33333333333337" y="525.66666666666663" width="165.66666666666663" height="58.333333333333371"/>
                                 <fontDescription key="fontDescription" name="FabfeltScript-Bold" family="FabfeltScript" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -194,7 +194,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="736"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Hgf-sg-eby">
-                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="1" green="0.42011716889027795" blue="0.3261631263749184" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
