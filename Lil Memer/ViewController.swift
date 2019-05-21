@@ -33,6 +33,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     let screenSize: CGRect = UIScreen.main.bounds
     let defaults = UserDefaults.standard
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+   
     
     var xCord:CGFloat = 0.0
     var yCord:CGFloat = 0.0
@@ -46,8 +47,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     var movementValue: CGFloat = 175
     var canSetFilterCenter:Bool = true
     
-    
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -113,8 +113,9 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         textView.textColor = UIColor.lightGray
         self.textView.delegate = self
         scrollView.isHidden = true
-       
         
+        
+       
         
         
     }
@@ -138,6 +139,24 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         xCord = point.x
         yCord = point.y
         print ("\(point) and x\(xCord) and \(yCord)")
+       
+        let filterCenterVisualGraphic = "sciFrameSmaller.png"
+        let filterCenterVisualPointer = UIImage(named: filterCenterVisualGraphic)
+        let filterCenterVisualImageView = UIImageView(image: filterCenterVisualPointer)
+        
+
+        if (self.imageView.viewWithTag(4) != nil ) {
+            filterCenterVisualImageView.removeFromSuperview()
+        }else{
+           
+        }
+        
+        //filter pointer
+        imageView.addSubview(filterCenterVisualImageView)
+        filterCenterVisualImageView.tag = 4
+        filterCenterVisualImageView.frame = CGRect(x: xCord, y: yCord, width: 200, height: 200)
+        
+       
         
         
     }
