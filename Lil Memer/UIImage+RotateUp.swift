@@ -71,7 +71,7 @@ extension UIImage {
     }
     
     func fatalError(){
-        print("ok")
+        print("fatal UIimage rotate error")
     }
     
     
