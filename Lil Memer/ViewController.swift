@@ -184,6 +184,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         static let iPhoneElseWidth = CGFloat(320)
         static let iPhone4Height = CGFloat(480)
         static let iPhoneXHeight = CGFloat(812)
+        static let iPhoneXsRHeight = CGFloat(896)
+        
     }
         
     @objc func dismissKeyboard() {
@@ -223,7 +225,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         let boundingRect = sizeOfString(string: newText, constrainedToWidth: Double(textWidth), font: textView.font!)
         let numberOfLines = boundingRect.height / textView.font!.lineHeight;
-        if screenHeight == Constants.iPhoneXHeight {
+        if screenHeight == Constants.iPhoneXHeight || screenHeight == Constants.iPhoneXsRHeight {
            return numberOfLines <= 6
         }else{
            return numberOfLines <= 5
@@ -279,16 +281,16 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
             self.shareNav.isEnabled = true
             self.chooseImageLabel.layer.removeAllAnimations()
             let screenHeight = self.screenSize.height
-            if screenHeight == Constants.iPhoneXHeight{
+            if screenHeight == Constants.iPhoneXHeight || screenHeight == Constants.iPhoneXsRHeight{
                 
                 self.view.layoutIfNeeded()
                 
-                self.filterButtonBot.constant = 10
+                self.filterButtonBot.constant = 5
                 UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
                     
                     self.view.layoutIfNeeded()
                 })
-                self.frameButtonBot.constant = 10
+                self.frameButtonBot.constant = 5
                 UIView.animate(withDuration: 1.2, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
                     
                     self.view.layoutIfNeeded()
@@ -352,7 +354,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         
         guard (self.imageView.image?.cgImage) != nil else { return }
         
-        let ac = UIAlertController(title: "Tap anywhere on your image to set new a filter center", message: nil, preferredStyle: .actionSheet)
+        let ac = UIAlertController(title: "Tap anywhere on the image to set new a filter center", message: nil, preferredStyle: .actionSheet)
         
         filterButtonTitle.alpha = 0.0
         UIView.animate(withDuration: 1.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
@@ -555,7 +557,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         
         if  image != nil {
             //brings out the share menu
-            let vc = UIActivityViewController(activityItems: [image], applicationActivities: [])
+            let vc = UIActivityViewController(activityItems: [image as Any], applicationActivities: [])
             present(vc, animated: true)
         }
     }
