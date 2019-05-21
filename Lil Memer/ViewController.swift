@@ -414,8 +414,9 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
 
         //changed .openGLES3 to S2 to accomodate ios 9
         //let openGLContext = EAGLContext(api: .openGLES3)
-        let device: MTLDevice? = MTLCreateSystemDefaultDevice()
         //let context = CIContext(eaglContext: openGLContext!)
+        //switched to metal for better performance
+        let device: MTLDevice? = MTLCreateSystemDefaultDevice()
         let context = CIContext(mtlDevice: device!)
         let ciImage = CIImage(cgImage: image)
 
