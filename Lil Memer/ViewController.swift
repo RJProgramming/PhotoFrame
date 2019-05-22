@@ -141,18 +141,26 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         print ("\(point) and x\(xCord) and \(yCord)")
        
          //filter center graphic pointer
-        let filterCenterVisualGraphic = "sciFrameSmaller.png"
-        let filterCenterVisualPointer = UIImage(named: filterCenterVisualGraphic)
-        let filterCenterVisualImageView = UIImageView(image: filterCenterVisualPointer)
-
-        for filterCenterVisualImageView in imageView.subviews{
-            filterCenterVisualImageView.removeFromSuperview()
+        let filterCenterPointMarkerShadow = UILabel(frame: CGRect(x: 0, y: 0, width: 2000, height: 500))
+        filterCenterPointMarkerShadow.font = UIFont.systemFont(ofSize: 400)
+        filterCenterPointMarkerShadow.textAlignment = .center
+        filterCenterPointMarkerShadow.textColor = .black
+        filterCenterPointMarkerShadow.text = "⎔"
+        
+        let filterCenterPointMarker = UILabel(frame: CGRect(x: 0, y: 0, width: 2000, height: 500))
+        filterCenterPointMarker.font = UIFont.systemFont(ofSize: 300)
+        filterCenterPointMarker.center = CGPoint(x: xCord, y: yCord)
+        filterCenterPointMarker.textAlignment = .center
+        filterCenterPointMarker.textColor = .white
+        filterCenterPointMarker.text = "⎔"
+        
+        for label in imageView.subviews{
+            label.removeFromSuperview()
         }
-        
-        imageView.addSubview(filterCenterVisualImageView)
-        filterCenterVisualImageView.tag = 4
-        filterCenterVisualImageView.frame = CGRect(x: xCord, y: yCord, width: 200, height: 200)
-        
+
+        imageView.addSubview(filterCenterPointMarker)
+        filterCenterPointMarker.addSubview(filterCenterPointMarkerShadow)
+ 
    
     }
     
@@ -421,6 +429,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         //let openGLContext = EAGLContext(api: .openGLES3)
         //let context = CIContext(eaglContext: openGLContext!)
         //switched to metal for better performance
+        //METAL CRASHES WHEN USING SIMULATOR
         let device: MTLDevice? = MTLCreateSystemDefaultDevice()
         let context = CIContext(mtlDevice: device!)
         let ciImage = CIImage(cgImage: image)
@@ -478,8 +487,12 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         
         guard image != nil else { return }
         
-        for filterCenterVisualImageView in imageView.subviews{
-            filterCenterVisualImageView.removeFromSuperview()
+//        for filterCenterVisualImageView in imageView.subviews{
+//            filterCenterVisualImageView.removeFromSuperview()
+//        }
+        
+        for label in imageView.subviews{
+            label.removeFromSuperview()
         }
         
         let offset = scrollView.contentOffset
