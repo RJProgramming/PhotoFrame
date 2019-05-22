@@ -144,7 +144,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let filterCenterPointMarkerShadow = UILabel(frame: CGRect(x: 0, y: 0, width: 2000, height: 500))
         filterCenterPointMarkerShadow.font = UIFont.systemFont(ofSize: 400)
         filterCenterPointMarkerShadow.textAlignment = .center
-        filterCenterPointMarkerShadow.textColor = .black
+        filterCenterPointMarkerShadow.textColor = UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1.0) 
         filterCenterPointMarkerShadow.text = "⎔"
         
         let filterCenterPointMarker = UILabel(frame: CGRect(x: 0, y: 0, width: 2000, height: 500))
