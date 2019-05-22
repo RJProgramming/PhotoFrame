@@ -58,6 +58,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         frameButtonBot.constant = -200
         filterButtonBot.constant = -200
         shareNav.isEnabled = false
+        hideFilterCenterGraphic.isEnabled = false
         
         filterButton.layer.cornerRadius = 10
         frameButton.layer.cornerRadius = 10
@@ -298,6 +299,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         picker.dismiss(animated: true, completion:{
             
             self.shareNav.isEnabled = true
+            self.hideFilterCenterGraphic.isEnabled = true
             let screenHeight = self.screenSize.height
             if screenHeight == Constants.iPhoneXHeight || screenHeight == Constants.iPhoneXsRHeight{
                 
