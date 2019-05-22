@@ -477,6 +477,11 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
     @IBAction func navSave(_ sender: UIBarButtonItem) {
         
         guard image != nil else { return }
+        
+        for filterCenterVisualImageView in imageView.subviews{
+            filterCenterVisualImageView.removeFromSuperview()
+        }
+        
         let offset = scrollView.contentOffset
         let screenHeight = screenSize.height
 
