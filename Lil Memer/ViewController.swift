@@ -428,7 +428,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         }else if action.title == "Motion Blur"{
             actionSheetFilter = "CIMotionBlur"
         }else if action.title == "Deep Fry 👌"{
-            actionSheetFilter = "CITemperatureAndTint"
+            actionSheetFilter = "CIToneCurve"
         }
 
         //changed .openGLES3 to S2 to accomodate ios 9
@@ -475,10 +475,10 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
             
         if ((inputKeys?.contains(kCIInputAngleKey))! && actionSheetFilter == "CIBumpDistortionLinear") { currentFilter?.setValue(0.0, forKey: kCIInputAngleKey) }
             
-//            if ((inputKeys?.contains(kCIInputN))! && actionSheetFilter == "CITemperatureAndTint") {
-//                currentFilter?.setValue(0.0, forKey: kCIInputTargetImageKey)
-//
-//            }
+            if ( actionSheetFilter == "CIToneCurve") {
+                currentFilter?.setDefaults()
+
+            }
         
       if let output = currentFilter?.value(forKey: kCIOutputImageKey) as? CIImage{
         
