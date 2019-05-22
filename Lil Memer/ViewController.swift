@@ -140,25 +140,20 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         yCord = point.y
         print ("\(point) and x\(xCord) and \(yCord)")
        
+         //filter center graphic pointer
         let filterCenterVisualGraphic = "sciFrameSmaller.png"
         let filterCenterVisualPointer = UIImage(named: filterCenterVisualGraphic)
         let filterCenterVisualImageView = UIImageView(image: filterCenterVisualPointer)
-        
 
-        if (self.imageView.viewWithTag(4) != nil ) {
+        for filterCenterVisualImageView in imageView.subviews{
             filterCenterVisualImageView.removeFromSuperview()
-        }else{
-           
         }
         
-        //filter pointer
         imageView.addSubview(filterCenterVisualImageView)
         filterCenterVisualImageView.tag = 4
         filterCenterVisualImageView.frame = CGRect(x: xCord, y: yCord, width: 200, height: 200)
         
-       
-        
-        
+   
     }
     
     //limits youtube textfield characters so it doesnt scroll
