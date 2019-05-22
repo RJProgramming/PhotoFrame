@@ -146,6 +146,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="X4f-xL-iI7">
+                        <barButtonItem key="leftBarButtonItem" title="⌀" id="Pa8-0y-6ra">
+                            <connections>
+                                <action selector="hideFilterCenter:" destination="BYZ-38-t0r" id="4IU-4E-hhO"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="action" id="WuG-m2-Kqi">
                                 <color key="tintColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -169,6 +174,7 @@
                         <outlet property="frameButton" destination="WR8-lS-ut8" id="fAI-2g-Obb"/>
                         <outlet property="frameButtonBot" destination="4HK-Ew-EIC" id="Zmf-Ml-yrm"/>
                         <outlet property="frameButtonTitle" destination="y9V-j9-V6n" id="rnA-cb-VQC"/>
+                        <outlet property="hideFilterCenterGraphic" destination="Pa8-0y-6ra" id="aEv-Q0-Y7b"/>
                         <outlet property="saveNav" destination="8f3-JI-xmb" id="wk0-KD-b37"/>
                         <outlet property="sciFrame" destination="Prt-ao-cru" id="sei-9O-zeF"/>
                         <outlet property="scrollView" destination="qA6-Yw-PCE" id="MXE-pZ-N4W"/>
@@ -182,7 +188,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1018.840579710145" y="119.19642857142857"/>
+            <point key="canvasLocation" x="1018.125" y="118.75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="w5P-Pz-SLM">
@@ -192,7 +198,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="736"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="Hgf-sg-eby">
-                        <rect key="frame" x="0.0" y="20" width="414" height="50"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="1" green="0.42011716889027795" blue="0.3261631263749184" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

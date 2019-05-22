@@ -21,6 +21,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     @IBOutlet weak var youtubeLabel: NSLayoutConstraint!
     @IBOutlet weak var saveNav: UIBarButtonItem!
     @IBOutlet weak var shareNav: UIBarButtonItem!
+    @IBOutlet weak var hideFilterCenterGraphic: UIBarButtonItem!
     @IBOutlet weak var frameButtonBot: NSLayoutConstraint!
     @IBOutlet weak var filterButtonBot: NSLayoutConstraint!
     @IBOutlet weak var youtubeFrameWidth: NSLayoutConstraint!
@@ -142,17 +143,17 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
        
          //filter center graphic pointer
         let filterCenterPointMarkerShadow = UILabel(frame: CGRect(x: 0, y: 0, width: 2000, height: 500))
-        filterCenterPointMarkerShadow.font = UIFont.systemFont(ofSize: 350)
+        filterCenterPointMarkerShadow.font = UIFont.systemFont(ofSize: 200)
         filterCenterPointMarkerShadow.textAlignment = .center
         filterCenterPointMarkerShadow.textColor = UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1.0)
-        filterCenterPointMarkerShadow.text = "⎔"
+        filterCenterPointMarkerShadow.text = "○"
         
         let filterCenterPointMarker = UILabel(frame: CGRect(x: 0, y: 0, width: 2000, height: 500))
-        filterCenterPointMarker.font = UIFont.systemFont(ofSize: 300)
+        filterCenterPointMarker.font = UIFont.systemFont(ofSize: 250)
         filterCenterPointMarker.center = CGPoint(x: xCord, y: yCord)
         filterCenterPointMarker.textAlignment = .center
         filterCenterPointMarker.textColor = .white
-        filterCenterPointMarker.text = "⎔"
+        filterCenterPointMarker.text = "○"
         
         for label in imageView.subviews{
             label.removeFromSuperview()
@@ -160,6 +161,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
 
         imageView.addSubview(filterCenterPointMarker)
         filterCenterPointMarker.addSubview(filterCenterPointMarkerShadow)
+        //filterCenterPointMarker.alpha = 0.5
+        filterCenterPointMarkerShadow.alpha = 0.3
  
    
     }
@@ -482,6 +485,16 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
             }
         }
     }
+    
+    
+    @IBAction func hideFilterCenter(_ sender: UIBarButtonItem) {
+        for label in imageView.subviews{
+            label.removeFromSuperview()
+        }
+     }
+    
+    
+    
 
     @IBAction func navSave(_ sender: UIBarButtonItem) {
         
