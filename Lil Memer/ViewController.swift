@@ -47,6 +47,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     var font: UIFont?
     var movementValue: CGFloat = 175
     var canSetFilterCenter:Bool = true
+    var hideFilterCenterGraphicCounter = 1
     
    
     override func viewDidLoad() {
@@ -488,8 +489,16 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
     
     
     @IBAction func hideFilterCenter(_ sender: UIBarButtonItem) {
+       
         for label in imageView.subviews{
-            label.removeFromSuperview()
+            
+            if hideFilterCenterGraphicCounter == 1{
+                label.isHidden = true
+                hideFilterCenterGraphicCounter = hideFilterCenterGraphicCounter + 1
+            }else if hideFilterCenterGraphicCounter != 1{
+                label.isHidden = false
+                hideFilterCenterGraphicCounter = 1
+            }
         }
      }
     
