@@ -145,7 +145,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
        
          //filter center graphic pointer
         let filterCenterPointMarkerShadow = UILabel(frame: CGRect(x: 0, y: 0, width: 2000, height: 500))
-        filterCenterPointMarkerShadow.font = UIFont.systemFont(ofSize: 200)
+        filterCenterPointMarkerShadow.font = UIFont.systemFont(ofSize: 220)
         filterCenterPointMarkerShadow.textAlignment = .center
         filterCenterPointMarkerShadow.textColor = UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1.0)
         filterCenterPointMarkerShadow.text = "○"
@@ -157,14 +157,31 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         filterCenterPointMarker.textColor = .white
         filterCenterPointMarker.text = "○"
         
+        let filterCenterText = UILabel(frame: CGRect(x: 0, y: filterCenterPointMarker.frame.size.height / 3.5, width: 2000, height: 500))
+        filterCenterText.font = UIFont.init(name: "Roboto-Regular", size: 50)
+        filterCenterText.textAlignment = .center
+        filterCenterText.textColor = .white
+        filterCenterText.text = "Filter Center"
+        
+        let filterCenterTextShadow = UILabel(frame: CGRect(x: 0, y: (filterCenterPointMarker.frame.size.height / 3.5) + 2, width: 2000, height: 500))
+        filterCenterTextShadow.font = UIFont.init(name: "Roboto-Regular", size: 50)
+        filterCenterTextShadow.textAlignment = .center
+        filterCenterTextShadow.textColor = UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1.0)
+        filterCenterTextShadow.text = "Filter Center"
+        
+        
         for label in imageView.subviews{
             label.removeFromSuperview()
         }
 
         imageView.addSubview(filterCenterPointMarker)
         filterCenterPointMarker.addSubview(filterCenterPointMarkerShadow)
+        filterCenterPointMarker.addSubview(filterCenterText)
+        filterCenterPointMarker.addSubview(filterCenterTextShadow)
+        filterCenterPointMarker.bringSubviewToFront(filterCenterText)
         //filterCenterPointMarker.alpha = 0.5
         filterCenterPointMarkerShadow.alpha = 0.3
+        filterCenterTextShadow.alpha = 0.5
  
    
     }
@@ -395,7 +412,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
             ac.addAction(UIAlertAction(title: "Pixelate", style: .default, handler: self.setFilter))
             ac.addAction(UIAlertAction(title: "Black and White", style: .default, handler: self.setFilter))
             ac.addAction(UIAlertAction(title: "Motion Blur", style: .default, handler: self.setFilter))
-            ac.addAction(UIAlertAction(title: "Deep Fry 👌", style: .default, handler: self.setFilter))
+            ac.addAction(UIAlertAction(title: "👌", style: .default, handler: self.setFilter))
             ac.addAction(UIAlertAction(title: "Remove Filters", style: .destructive, handler: self.setFilter))
             ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             self.present(ac, animated: true)})
@@ -427,8 +444,8 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
             actionSheetFilter = "CIPhotoEffectMono"
         }else if action.title == "Motion Blur"{
             actionSheetFilter = "CIMotionBlur"
-        }else if action.title == "Deep Fry 👌"{
-            actionSheetFilter = "CIToneCurve"
+        }else if action.title == "👌"{
+            
         }
 
         //changed .openGLES3 to S2 to accomodate ios 9
@@ -475,10 +492,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
             
         if ((inputKeys?.contains(kCIInputAngleKey))! && actionSheetFilter == "CIBumpDistortionLinear") { currentFilter?.setValue(0.0, forKey: kCIInputAngleKey) }
             
-            if ( actionSheetFilter == "CIToneCurve") {
-                currentFilter?.setDefaults()
-
-            }
+            
         
       if let output = currentFilter?.value(forKey: kCIOutputImageKey) as? CIImage{
         
