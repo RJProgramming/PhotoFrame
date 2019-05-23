@@ -143,12 +143,13 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         yCord = point.y
         print ("\(point) and x\(xCord) and \(yCord)")
        
-         //filter center graphic pointer
+         //filter center graphic pointer (added tags to only have the center graphic hide and not emojis)
         let filterCenterPointMarkerShadow = UILabel(frame: CGRect(x: 0, y: 0, width: 2000, height: 500))
         filterCenterPointMarkerShadow.font = UIFont.systemFont(ofSize: 220)
         filterCenterPointMarkerShadow.textAlignment = .center
         filterCenterPointMarkerShadow.textColor = UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1.0)
         filterCenterPointMarkerShadow.text = "○"
+        filterCenterPointMarkerShadow.tag = 1
         
         let filterCenterPointMarker = UILabel(frame: CGRect(x: 0, y: 0, width: 2000, height: 500))
         filterCenterPointMarker.font = UIFont.systemFont(ofSize: 250)
@@ -156,22 +157,27 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         filterCenterPointMarker.textAlignment = .center
         filterCenterPointMarker.textColor = .white
         filterCenterPointMarker.text = "○"
+        filterCenterPointMarker.tag = 1
         
         let filterCenterText = UILabel(frame: CGRect(x: 0, y: filterCenterPointMarker.frame.size.height / 3.5, width: 2000, height: 500))
         filterCenterText.font = UIFont.init(name: "Roboto-Regular", size: 50)
         filterCenterText.textAlignment = .center
         filterCenterText.textColor = .white
         filterCenterText.text = "Filter Center"
+        filterCenterText.tag = 1
         
         let filterCenterTextShadow = UILabel(frame: CGRect(x: 0, y: (filterCenterPointMarker.frame.size.height / 3.5) + 2, width: 2000, height: 500))
         filterCenterTextShadow.font = UIFont.init(name: "Roboto-Regular", size: 50)
         filterCenterTextShadow.textAlignment = .center
         filterCenterTextShadow.textColor = UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1.0)
         filterCenterTextShadow.text = "Filter Center"
+        filterCenterTextShadow.tag = 1
         
         
         for label in imageView.subviews{
+            if (label.tag == 1) {
             label.removeFromSuperview()
+            }
         }
 
         imageView.addSubview(filterCenterPointMarker)
@@ -445,6 +451,13 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         }else if action.title == "Motion Blur"{
             actionSheetFilter = "CIMotionBlur"
         }else if action.title == "👌"{
+            let emojiHand = UILabel(frame: CGRect(x: 0, y: 0, width: 2000, height: 500))
+            emojiHand.font = UIFont.systemFont(ofSize: 250)
+            emojiHand.center = CGPoint(x: xCord, y: yCord)
+            emojiHand.textAlignment = .center
+            emojiHand.textColor = .white
+            emojiHand.text = "👌"
+            imageView.addSubview(emojiHand)
             
         }
 
@@ -506,16 +519,20 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
     
     @IBAction func hideFilterCenter(_ sender: UIBarButtonItem) {
        
-        for label in imageView.subviews{
-            
-            if hideFilterCenterGraphicCounter == 1{
-                label.isHidden = true
-                hideFilterCenterGraphicCounter = hideFilterCenterGraphicCounter + 1
-            }else if hideFilterCenterGraphicCounter != 1{
-                label.isHidden = false
-                hideFilterCenterGraphicCounter = 1
+            for label in imageView.subviews{
+                if (label.tag == 1) {
+                   
+                    if hideFilterCenterGraphicCounter == 1{
+                        label.isHidden = true
+                        hideFilterCenterGraphicCounter = hideFilterCenterGraphicCounter + 1
+                    }else if hideFilterCenterGraphicCounter != 1{
+                        label.isHidden = false
+                        hideFilterCenterGraphicCounter = 1
+                    }
+                    
+                }
             }
-        }
+  
      }
     
     
@@ -530,7 +547,9 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
 //        }
         
         for label in imageView.subviews{
-            label.removeFromSuperview()
+            if (label.tag == 1) {
+                label.removeFromSuperview()
+            }
         }
         
         let offset = scrollView.contentOffset
