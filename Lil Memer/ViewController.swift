@@ -451,6 +451,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         }else if action.title == "Motion Blur"{
             actionSheetFilter = "CIMotionBlur"
         }else if action.title == "👌"{
+            actionSheetFilter = "none"
             let emojiHand = UILabel(frame: CGRect(x: 0, y: 0, width: 2000, height: 500))
             emojiHand.font = UIFont.systemFont(ofSize: 250)
             emojiHand.center = CGPoint(x: xCord, y: yCord)
@@ -478,9 +479,12 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
             radiusValue = image.width
         }
         
-        if actionSheetFilter == "Remove All"{
+        
+        if actionSheetFilter == "none"{
+            //no filter
+        }else if actionSheetFilter == "Remove All"{
             imageView.image = origImage
-            
+            self.imageView.subviews.forEach({ $0.removeFromSuperview() })
         }else{
             
         let currentFilter = CIFilter(name: actionSheetFilter)
@@ -505,6 +509,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
             
         if ((inputKeys?.contains(kCIInputAngleKey))! && actionSheetFilter == "CIBumpDistortionLinear") { currentFilter?.setValue(0.0, forKey: kCIInputAngleKey) }
             
+        if (actionSheetFilter == "none") {  }
             
         
       if let output = currentFilter?.value(forKey: kCIOutputImageKey) as? CIImage{
