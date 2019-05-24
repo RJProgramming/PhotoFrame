@@ -418,7 +418,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
             ac.addAction(UIAlertAction(title: "Pixelate", style: .default, handler: self.setFilter))
             ac.addAction(UIAlertAction(title: "Black and White", style: .default, handler: self.setFilter))
             ac.addAction(UIAlertAction(title: "Motion Blur", style: .default, handler: self.setFilter))
-            ac.addAction(UIAlertAction(title: "👌", style: .default, handler: self.setFilter))
+            ac.addAction(UIAlertAction(title: "Custom Text 👌", style: .default, handler: self.setFilter))
             ac.addAction(UIAlertAction(title: "Remove Filters", style: .destructive, handler: self.setFilter))
             ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             self.present(ac, animated: true)})
@@ -450,15 +450,27 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
             actionSheetFilter = "CIPhotoEffectMono"
         }else if action.title == "Motion Blur"{
             actionSheetFilter = "CIMotionBlur"
-        }else if action.title == "👌"{
+        }else if action.title == "Custom Text 👌"{
+            
             actionSheetFilter = "none"
-            let emojiHand = UILabel(frame: CGRect(x: 0, y: 0, width: 2000, height: 500))
-            emojiHand.font = UIFont.systemFont(ofSize: 250)
-            emojiHand.center = CGPoint(x: xCord, y: yCord)
-            emojiHand.textAlignment = .center
-            emojiHand.textColor = .white
-            emojiHand.text = "👌"
-            imageView.addSubview(emojiHand)
+            let customTextOverlay = UILabel(frame: CGRect(x: 0, y: 0, width: 2000, height: 500))
+            customTextOverlay.font = UIFont.systemFont(ofSize: 100)
+            customTextOverlay.center = CGPoint(x: xCord, y: yCord)
+            customTextOverlay.textAlignment = .center
+            customTextOverlay.textColor = .white
+            customTextOverlay.text = ""
+            imageView.addSubview(customTextOverlay)
+            
+            let ac = UIAlertController(title: "Enter Text", message: nil, preferredStyle: .alert)
+            ac.addTextField()
+            
+            let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in
+                let answer = ac.textFields![0]
+                // do something interesting with "answer" here
+                customTextOverlay.text = answer.text
+            }
+            ac.addAction(submitAction)
+            present(ac, animated: true)
             
         }
 
@@ -482,6 +494,11 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         
         if actionSheetFilter == "none"{
             //no filter
+            
+            
+            
+            
+            
         }else if actionSheetFilter == "Remove All"{
             imageView.image = origImage
             self.imageView.subviews.forEach({ $0.removeFromSuperview() })
