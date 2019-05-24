@@ -34,6 +34,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     let screenSize: CGRect = UIScreen.main.bounds
     let defaults = UserDefaults.standard
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+  
    
     
     var xCord:CGFloat = 0.0
@@ -67,6 +68,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         //sets the delegate for the textfield
         youtubeTitle.delegate = self
+       
         
         let screenWidth = screenSize.width
         let screenHeight = screenSize.height
@@ -185,7 +187,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         filterCenterPointMarker.addSubview(filterCenterText)
         filterCenterPointMarker.addSubview(filterCenterTextShadow)
         filterCenterPointMarker.bringSubviewToFront(filterCenterText)
-        //filterCenterPointMarker.alpha = 0.5
         filterCenterPointMarkerShadow.alpha = 0.3
         filterCenterTextShadow.alpha = 0.5
  
@@ -199,6 +200,9 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         let newLength = text.count + string.count - range.length
         return newLength <= limitLength
     }
+    
+   
+    
     //allows view to move when keyboard comes out for textfield pt1
     func textFieldDidBeginEditing(_ youtubeTitle: UITextField) {
         animateViewMoving(up: true, moveValue: movementValue)
@@ -251,6 +255,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             textView.textColor = UIColor.lightGray
         }
     }
+    
 
     // part 1 of calcing string length to limit text view lines
     func sizeOfString (string: String, constrainedToWidth width: Double, font: UIFont) -> CGSize {
@@ -465,14 +470,22 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
             ac.addTextField()
             
             let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in
-                let answer = ac.textFields![0]
+                 let answer = ac.textFields![0]
+                
+                
                 // do something interesting with "answer" here
                 customTextOverlay.text = answer.text
+                
+                
             }
+            
+            
+        
             ac.addAction(submitAction)
             present(ac, animated: true)
             
         }
+        
 
         //changed .openGLES3 to S2 to accomodate ios 9
         //let openGLContext = EAGLContext(api: .openGLES3)
