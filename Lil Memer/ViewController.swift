@@ -416,6 +416,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
            
         }, completion:{ finish in
             
+            ac.addAction(UIAlertAction(title: "Custom Text 👌", style: .default, handler: self.setFilter))
             ac.addAction(UIAlertAction(title: "Bump", style: .default, handler: self.setFilter))
             ac.addAction(UIAlertAction(title: "Linear Bump", style: .default, handler: self.setFilter))
             ac.addAction(UIAlertAction(title: "Pinch", style: .default, handler: self.setFilter))
@@ -423,7 +424,6 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
             ac.addAction(UIAlertAction(title: "Pixelate", style: .default, handler: self.setFilter))
             ac.addAction(UIAlertAction(title: "Black and White", style: .default, handler: self.setFilter))
             ac.addAction(UIAlertAction(title: "Motion Blur", style: .default, handler: self.setFilter))
-            ac.addAction(UIAlertAction(title: "Custom Text 👌", style: .default, handler: self.setFilter))
             ac.addAction(UIAlertAction(title: "Start Over", style: .destructive, handler: self.setFilter))
             ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             self.present(ac, animated: true)})
@@ -465,11 +465,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
             customTextOverlay.textColor = .white
             customTextOverlay.text = ""
             imageView.addSubview(customTextOverlay)
-            
-            
-            
-            
-            
+  
             let ac = UIAlertController(title: "Enter Text", message: nil, preferredStyle: .alert)
             ac.addTextField()
             
@@ -479,18 +475,14 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
                 
                 // do something interesting with "answer" here
                 customTextOverlay.text = answer.text
-                
-                
+            
             }
-            
-            
-        
+
             ac.addAction(submitAction)
             present(ac, animated: true)
             
         }
         
-
         //changed .openGLES3 to S2 to accomodate ios 9
         //let openGLContext = EAGLContext(api: .openGLES3)
         //let context = CIContext(eaglContext: openGLContext!)
@@ -701,6 +693,9 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
             let vc = UIActivityViewController(activityItems: [image as Any], applicationActivities: [])
             present(vc, animated: true)
         }
+        
+        
+        
     }
 
     @IBAction func navChooseImage(_ sender: UIBarButtonItem) {
