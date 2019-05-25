@@ -424,7 +424,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
             ac.addAction(UIAlertAction(title: "Black and White", style: .default, handler: self.setFilter))
             ac.addAction(UIAlertAction(title: "Motion Blur", style: .default, handler: self.setFilter))
             ac.addAction(UIAlertAction(title: "Custom Text 👌", style: .default, handler: self.setFilter))
-            ac.addAction(UIAlertAction(title: "Remove Filters", style: .destructive, handler: self.setFilter))
+            ac.addAction(UIAlertAction(title: "Start Over", style: .destructive, handler: self.setFilter))
             ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             self.present(ac, animated: true)})
     }
@@ -449,7 +449,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         }else if action.title == "Pinch"{
             pinchCheck = 1
             actionSheetFilter = "CIBumpDistortion"
-        }else if action.title == "Remove Filters"{
+        }else if action.title == "Start Over"{
             actionSheetFilter = "Remove All"
         }else if action.title == "Black and White"{
             actionSheetFilter = "CIPhotoEffectMono"
@@ -465,6 +465,10 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
             customTextOverlay.textColor = .white
             customTextOverlay.text = ""
             imageView.addSubview(customTextOverlay)
+            
+            
+            
+            
             
             let ac = UIAlertController(title: "Enter Text", message: nil, preferredStyle: .alert)
             ac.addTextField()
@@ -504,17 +508,26 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
             radiusValue = image.width
         }
         
-        
         if actionSheetFilter == "none"{
             //no filter
-            
-            
-            
-            
-            
+     
         }else if actionSheetFilter == "Remove All"{
-            imageView.image = origImage
-            self.imageView.subviews.forEach({ $0.removeFromSuperview() })
+            
+            let ac = UIAlertController(title: "Are you sure you want reset all filters and start over?", message: nil, preferredStyle: .alert)
+//            ac.addTextField()
+            
+            let submitAction = UIAlertAction(title: "Yes", style: .destructive) { (action) in
+                // do something
+                self.imageView.image = self.origImage
+                self.imageView.subviews.forEach({ $0.removeFromSuperview() })
+            }
+                let CancelAction = UIAlertAction(title: "No", style: .cancel)
+                //let answer = ac.textFields![0]
+                
+                ac.addAction(CancelAction)
+            ac.addAction(submitAction)
+            present(ac, animated: true)
+            
         }else{
             
         let currentFilter = CIFilter(name: actionSheetFilter)
