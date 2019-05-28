@@ -146,32 +146,34 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         print ("\(point) and x\(xCord) and \(yCord)")
        
          //filter center graphic pointer (added tags to only have the center graphic hide and not emojis)
-        let filterCenterPointMarkerShadow = UILabel(frame: CGRect(x: 0, y: 0, width: 2000, height: 500))
-        filterCenterPointMarkerShadow.font = UIFont.systemFont(ofSize: 220)
+        let filterCenterPointMarkerShadow = UILabel(frame: CGRect(x: 0, y: 0, width: 500, height: 500))
+        filterCenterPointMarkerShadow.font = UIFont.systemFont(ofSize: (imageView.bounds.size.width / 6) - 30)
         filterCenterPointMarkerShadow.textAlignment = .center
         filterCenterPointMarkerShadow.textColor = UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1.0)
         filterCenterPointMarkerShadow.text = "○"
         filterCenterPointMarkerShadow.tag = 1
         
-        let filterCenterPointMarker = UILabel(frame: CGRect(x: 0, y: 0, width: 2000, height: 500))
-        filterCenterPointMarker.font = UIFont.systemFont(ofSize: 250)
+        let filterCenterPointMarker = UILabel(frame: CGRect(x: 0, y: 0, width: 500, height: 500))
+        filterCenterPointMarker.font = UIFont.systemFont(ofSize: imageView.bounds.size.width / 6)
         filterCenterPointMarker.center = CGPoint(x: xCord, y: yCord)
         filterCenterPointMarker.textAlignment = .center
         filterCenterPointMarker.textColor = .white
         filterCenterPointMarker.text = "○"
         filterCenterPointMarker.tag = 1
         
-        let filterCenterText = UILabel(frame: CGRect(x: 0, y: filterCenterPointMarker.frame.size.height / 3.5, width: 2000, height: 500))
-        filterCenterText.font = UIFont.init(name: "Roboto-Regular", size: 50)
+        let filterCenterText = UILabel(frame: CGRect(x: 0, y: filterCenterPointMarker.bounds.size.height / 3.5, width: 500, height: 500))
+        filterCenterText.font = UIFont.init(name: "Roboto-Regular", size: imageView.bounds.size.width / 8)
         filterCenterText.textAlignment = .center
         filterCenterText.textColor = .white
+        filterCenterText.adjustsFontSizeToFitWidth = true
         filterCenterText.text = "Filter Center"
         filterCenterText.tag = 1
         
-        let filterCenterTextShadow = UILabel(frame: CGRect(x: 0, y: (filterCenterPointMarker.frame.size.height / 3.5) + 2, width: 2000, height: 500))
-        filterCenterTextShadow.font = UIFont.init(name: "Roboto-Regular", size: 50)
+        let filterCenterTextShadow = UILabel(frame: CGRect(x: 0, y: (filterCenterPointMarker.bounds.size.height / 3.5) + 2, width: 500, height: 500))
+        filterCenterTextShadow.font = UIFont.init(name: "Roboto-Regular", size: imageView.bounds.size.width / 8)
         filterCenterTextShadow.textAlignment = .center
         filterCenterTextShadow.textColor = UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1.0)
+        filterCenterTextShadow.adjustsFontSizeToFitWidth = true
         filterCenterTextShadow.text = "Filter Center"
         filterCenterTextShadow.tag = 1
         
@@ -184,11 +186,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
 
         imageView.addSubview(filterCenterPointMarker)
         filterCenterPointMarker.addSubview(filterCenterPointMarkerShadow)
-        filterCenterPointMarker.addSubview(filterCenterText)
-        filterCenterPointMarker.addSubview(filterCenterTextShadow)
-        filterCenterPointMarker.bringSubviewToFront(filterCenterText)
-        filterCenterPointMarkerShadow.alpha = 0.3
-        filterCenterTextShadow.alpha = 0.5
+        //filterCenterPointMarker.addSubview(filterCenterText)
+        //filterCenterPointMarker.addSubview(filterCenterTextShadow)
+        //filterCenterPointMarker.bringSubviewToFront(filterCenterText)
+        //filterCenterPointMarkerShadow.alpha = 0.3
+        //filterCenterTextShadow.alpha = 0.5
  
    
     }
@@ -466,7 +468,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
             customTextOverlay.text = ""
             customTextOverlay.adjustsFontSizeToFitWidth = true
             imageView.addSubview(customTextOverlay)
-            print("\(customTextOverlay.font)")
+           
   
             let ac = UIAlertController(title: "Enter Text", message: nil, preferredStyle: .alert)
             ac.addTextField()
