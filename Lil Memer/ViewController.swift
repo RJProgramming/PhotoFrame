@@ -152,6 +152,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         filterCenterPointMarkerShadow.textColor = UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1.0)
         filterCenterPointMarkerShadow.text = "○"
         filterCenterPointMarkerShadow.tag = 1
+        filterCenterPointMarkerShadow.adjustsFontSizeToFitWidth = true
         
         let filterCenterPointMarker = UILabel(frame: CGRect(x: 0, y: 0, width: 500, height: 500))
         filterCenterPointMarker.font = UIFont.systemFont(ofSize: imageView.bounds.size.width / 6)
@@ -160,6 +161,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         filterCenterPointMarker.textColor = .white
         filterCenterPointMarker.text = "○"
         filterCenterPointMarker.tag = 1
+        filterCenterPointMarker.adjustsFontSizeToFitWidth = true
         
         let filterCenterText = UILabel(frame: CGRect(x: 0, y: filterCenterPointMarker.bounds.size.height / 3.5, width: 500, height: 500))
         filterCenterText.font = UIFont.init(name: "Roboto-Regular", size: imageView.bounds.size.width / 8)
@@ -672,14 +674,27 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
             //   number allows different screen sizes to export youtube frame properly
             if screenWidth == Constants.iPhoneElseWidth{
                 number = 2.45
+                
+                print("iphoneelse")
             }else if screenWidth == Constants.iPhone6Width{
                 number = 2.54
+                print("iphone6")
                 if screenHeight == Constants.iPhoneXHeight{
                     number = 2.6
-                }
+                print("iphonexheight")
+  
             }else if screenWidth >= Constants.iPhone6PlusWidth{
                 number = 2.6
+                    print("iphone6plus")
+                    if screenHeight >= Constants.iPhoneXsMaxRHeight{
+                        number = 2.7
+                        print("iphoneXsMAXR")
+                    }
+                    
+                }
             }
+            
+            print("no phone")
 
             //adds correct font on youtube title output
             let myAttribute = [ convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont(name: "Roboto", size: 12.0)!]
