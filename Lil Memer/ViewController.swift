@@ -113,6 +113,12 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
             limitLength = 200
             self.youtubeLabel.constant = -20
         }
+        
+        if screenHeight >= Constants.iPhoneXsMaxRHeight{
+            self.youtubeLabel.constant = -31
+            
+        }
+        
         // place holder text for textview
         textView.text = "Tap here to enter text"
         textView.textColor = UIColor.lightGray
@@ -686,14 +692,15 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
             }else if screenWidth >= Constants.iPhone6PlusWidth{
                 number = 2.6
                     print("iphone6plus")
-                    if screenHeight >= Constants.iPhoneXsMaxRHeight{
-                        number = 2.7
+                    
                         print("iphoneXsMAXR")
                     }
                     
                 }
-            }
             
+            if screenHeight >= Constants.iPhoneXsMaxRHeight{
+                number = 2.65
+            }
             print("no phone")
 
             //adds correct font on youtube title output
