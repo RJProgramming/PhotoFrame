@@ -729,6 +729,22 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
             //brings out the share menu
             let vc = UIActivityViewController(activityItems: [image as Any], applicationActivities: [])
             present(vc, animated: true)
+            
+            vc.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+                if !completed {
+                    
+                    // User canceled
+                    return
+                }
+                // User completed activity
+                let ac = UIAlertController(title: "Saved!", message: "Your improved image has been saved to your photos.", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(ac, animated: true)
+            }
+            
+            self.present(vc, animated: true, completion: nil)
+            
+            
         }
         
         
