@@ -186,11 +186,11 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
 
         imageView.addSubview(filterCenterPointMarker)
         filterCenterPointMarker.addSubview(filterCenterPointMarkerShadow)
-        //filterCenterPointMarker.addSubview(filterCenterText)
-        //filterCenterPointMarker.addSubview(filterCenterTextShadow)
-        //filterCenterPointMarker.bringSubviewToFront(filterCenterText)
-        //filterCenterPointMarkerShadow.alpha = 0.3
-        //filterCenterTextShadow.alpha = 0.5
+        filterCenterPointMarker.addSubview(filterCenterText)
+        filterCenterPointMarker.addSubview(filterCenterTextShadow)
+        filterCenterPointMarker.bringSubviewToFront(filterCenterText)
+        filterCenterPointMarkerShadow.alpha = 0.3
+        filterCenterTextShadow.alpha = 0.5
  
    
     }
@@ -234,7 +234,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         static let iPhoneElseWidth = CGFloat(320)
         static let iPhone4Height = CGFloat(480)
         static let iPhoneXHeight = CGFloat(812)
-        static let iPhoneXsRHeight = CGFloat(896)
+        static let iPhoneXsMaxRHeight = CGFloat(896)
         
     }
         
@@ -276,7 +276,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         
         let boundingRect = sizeOfString(string: newText, constrainedToWidth: Double(textWidth), font: textView.font!)
         let numberOfLines = boundingRect.height / textView.font!.lineHeight;
-        if screenHeight == Constants.iPhoneXHeight || screenHeight == Constants.iPhoneXsRHeight {
+        if screenHeight == Constants.iPhoneXHeight || screenHeight == Constants.iPhoneXsMaxRHeight {
            return numberOfLines <= 6
         }else{
            return numberOfLines <= 5
@@ -331,7 +331,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
             self.shareNav.isEnabled = true
             self.hideFilterCenterGraphic.isEnabled = true
             let screenHeight = self.screenSize.height
-            if screenHeight == Constants.iPhoneXHeight || screenHeight == Constants.iPhoneXsRHeight{
+            if screenHeight == Constants.iPhoneXHeight || screenHeight == Constants.iPhoneXsMaxRHeight{
                 
                 self.view.layoutIfNeeded()
                 
@@ -404,7 +404,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         
         guard (self.imageView.image?.cgImage) != nil else { return }
         
-        let ac = UIAlertController(title: "Tap anywhere on the image to set new a filter center", message: nil, preferredStyle: .actionSheet)
+        let ac = UIAlertController(title: "Use the filter reticle to center your filters / text.", message: nil, preferredStyle: .actionSheet)
         
         filterButtonTitle.alpha = 0.0
         UIView.animate(withDuration: 1.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
@@ -488,12 +488,13 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         }
         
         //changed .openGLES3 to S2 to accomodate ios 9
-        //let openGLContext = EAGLContext(api: .openGLES3)
-        //let context = CIContext(eaglContext: openGLContext!)
+        let openGLContext = EAGLContext(api: .openGLES3)
+        let context = CIContext(eaglContext: openGLContext!)
         //switched to metal for better performance
         //METAL CRASHES WHEN USING SIMULATOR
-        let device: MTLDevice? = MTLCreateSystemDefaultDevice()
-        let context = CIContext(mtlDevice: device!)
+        
+       // let device: MTLDevice? = MTLCreateSystemDefaultDevice()
+       // let context = CIContext(mtlDevice: device!)
         let ciImage = CIImage(cgImage: image)
 
         //Had to do the below radiusValue because radiuskey wouldnt accept (image.height * image.width) / 4 for some reason
