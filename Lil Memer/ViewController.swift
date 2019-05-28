@@ -458,13 +458,15 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         }else if action.title == "Custom Text 👌"{
             
             actionSheetFilter = "none"
-            let customTextOverlay = UILabel(frame: CGRect(x: 0, y: 0, width: 2000, height: 500))
-            customTextOverlay.font = UIFont.systemFont(ofSize: 100)
+            let customTextOverlay = UILabel(frame: CGRect(x: 0, y: 0, width: imageView.bounds.size.width, height: imageView.bounds.size.height))
+            customTextOverlay.font = UIFont.systemFont(ofSize: imageView.bounds.size.width / 4)
             customTextOverlay.center = CGPoint(x: xCord, y: yCord)
             customTextOverlay.textAlignment = .center
             customTextOverlay.textColor = .white
             customTextOverlay.text = ""
+            customTextOverlay.adjustsFontSizeToFitWidth = true
             imageView.addSubview(customTextOverlay)
+            print("\(customTextOverlay.font)")
   
             let ac = UIAlertController(title: "Enter Text", message: nil, preferredStyle: .alert)
             ac.addTextField()
