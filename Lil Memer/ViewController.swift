@@ -152,16 +152,17 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         print ("\(point) and x\(xCord) and \(yCord)")
        
          //filter center graphic pointer (added tags to only have the center graphic hide and not emojis)
-        let filterCenterPointMarkerShadow = UILabel(frame: CGRect(x: 0, y: 0, width: 500, height: 500))
-        filterCenterPointMarkerShadow.font = UIFont.systemFont(ofSize: (imageView.bounds.size.width / 6) - 30)
+        let filterCenterPointMarkerShadow = UILabel(frame: CGRect(x: 0, y: 0, width: 600, height: 600))
+        filterCenterPointMarkerShadow.font = UIFont.systemFont(ofSize: (imageView.bounds.size.width / 7) - 35)
         filterCenterPointMarkerShadow.textAlignment = .center
         filterCenterPointMarkerShadow.textColor = UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1.0)
         filterCenterPointMarkerShadow.text = "○"
         filterCenterPointMarkerShadow.tag = 1
         filterCenterPointMarkerShadow.adjustsFontSizeToFitWidth = true
+        filterCenterPointMarkerShadow.center = CGPoint(x: xCord, y: yCord)
         
-        let filterCenterPointMarker = UILabel(frame: CGRect(x: 0, y: 0, width: 500, height: 500))
-        filterCenterPointMarker.font = UIFont.systemFont(ofSize: imageView.bounds.size.width / 6)
+        let filterCenterPointMarker = UILabel(frame: CGRect(x: 0, y: 0, width: 600, height: 600))
+        filterCenterPointMarker.font = UIFont.systemFont(ofSize: imageView.bounds.size.width / 7)
         filterCenterPointMarker.center = CGPoint(x: xCord, y: yCord)
         filterCenterPointMarker.textAlignment = .center
         filterCenterPointMarker.textColor = .white
@@ -193,14 +194,14 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         }
 
         imageView.addSubview(filterCenterPointMarker)
-        filterCenterPointMarker.addSubview(filterCenterPointMarkerShadow)
-        filterCenterPointMarker.addSubview(filterCenterText)
-        filterCenterPointMarker.addSubview(filterCenterTextShadow)
-        filterCenterPointMarker.bringSubviewToFront(filterCenterText)
+        imageView.addSubview(filterCenterPointMarkerShadow)
+        imageView.bringSubviewToFront(filterCenterPointMarker)
         filterCenterPointMarkerShadow.alpha = 0.3
-        filterCenterTextShadow.alpha = 0.5
+        //filterCenterPointMarker.addSubview(filterCenterText)
+        //filterCenterPointMarker.addSubview(filterCenterTextShadow)
+        //filterCenterPointMarker.bringSubviewToFront(filterCenterText)
+        //filterCenterTextShadow.alpha = 0.5
  
-   
     }
     
     //limits youtube textfield characters so it doesnt scroll
