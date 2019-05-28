@@ -50,6 +50,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
     var canSetFilterCenter:Bool = true
     var hideFilterCenterGraphicCounter = 1
     
+    
+    
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -126,7 +128,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         scrollView.isHidden = true
         
         
-       
+        let exampleLabel = UILabel(frame: CGRect(x: 0, y: 20, width: imageView.bounds.size.width, height: imageView.bounds.size.height))
         
         
     }
@@ -409,6 +411,10 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         return imageView
     }
     
+    @objc func buttonAction(sender: UIButton!) {
+        print("Button tapped")
+    }
+    
     @IBAction func filter(_ sender: Any) {
         
         guard (self.imageView.image?.cgImage) != nil else { return }
@@ -480,21 +486,39 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
            
   
             let ac = UIAlertController(title: "Enter Text", message: nil, preferredStyle: .alert)
-            ac.addTextField()
+            let exampleLabel = UILabel(frame: CGRect(x: 0, y: 20, width: imageView.bounds.size.width, height: imageView.bounds.size.height))
+            
+            let button = UIButton(frame: CGRect(x: 100, y: 0, width: 100, height: 50))
+            button.backgroundColor = .green
+            button.setTitle("Test Button", for: .normal)
+            button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+            
+            ac.view.addSubview(button)
+            
+            
+            
+            ac.view.addSubview(exampleLabel)
             
             let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in
                  let answer = ac.textFields![0]
-                
-                
-                // do something interesting with "answer" here
-                customTextOverlay.text = answer.text
-            
+                 customTextOverlay.text = answer.text
             }
-
+           
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {
+                UIAlertAction in
+            }
+            
+            ac.addTextField { (textField) in
+                textField.placeholder = "Enter Text"
+            }
+        
             ac.addAction(submitAction)
+            ac.addAction(cancelAction)
             present(ac, animated: true)
             
         }
+        
+       
         
         //changed .openGLES3 to S2 to accomodate ios 9
         //let openGLContext = EAGLContext(api: .openGLES3)
