@@ -128,9 +128,6 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         scrollView.isHidden = true
         
         
-        let exampleLabel = UILabel(frame: CGRect(x: 0, y: 20, width: imageView.bounds.size.width, height: imageView.bounds.size.height))
-        
-        
     }
     
     //added this to allow custom filter centers and tap keyboard to dismiss on imageview
@@ -214,8 +211,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         return newLength <= limitLength
     }
     
-   
-    
+
     //allows view to move when keyboard comes out for textfield pt1
     func textFieldDidBeginEditing(_ youtubeTitle: UITextField) {
         animateViewMoving(up: true, moveValue: movementValue)
@@ -486,18 +482,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
            
   
             let ac = UIAlertController(title: "Enter Text", message: nil, preferredStyle: .alert)
-            let exampleLabel = UILabel(frame: CGRect(x: 0, y: 20, width: imageView.bounds.size.width, height: imageView.bounds.size.height))
-            
-            let button = UIButton(frame: CGRect(x: 100, y: 0, width: 100, height: 50))
-            button.backgroundColor = .green
-            button.setTitle("Test Button", for: .normal)
-            button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-            
-            ac.view.addSubview(button)
-            
-            
-            
-            ac.view.addSubview(exampleLabel)
+           
             
             let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in
                  let answer = ac.textFields![0]
