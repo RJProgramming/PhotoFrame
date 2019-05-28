@@ -497,13 +497,13 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         }
         
         //changed .openGLES3 to S2 to accomodate ios 9
-        let openGLContext = EAGLContext(api: .openGLES3)
-        let context = CIContext(eaglContext: openGLContext!)
+        //let openGLContext = EAGLContext(api: .openGLES3)
+        //let context = CIContext(eaglContext: openGLContext!)
         //switched to metal for better performance
         //METAL CRASHES WHEN USING SIMULATOR
         
-       // let device: MTLDevice? = MTLCreateSystemDefaultDevice()
-       // let context = CIContext(mtlDevice: device!)
+       let device: MTLDevice? = MTLCreateSystemDefaultDevice()
+       let context = CIContext(mtlDevice: device!)
         let ciImage = CIImage(cgImage: image)
 
         //Had to do the below radiusValue because radiuskey wouldnt accept (image.height * image.width) / 4 for some reason
@@ -519,7 +519,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
      
         }else if actionSheetFilter == "Remove All"{
             
-            let ac = UIAlertController(title: "Are you sure you want reset all filters and start over?", message: nil, preferredStyle: .alert)
+            let ac = UIAlertController(title: "Are you sure you want reset all filters/text and start over?", message: nil, preferredStyle: .alert)
 //            ac.addTextField()
             
             let submitAction = UIAlertAction(title: "Yes", style: .destructive) { (action) in
