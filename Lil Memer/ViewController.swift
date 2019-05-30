@@ -756,6 +756,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
         self.present(imagePicker, animated: true, completion: nil)
+        self.imageView.subviews.forEach({ $0.removeFromSuperview() })
     }
     
     @IBAction func frame(_ sender: Any) {
