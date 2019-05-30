@@ -158,7 +158,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         filterCenterPointMarkerShadow.text = "○"
         filterCenterPointMarkerShadow.tag = 1
         filterCenterPointMarkerShadow.adjustsFontSizeToFitWidth = true
-        filterCenterPointMarkerShadow.center = CGPoint(x: xCord, y: yCord)
+        //filterCenterPointMarkerShadow.center = CGPoint(x: xCord, y: yCord)
         
         let filterCenterPointMarker = UILabel(frame: CGRect(x: 0, y: 0, width: 600, height: 600))
         filterCenterPointMarker.font = UIFont.systemFont(ofSize: imageView.bounds.size.width / 7)
@@ -169,21 +169,21 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         filterCenterPointMarker.tag = 1
         filterCenterPointMarker.adjustsFontSizeToFitWidth = true
         
-        let filterCenterText = UILabel(frame: CGRect(x: 0, y: filterCenterPointMarker.bounds.size.height / 3.5, width: 500, height: 500))
-        filterCenterText.font = UIFont.init(name: "Roboto-Regular", size: imageView.bounds.size.width / 8)
-        filterCenterText.textAlignment = .center
-        filterCenterText.textColor = .white
-        filterCenterText.adjustsFontSizeToFitWidth = true
-        filterCenterText.text = "Filter Center"
-        filterCenterText.tag = 1
-        
-        let filterCenterTextShadow = UILabel(frame: CGRect(x: 0, y: (filterCenterPointMarker.bounds.size.height / 3.5) + 2, width: 500, height: 500))
-        filterCenterTextShadow.font = UIFont.init(name: "Roboto-Regular", size: imageView.bounds.size.width / 8)
-        filterCenterTextShadow.textAlignment = .center
-        filterCenterTextShadow.textColor = UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1.0)
-        filterCenterTextShadow.adjustsFontSizeToFitWidth = true
-        filterCenterTextShadow.text = "Filter Center"
-        filterCenterTextShadow.tag = 1
+//        let filterCenterText = UILabel(frame: CGRect(x: 0, y: filterCenterPointMarker.bounds.size.height / 3.5, width: 500, height: 500))
+//        filterCenterText.font = UIFont.init(name: "Roboto-Regular", size: imageView.bounds.size.width / 8)
+//        filterCenterText.textAlignment = .center
+//        filterCenterText.textColor = .white
+//        filterCenterText.adjustsFontSizeToFitWidth = true
+//        filterCenterText.text = "Filter Center"
+//        filterCenterText.tag = 1
+//
+//        let filterCenterTextShadow = UILabel(frame: CGRect(x: 0, y: (filterCenterPointMarker.bounds.size.height / 3.5) + 2, width: 500, height: 500))
+//        filterCenterTextShadow.font = UIFont.init(name: "Roboto-Regular", size: imageView.bounds.size.width / 8)
+//        filterCenterTextShadow.textAlignment = .center
+//        filterCenterTextShadow.textColor = UIColor(red: 52/255, green: 73/255, blue: 94/255, alpha: 1.0)
+//        filterCenterTextShadow.adjustsFontSizeToFitWidth = true
+//        filterCenterTextShadow.text = "Filter Center"
+//        filterCenterTextShadow.tag = 1
         
         
         for label in imageView.subviews{
@@ -193,8 +193,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIImagePickerContr
         }
 
         imageView.addSubview(filterCenterPointMarker)
-        imageView.addSubview(filterCenterPointMarkerShadow)
-        imageView.bringSubviewToFront(filterCenterPointMarker)
+        filterCenterPointMarker.addSubview(filterCenterPointMarkerShadow)
+        
         filterCenterPointMarkerShadow.alpha = 0.3
         //filterCenterPointMarker.addSubview(filterCenterText)
         //filterCenterPointMarker.addSubview(filterCenterTextShadow)
